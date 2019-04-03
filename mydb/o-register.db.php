@@ -1,15 +1,18 @@
 <?php
 	require_once("o-db.php");
 	if (isset($_POST)) {
-		$uname = $_POST['Uname'];
+		$uname = $_POST['uname'];
+		$email = $_POST['email'];
 		$pwd = $_POST['PWD'];
 		
 		// Add Users
-		$result = myDB::getInstance()->addUser($fname, $lname, $email, $mPhone);
+		$result = myDB::getInstance()->addUser($email);
 		if (!$result) {
 			// User was not created
 			// Duplicate Username
-			if (myDB::getInstance()->getUserByUsername($uname)) {
+			if (myDB::getInstance()->getUserByEmail($email)) {
+				header("Location: ../signup.php?signup=email");
+			} elseif (myDB::getInstance()->getUserByUsername($uname)) {
 				header("Location: ../signup.php?signup=username");
 			} else{
 				header("Location: ../signup.php?signup=fail");
@@ -17,7 +20,7 @@
 		} else {
 
 			// Get Users
-			$result = myDB::getInstance()->getUser($fname, $lname, $email, $mPhone);
+			$result = myDB::getInstance()->getUser($email);
 			$row = $result->fetch_row();
 			$uid = $row[0];
 

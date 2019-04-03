@@ -12,8 +12,13 @@
   <!-- JQuery -->
   <link href="js/jquery-3.3.1.js">
 
+  <!-- commands using jquery -->
+
+
   <!-- CSS -->
   <link href="css/signin.css" rel="stylesheet" type="text/css">
+
+
 </head>
 <body>
 <?php

@@ -76,20 +76,20 @@ class myDB extends mysqli {
 				");
 		}
 
-  	public function addUser($fname, $lname, $email, $mPhone) { 
+  	public function addUser($email) {
 		return $this->query("
 			INSERT INTO clientProfile 
-			(CPID, Fname, Lname, email, mPhone)
+			(CPID, email)
 			VALUES 
-			(NULL,'".$fname."','".$lname."','".$email."','".$mPhone."');
+			(NULL,'".$email."');
 		");
 		}
 
-	public function getUser($fname, $lname, $email, $mPhone) {
+	public function getUser($email) {
 		return $this->query("
 			SELECT * 
 			FROM clientProfile 
-			WHERE Fname = '".$fname."' AND Lname = '".$lname."' AND email='".$email."' AND mPhone = '".$mPhone."'
+			WHERE email='".$email."'
 		");
 	}
 
@@ -116,11 +116,5 @@ class myDB extends mysqli {
 			WHERE uname='".$uname."' 
 			");
 	}
-
-	public function search($search) {
-        return $this->query(
-
-        );
-    }
 }
 ?>
