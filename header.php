@@ -16,26 +16,52 @@
   <link href="css/signin.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color: #26A7BC">
-      <a href="index.php"><img src="img/Flat%20Gradient%20Social%20Media%20Icons/64/500px%20icon.png" alt="logo to home page" style="width: 50px;"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="aboutus.php">About us</a>
-          </li>
-        </ul>
-<!--        <form class="form-inline my-2 my-lg-0" action="mydb/login.db.php" method="POST" role="form" data-toggle="validator">-->
-<!--          <input type="text" class="form-control mr-sm-2" placeholder="Enter Username" id="username" name="username" required>-->
-<!--          <input type="password" class="form-control mr-sm-2" placeholder="Enter Password" id="password" name="password" required>-->
-<!--          <button class="btn btn-primary my-2 my-sm-0" type="submit">Login</button>-->
-<!--        </form>-->
-      </div>
-    </nav>
-  </header>
+<?php
+if (array_key_exists("user", $_SESSION)) {
+  echo '
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color: #26A7BC">
+        <a href="index.php"><img src="img/Flat%20Gradient%20Social%20Media%20Icons/64/500px%20icon.png" alt="logo to home page" style="width: 50px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="aboutus.php">About us</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" action="mydb/logout.db.php" method="POST" role="form" data-toggle="validator">
+            <h3 style="padding-right: 20px;"><?php echo $_SESSION[\'user\'];?></h3>
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+  ';
+} else {
+  echo '
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color: #26A7BC">
+        <a href="index.php"><img src="img/Flat%20Gradient%20Social%20Media%20Icons/64/500px%20icon.png" alt="logo to home page" style="width: 50px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="aboutus.php">About us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  ';
+}
+?>

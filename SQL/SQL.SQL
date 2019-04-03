@@ -6,7 +6,7 @@ CREATE DATABASE forum;
 -- CPID   = Client Profile Identification
 -- LID    = Login Identiforcation
 CREATE TABLE clientProfile (
-	CPID                INT(11)       NOT NULL AUTO_INCREMENT,
+	CPID                CHAR(11)      NOT NULL AUTO_INCREMENT,
 	fName               VARCHAR(50)   NULL,
 	lName               VARCHAR(50)   NULL,
 	email               VARCHAR(150)  NOT NULL UNIQUE,
@@ -14,7 +14,7 @@ CREATE TABLE clientProfile (
 	address             VARCHAR(255)  NULL,
 	city                VARCHAR(100)  NULL,
 	state               VARCHAR(50)   NULL,
-	postcode            VARCHAR(4)    NULL,
+	postcode            INT(4)    	  NULL,
 	country             VARCHAR (75)  NULL,
 	PRIMARY KEY (CPID)
 );
@@ -24,8 +24,8 @@ CREATE TABLE clientProfile (
 -- PWD    = Password, going to be using SHA-512
 -- CPID   = Client Profile Identification
 CREATE TABLE login (
-	LID                 INT(11)       NOT NULL AUTO_INCREMENT,
-	CPID                INT(11)       NOT NULL,
+	LID                 CHAR(11)      NOT NULL AUTO_INCREMENT,
+	CPID                CHAR(11)      NOT NULL,
 	UName               VARCHAR(100)  NOT NULL UNIQUE,
 	PWD                 VARCHAR(150)  NOT NULL,
 	PRIMARY KEY (LID),
@@ -33,9 +33,9 @@ CREATE TABLE login (
 );
 
 CREATE TABLE message (
-  MID                 INT(11)       NOT NULL AUTO_INCREMENT,
-  CPID                INT(11)       NOT NULL,
-  message             TEXT(500)			NOT NULL,
+  MID                 CHAR(11)       NOT NULL AUTO_INCREMENT,
+  CPID                CHAR(11)       NOT NULL,
+  message             TEXT(500)		 NOT NULL,
   PRIMARY KEY (MID),
   FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
 );
