@@ -17,8 +17,9 @@
 </head>
 <body>
 <?php
+session_start();
 if (array_key_exists("user", $_SESSION)) {
-  echo '
+  ?>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color: #26A7BC">
         <a href="index.php"><img src="img/Flat%20Gradient%20Social%20Media%20Icons/64/500px%20icon.png" alt="logo to home page" style="width: 50px;"></a>
@@ -35,15 +36,15 @@ if (array_key_exists("user", $_SESSION)) {
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" action="mydb/logout.db.php" method="POST" role="form" data-toggle="validator">
-            <h3 style="padding-right: 20px;"><?php echo $_SESSION[\'user\'];?></h3>
+            <h3 style="padding-right: 20px;"><?php echo $_SESSION['user'];?></h3>
             <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
           </form>
         </div>
       </nav>
     </header>
-  ';
+<?php
 } else {
-  echo '
+  ?>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light text-center" style="background-color: #26A7BC">
         <a href="index.php"><img src="img/Flat%20Gradient%20Social%20Media%20Icons/64/500px%20icon.png" alt="logo to home page" style="width: 50px;"></a>
@@ -62,6 +63,6 @@ if (array_key_exists("user", $_SESSION)) {
         </div>
       </nav>
     </header>
-  ';
+  <?php
 }
 ?>

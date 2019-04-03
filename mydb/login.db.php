@@ -10,7 +10,7 @@
 		if ($loginSuccess == true) {
 			// store session data
 			$_SESSION['start']=1;
-			$_SESSION['user'] = $_POST['username'];
+			$_SESSION['user'] = $_POST['uname'];
 			header('location: ../index.php?login=success');
 			exit;
 		} else{

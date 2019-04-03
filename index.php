@@ -1,30 +1,33 @@
 <?php
-session_start();
 include_once("header.php");
 ?>
 
-
-<!--Body starts in header.php-->
 <?php
-echo $_SESSION["user"]
+  if (array_key_exists("user", $_SESSION)) {
+    echo '1';
+    echo $_SESSION['lid'];
+    echo $_SESSION['cpid'];
+  } else {
+    echo '2';
+  }
 ?>
-      <section class="text-center" style="padding-left: 35%; padding-right: 35%; padding-top: 50px;">
+<!--Body starts in header.php-->
+      <section class="text-center">
         <?php
           if (array_key_exists("user", $_SESSION)) {
-            echo '
-                <form class="form-inline my-2 my-lg-0" action="mydb/logout.db.php" method="POST" role="form" data-toggle="validator">
-                <h3 style="padding-right: 20px;">'; echo $_SESSION["user"];echo '</h3>
-                </form>
-            ';
-
+            ?>
+              <section>
+                <h1 style="text-align: center">Your Loggedin</h1>
+                <h3 style="text-align: center;">Welcome user: <?php echo $_SESSION['user'];?></h3>
+          <?php
           } else {
-            echo '
+            ?>
+      <section style="padding-left: 35%; padding-right: 35%;">
               <form class="form-signin" action="mydb/login.db.php" method="POST" role="form">
                 <img class="mb-4" src="img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png" alt="Logo">
                 <h1>Welcome to the Form</h1>
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in to get started</h1>
-                ';
-
+            <?php
             if (isset($_GET['pageAccess'])) {
               if ($_GET['pageAccess'] == 'forbidden') {
                 echo '
@@ -49,8 +52,7 @@ echo $_SESSION["user"]
               </div>';
               }
             }
-
-            echo '
+            ?>
                 <label for="inputEmail" class="sr-only">Enter: Email address</label>
                 <input type="text" id="uname" name="uname" class="form-control" placeholder="Email address" required autofocus>
                 <label for="inputPassword" class="sr-only">Enter: Password</label>
@@ -58,7 +60,7 @@ echo $_SESSION["user"]
                 <br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 100px">Sign in</button>
               </form>
-            ';
+            <?php
           }
         ?>
       </section>

@@ -9,8 +9,8 @@ CREATE TABLE clientProfile (
 	CPID                CHAR(11)      NOT NULL AUTO_INCREMENT,
 	fName               VARCHAR(50)   NULL,
 	lName               VARCHAR(50)   NULL,
-	email               VARCHAR(150)  NOT NULL UNIQUE,
-	mPhone              VARCHAR(12)   NOT NULL UNIQUE,
+	email               VARCHAR(150)  NULL,
+	mPhone              VARCHAR(12)   NULL,
 	address             VARCHAR(255)  NULL,
 	city                VARCHAR(100)  NULL,
 	state               VARCHAR(50)   NULL,
@@ -42,9 +42,9 @@ CREATE TABLE message (
 
 
 
-INSERT INTO `clientprofile` (`CPID`, `fName`, `lName`, `email`, `mPhone`, `address`, `city`, `state`, `postcode`, `country`) VALUES
-(1, 'Ayden', 'Melhop', 'atcav1@outlook.com', '0490844729', '9/7 Boundary st', 'Brisbane', 'Queensland', '4000', 'Australia'),
-(2, 'Ayden', 'Melhop', 'admin@proxwebdev.com', '66666666666', '183 Beddoes st', 'Brisbane', 'Queensland', '4121', 'Australia');
+# INSERT INTO `clientprofile` (`CPID`, `fName`, `lName`, `email`, `mPhone`, `address`, `city`, `state`, `postcode`, `country`) VALUES
+# (1, 'Ayden', 'Melhop', 'atcav1@outlook.com', '0490844729', '9/7 Boundary st', 'Brisbane', 'Queensland', '4000', 'Australia'),
+# (2, 'Ayden', 'Melhop', 'admin@proxwebdev.com', '66666666666', '183 Beddoes st', 'Brisbane', 'Queensland', '4121', 'Australia');
 
 
 INSERT INTO `login` (`LID`, `CPID`, `UName`, `PWD`) VALUES
