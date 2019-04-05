@@ -7,7 +7,7 @@
 		
 		// Add Users
 		$result = myDB::getInstance()->addUser($email);
-		if (!$result) {
+		if (!$result and $result1) {
 			// User was not created
 			// Duplicate Username
 			if (myDB::getInstance()->getUserByEmail($email)) {

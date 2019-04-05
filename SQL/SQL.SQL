@@ -21,7 +21,7 @@ CREATE TABLE login (
 	LID                 INT(11)      NOT NULL AUTO_INCREMENT,
 	CPID                INT(11)      NOT NULL,
 	UName               VARCHAR(100)  NOT NULL UNIQUE,
-	PWD                 VARCHAR(150)  NOT NULL,
+	PWD                 VARCHAR(200)  NOT NULL,
 	PRIMARY KEY (LID),
 	FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
 );

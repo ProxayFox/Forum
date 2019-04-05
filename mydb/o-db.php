@@ -40,34 +40,34 @@ class myDB extends mysqli {
 	}
 	
 	// START - SQL Sqecific Methods --------------------------------------------------------- 
-	public function verifyLogin ($uname, $password) {
-      $uname = $this->real_escape_string($uname);
-		$password = $this->real_escape_string($password);
-		$hashedPWD = hash('sha512', $password);
-		$result = $this->query("
+  public function verifyLogin ($name, $password) {
+    $name = $this->real_escape_string($name);
+    $password = $this->real_escape_string($password);
+    $hashedPWD = hash('sha512', $password);
+    $result = $this->query("
 			SELECT LID, CPID
 			FROM login
-			WHERE Uname = '".$uname."' AND PWD = '". $hashedPWD."'
+			WHERE Uname = '".$name."' AND PWD = '". $hashedPWD."'
 		");
-		$row = $result->fetch_row();
-		if ($row == null) {
-			return false;
-		}
-		$lid = $row[0];
-		$cpid = $row[1];
-		$_SESSION['lid'] = $lid;
-		$_SESSION['cpid'] = $cpid;
-		return true;
-	}
-		public function addLogin($uid, $uname, $pwd) {
-			$hashedPWD = hash('sha512', $pwd);
-			return $this->query("
+    $row = $result->fetch_row();
+    if ($row == null) {
+      return false;
+    }
+    $lid = $row[0];
+    $cpid = $row[1];
+    $_SESSION['lid'] = $lid;
+    $_SESSION['cpid'] = $cpid;
+    return true;
+  }
+  public function addLogin($uid, $uname, $pwd) {
+    $hashedPWD = hash('sha512', $pwd);
+    return $this->query("
 				INSERT INTO login 
 				(LID, CPID, UName, PWD) 
 				VALUES 
 				(NULL,'".$uid."','".$uname."','".$hashedPWD."');
 			");
-		}
+  }
 
 		public function getAllUsers(){
 			return $this->query("

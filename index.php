@@ -120,7 +120,7 @@ include_once("header.php");
                 <label for="inputEmail" class="sr-only">Enter New: Email</label>
                 <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
                 <label for="inputPassword" class="sr-only">Enter New: Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                <input type="password" id="password" name="PWD" class="form-control" placeholder="Password" required>
                 <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-top: 5px;">Sign In</button>
               </form>
               <button onclick="btn(2)" class="btn" style="margin-top: 5px;">Sign In</button>
