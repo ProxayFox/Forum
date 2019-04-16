@@ -104,11 +104,11 @@
             </section>
 
             <!-- About Me -->
-            <section id="aboutMe">
+            <section id="aboutMe" style="display: none;">
 
             </section>
             <!-- Edit the User Profile-->
-            <section id="editProfile">
+            <section id="editProfile" style="display: none;">
 
             </section>
 

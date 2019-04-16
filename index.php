@@ -15,6 +15,11 @@ include_once("header.php");
   }
 ?>
 <!--Body starts in header.php-->
+<style>
+  .hidden {
+    display: none !important;
+  }
+</style>
       <section class="text-center">
         <?php
           if (array_key_exists("user", $_SESSION)) {
@@ -86,7 +91,7 @@ include_once("header.php");
                 <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-top: 5px;">Sign In</button>
               </form>
               <!-- Register -->
-              <form id="signUp" class="login-form" style="display: none;" action="mydb/o-register.db.php" method="POST" role="form">
+              <form id="signUp" class="login-form hidden" action="mydb/o-register.db.php" method="POST" role="form">
                 <img class="mb-4" src="img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png" alt="Logo">
                 <h1>Welcome to the Form</h1>
                 <h1 class="h3 mb-3 font-weight-normal">Please Create an account</h1>
@@ -129,24 +134,39 @@ include_once("header.php");
                 <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
                 <label for="inputPassword" class="sr-only">Enter New: Password</label>
                 <input type="password" id="password" name="PWD" class="form-control" placeholder="Password" required>
-                <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-top: 5px;">Sign In</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-top: 5px;">Sign Up</button>
               </form>
-              <button onclick="btn(2)" class="btn" style="margin-top: 5px;">Sign In</button>
-              <button onclick="btn(1)" class="btn" style="margin-top: 5px;">Sign Up</button>
+              <button onclick="btn('signIn')" id="btnSignIn" class="btn text-center hidden" style="margin-top: 5px; text-align: center;">Sign In</button>
+              <button onclick="btn('signUp')" id="btnSignUp" class="btn text-center" style="margin-top: 5px; text-align: center;">Sign Up</button>
         <?php
           }
         ?>
     </section>
   </section>
+  <script
+      src="https://code.jquery.com/jquery-3.4.0.min.js"
+      integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+      crossorigin="anonymous"></script>
 
   <script>
-    function btn(a) {
-      if (a==1) {
-        document.getElementById("signIn").style.display = "none";
-        document.getElementById("signUp").style.display="block";
+    function btn(formChange) {
+      const signIn = $("#signIn");
+      const signUp = $("#signUp");
+      const btnSignIn = $("#btnSignIn");
+      const btnSignUp = $("#btnSignUp");
+
+      if (formChange === 'signIn') {
+        signIn.removeClass("hidden");
+        btnSignUp.removeClass("hidden");
+        signUp.addClass("hidden");
+        btnSignIn.addClass("hidden");
+      } else if(formChange === "signUp") {
+        signIn.addClass("hidden");
+        btnSignUp.addClass("hidden");
+        signUp.removeClass("hidden");
+        btnSignIn.removeClass("hidden");
       } else {
-        document.getElementById("signIn").style.display = "block";
-        document.getElementById("signUp").style.display="none";
+        throw("Function btn: No match found");
       }
     }
   </script>
