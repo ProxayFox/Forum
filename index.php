@@ -1,14 +1,17 @@
 <?php
+session_start();
 include_once("header.php");
 ?>
 
 <?php
   if (array_key_exists("user", $_SESSION)) {
     echo '1';
+    echo '   ';
     echo $_SESSION['lid'];
+    echo '   ';
     echo $_SESSION['cpid'];
   } else {
-    echo '2';
+    echo 'no user';
   }
 ?>
 <!--Body starts in header.php-->
@@ -18,7 +21,12 @@ include_once("header.php");
             ?>
               <section>
                 <h1 style="text-align: center">Your Logged in</h1>
-                <h3 style="text-align: center;">Welcome user: <?php echo $_SESSION['user'];?></h3>
+                <h3 style="text-align: center;">Welcome <?php echo $_SESSION['user'];?></h3>
+                <br>
+                <h2>lets go to your profile</h2>
+                <a class="btn btn-primary" href="profile.pro.php" style="width: 100px;">Profile</a>
+                <h3>lets check out the chats</h3>
+                <a class="btn btn-primary" href="chats.pro.php" style="width: 100px;">chats</a>
           <?php
           } else {
             ?>
