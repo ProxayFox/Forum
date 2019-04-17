@@ -30,8 +30,8 @@ include_once("header.php");
                 <br>
                 <h2>lets go to your profile</h2>
                 <a class="btn btn-primary" href="profile.pro.php" style="width: 100px;">Profile</a>
-                <h3>lets check out the chats</h3>
-                <a class="btn btn-primary" href="chats.pro.php" style="width: 100px;">chats</a>
+                <h3>lets check out the Threads</h3>
+                <a class="btn btn-primary" href="threads.pro.php" style="width: 100px;">Threads</a>
           <?php
           } else {
             ?>

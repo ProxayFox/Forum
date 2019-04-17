@@ -11,6 +11,8 @@ CREATE TABLE clientProfile (
 	lName               VARCHAR(50)   NULL,
 	displayName					VARCHAR(50)		NULL,
 	email               VARCHAR(150)  NOT NULL UNIQUE,
+	img                 VARCHAR(255)  NULL,
+	reputation          INT(11)       NULL,
 	PRIMARY KEY (CPID)
 );
 
@@ -42,6 +44,8 @@ CREATE TABLE post (
   TID									INT(11)				NOT NULL,
   content							TEXT(500)			NOT NULL,
   created							TIMESTAMP			NOT NULL,
+  replies             INT(11)       NULL,
+  views               INT(11)       NULL,
   PRIMARY KEY (PID),
   FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID),
   FOREIGN KEY (TID) 	REFERENCES thread(TID)
