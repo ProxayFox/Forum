@@ -6,9 +6,10 @@ CREATE DATABASE forum;
 -- CPID   = Client Profile Identification
 -- LID    = Login Identification
 CREATE TABLE clientProfile (
-	CPID                INT(11)      NOT NULL AUTO_INCREMENT,
+	CPID                INT(11)      	NOT NULL AUTO_INCREMENT,
 	fName               VARCHAR(50)   NULL,
 	lName               VARCHAR(50)   NULL,
+	displayName					VARCHAR(50)		NULL,
 	email               VARCHAR(150)  NOT NULL UNIQUE,
 	PRIMARY KEY (CPID)
 );
@@ -18,26 +19,38 @@ CREATE TABLE clientProfile (
 -- PWD    = Password, going to be using SHA-512
 -- CPID   = Client Profile Identification
 CREATE TABLE login (
-	LID                 INT(11)      NOT NULL AUTO_INCREMENT,
-	CPID                INT(11)      NOT NULL,
+	LID                 INT(11)      	NOT NULL AUTO_INCREMENT,
+	CPID                INT(11)     	NOT NULL,
 	UName               VARCHAR(100)  NOT NULL UNIQUE,
 	PWD                 VARCHAR(200)  NOT NULL,
 	PRIMARY KEY (LID),
-	FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
+	FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID)
 );
 
-CREATE TABLE message (
-  MID                 INT(11)       NOT NULL AUTO_INCREMENT,
+CREATE TABLE thread (
+  TID									INT(11)				NOT NULL  AUTO_INCREMENT,
+	CPID								INT(11)				NOT NULL,
+  subject							VARCHAR(100)	NOT NULL,
+  created							TIMESTAMP			NOT NULL,
+  PRIMARY KEY (TID),
+  FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID)
+);
+
+CREATE TABLE post (
+  PID                 INT(11)       NOT NULL AUTO_INCREMENT,
   CPID                INT(11)       NOT NULL,
-  message             TEXT(500)		 NOT NULL,
-  PRIMARY KEY (MID),
-  FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
+  TID									INT(11)				NOT NULL,
+  content							TEXT(500)			NOT NULL,
+  created							TIMESTAMP			NOT NULL,
+  PRIMARY KEY (PID),
+  FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID),
+  FOREIGN KEY (TID) 	REFERENCES thread(TID)
 );
 
 
 
 INSERT INTO `clientProfile` (`CPID`, `fName`, `lName`, `email`) VALUES
-(1, 'Arabella', 'meal', 'atcav1@outlook.com'),
+(1, 'Arabella', 'neal', 'atcav1@outlook.com'),
 (2, 'Mariah', 'MarMight', 'admin@proxwebdev.com');
 
 
