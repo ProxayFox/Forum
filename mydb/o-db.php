@@ -93,14 +93,6 @@ class myDB extends mysqli {
 		");
 	}
 
-	public function getUserByMPhone($mPhone) {
-		return $this->query("
-			SELECT * 
-			FROM clientProfile 
-			WHERE mPhone = '".$mPhone."'
-		");
-	}
-
 	public function getUserByEmail($email) {
 		return $this->query("
 			SELECT * 
@@ -109,12 +101,26 @@ class myDB extends mysqli {
 		");
 	}
 
+	public function getUserByMPhone($mPhone) {
+		return $this->query("
+			SELECT * 
+			FROM clientProfile 
+			WHERE mPhone = '".$mPhone."'
+		");
+	}
 	public function getUserByUsername($uname) {
 		return $this->query("
 			SELECT * 
 			FROM login 
 			WHERE uname='".$uname."' 
 			");
+	}
+
+	public function getAllThreads() {
+	  return $this->query("
+			SELECT *
+			FROM threads
+		");
 	}
 }
 ?>
