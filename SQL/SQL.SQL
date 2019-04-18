@@ -11,8 +11,8 @@ CREATE TABLE clientProfile (
 	lName               VARCHAR(50)   NULL,
 	displayName					VARCHAR(50)		NULL,
 	email               VARCHAR(150)  NOT NULL UNIQUE,
-	img                 VARCHAR(255)  NULL,
-	reputation          INT(11)       NULL,
+	UIMG                VARCHAR(255)  NULL,
+	rep                 INT(11)       NULL,
 	PRIMARY KEY (CPID)
 );
 
@@ -32,23 +32,66 @@ CREATE TABLE login (
 CREATE TABLE thread (
   TID									INT(11)				NOT NULL  AUTO_INCREMENT,
 	CPID								INT(11)				NOT NULL,
-  subject							VARCHAR(100)	NOT NULL,
+  title 							VARCHAR(500)	NOT NULL,
+  info                TEXT(1000)    NOT NULL,
   created							TIMESTAMP			NOT NULL,
   PRIMARY KEY (TID),
   FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID)
+);
+
+CREATE TABLE threadView (
+  TVID                INT(11)       NOT NULL AUTO_INCREMENT,
+  TID                 INT(11)       NOT NULL,
+  CPID                INT(11)       NOT NULL,
+  views               INT(11)       NOT NULL,
+  PRIMARY KEY (TVID),
+  FOREIGN KEY (TID) REFERENCES thread(TID),
+  FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
 );
 
 CREATE TABLE post (
   PID                 INT(11)       NOT NULL AUTO_INCREMENT,
   CPID                INT(11)       NOT NULL,
   TID									INT(11)				NOT NULL,
-  content							TEXT(500)			NOT NULL,
+  title               VARCHAR(500)  NOT NULL,
+  content							TEXT(3000)		NOT NULL,
   created							TIMESTAMP			NOT NULL,
   replies             INT(11)       NULL,
   views               INT(11)       NULL,
   PRIMARY KEY (PID),
   FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID),
   FOREIGN KEY (TID) 	REFERENCES thread(TID)
+);
+
+CREATE TABLE postView (
+  PVID                INT(11)       NOT NULL AUTO_INCREMENT,
+  PID                 INT(11)       NOT NULL,
+  CPID                INT(11)       NOT NULL,
+  views               INT(11)       NOT NULL,
+  PRIMARY KEY (PVID),
+  FOREIGN KEY (PID) REFERENCES post(PID),
+  FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
+);
+
+CREATE TABLE reply (
+   RID                INT(11)       NOT NULL AUTO_INCREMENT,
+   CPID               INT(11)       NOT NULL,
+   PID								INT(11)				NOT NULL,
+   content						TEXT(3000)		NOT NULL,
+   created						TIMESTAMP			NOT NULL,
+   PRIMARY KEY (RID),
+   FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID),
+   FOREIGN KEY (PID) 	REFERENCES post(PID)
+);
+
+CREATE TABLE replyRep (
+  RPID                INT(11)       NOT NULL AUTO_INCREMENT,
+  CPID                INT(11)       NOT NULL,
+  RID                 INT(11)       NOT NULL,
+  rep                 INT(11)       NOT NULL,
+  PRIMARY KEY (RPID),
+  FOREIGN KEY (CPID) REFERENCES clientProfile(CPID),
+  FOREIGN KEY (RID) REFERENCES reply(RID)
 );
 
 
