@@ -122,5 +122,14 @@ class myDB extends mysqli {
 			FROM threads
 		");
 	}
+
+	public function creatThread($title, $info, $date) {
+	  return $this->query("
+	    INSERT INTO thread
+	    (TID, CPID, title, info, created)
+	    VALUE 
+	    (NULL, '".$_SESSION['cpid']."', '".$title."', '".$info."', '".NOW()."');
+	  ");
+  }
 }
 ?>

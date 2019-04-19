@@ -5,13 +5,49 @@ if (array_key_exists("user", $_SESSION)) {
   // Do Something
   include("header.php");
   $result = myDB::getInstance()->getAllThreads();
+
+  echo date("Y-m-d H:i:s");
 ?>
   <h1 class="text-center">Threads</h1>
   <section class="container">
     <div class="row">
       <div class="col-sm-3 text-center">
-        <h3 class="text-center">Creat Thread</h3>
-        <button onclick="btn('show')" id="show" class="btn btn-primary" style="">Make Thread</button>
+        <div class="container">
+          <h2>Creat Thread</h2>
+          <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Creat Thread
+          </button>
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal Heading</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div>
+                  <div class="modal-body">
+                      <form id="signUp" class="login-form hidden" action="mydb/creatThread.db.php" method="POST" role="form">
+                      <h4 style="float: left;">Title of the Thread</h4>
+                      <label for="title" class="sr-only">Enter: Title</label>
+                      <input type="text" id="title" name="title" class="form-control" placeholder="Title" required autofocus>
+                      <h4 style="float: left;">Information of the Thread</h4>
+                      <label for="info" class="sr-only">Enter: Information</label>
+                      <input type="text" id="info" name="info" class="form-control" placeholder="Information" required autofocus>
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Creat Thread</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-sm-9 text-center">
         <!-- displays all the threads after searching the database-->
