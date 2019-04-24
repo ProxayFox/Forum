@@ -29,7 +29,7 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="signUp" class="login-form hidden" action="mydb/creatThread.db.php" method="POST" role="form">
+                  <form id="signUp" class="login-form hidden" action="mydb/creatThread.db.php?TID=<?php $row[0]?>" method="POST" role="form">
                   <div class="modal-body">
 
                       <h4 style="float: left;">Title of the Thread</h4>
@@ -70,7 +70,7 @@ if (array_key_exists("user", $_SESSION)) {
                   <tr>
                     <td><?php echo $row[0];?></td>
                     <td><?php echo $row[1];?></td>
-                    <td><a href="posts.pro.php"><?php echo $row[2];?></a></td>
+                    <td><a href="posts.pro.php?TID=<?php echo $row[0];?>"><?php echo $row[2];?></a></td>
                     <td><?php echo $row[3];?></td>
                     <td><?php echo $row[4];?></td>
                   </tr>

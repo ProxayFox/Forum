@@ -54,7 +54,7 @@ CREATE TABLE post (
   CPID                INT(11)       NOT NULL,
   TID									INT(11)				NOT NULL,
   title               VARCHAR(500)  NOT NULL,
-  content							TEXT(3000)		NOT NULL,
+  info  							TEXT(3000)		NOT NULL,
   created							TIMESTAMP			NOT NULL,
   replies             INT(11)       NULL,
   views               INT(11)       NULL,

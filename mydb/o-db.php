@@ -116,6 +116,8 @@ class myDB extends mysqli {
 			");
 	}
 
+
+  // for the thread section of the website
 	public function getAllThreads() {
 	  return $this->query("
 			SELECT *
@@ -129,6 +131,23 @@ class myDB extends mysqli {
 	    (TID, CPID, title, info, created)
 	    VALUE 
 	    (NULL, '".$_SESSION['cpid']."', '".$title."', '".$info."', '".$date."');
+	  ");
+  }
+  //for the posts section of the website
+  public function getAllPosts($TID) {
+    return $this->query("
+			SELECT *
+			FROM post
+			WHERE TID= '".$TID."'
+		");
+  }
+
+  public function creatPosts($TID, $title, $info, $date) {
+    return $this->query("
+	    INSERT INTO post
+	    (PID, CPID, TID, title, info, created, replies, views)
+	    VALUE 
+	    (NULL, '".$_SESSION['cpid']."', '".$TID."', '".$title."', '".$info."', '".$date."', '".NULL."', '".NULL.");
 	  ");
   }
 }
