@@ -29,8 +29,9 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 <!-- Modal body -->
                 <div>
+                  <form id="signUp" class="login-form hidden" action="mydb/creatThread.db.php" method="POST" role="form">
                   <div class="modal-body">
-                      <form id="signUp" class="login-form hidden" action="mydb/creatThread.db.php" method="POST" role="form">
+
                       <h4 style="float: left;">Title of the Thread</h4>
                       <label for="title" class="sr-only">Enter: Title</label>
                       <input type="text" id="title" name="title" class="form-control" placeholder="Title" required autofocus>
@@ -43,6 +44,7 @@ if (array_key_exists("user", $_SESSION)) {
                     <button class="btn btn-primary" type="submit">Creat Thread</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -51,15 +53,37 @@ if (array_key_exists("user", $_SESSION)) {
       </div>
       <div class="col-sm-9 text-center">
         <!-- displays all the threads after searching the database-->
+        <table class="table">
+          <thead class="thead-dark">
+          <th>TID</th>
+          <th>CPID</th>
+          <th>Title</th>
+          <th>Information</th>
+          <th>Time Stamp</th>
+          </thead>
         <?php
         if ($result != FALSE) {
           while ($row = $result->fetch_row()) {
-            echo '<p>'.$row[0].'</p><p>'.$row[1].'</p><p>'.$row[2].'</p><p>'.$row[3].'</p><p>'.$row[4].'</p><p>'.$row[5].'</p>';
+            //echo '<p>'.$row[0].'</p><p>'.$row[1].'</p><p>'.$row[2].'</p><p>'.$row[3].'</p><p>'.$row[4].'</p>';
+            ?>
+                <tbody>
+                  <tr>
+                    <td><?php echo $row[0];?></td>
+                    <td><?php echo $row[1];?></td>
+                    <td><a href="posts.pro.php"><?php echo $row[2];?></a></td>
+                    <td><?php echo $row[3];?></td>
+                    <td><?php echo $row[4];?></td>
+                  </tr>
+                </tbody>
+            <?php
           }
         } else {
-          echo '<h3>No Current threads</h3>';
+          ?>
+          <h3>No Current threads</h3>
+          <?php
         }
         ?>
+        </table>
       </div>
     </div>
   </section>

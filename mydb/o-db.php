@@ -119,7 +119,7 @@ class myDB extends mysqli {
 	public function getAllThreads() {
 	  return $this->query("
 			SELECT *
-			FROM threads
+			FROM thread
 		");
 	}
 
@@ -128,7 +128,7 @@ class myDB extends mysqli {
 	    INSERT INTO thread
 	    (TID, CPID, title, info, created)
 	    VALUE 
-	    (NULL, '".$_SESSION['cpid']."', '".$title."', '".$info."', '".NOW()."');
+	    (NULL, '".$_SESSION['cpid']."', '".$title."', '".$info."', '".$date."');
 	  ");
   }
 }

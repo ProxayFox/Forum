@@ -4,7 +4,7 @@ session_start();
 if (isset($_POST)) {
   $title = $_POST['title'];
   $info = $_POST['info'];
-  $date = date("Y-M-D H:i:s");
+  $date = date("Y-m-d H:i:s");
 
 
 
