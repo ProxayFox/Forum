@@ -147,7 +147,7 @@ class myDB extends mysqli {
 	    INSERT INTO post
 	    (PID, CPID, TID, title, info, created, replies, views)
 	    VALUE 
-	    (NULL, '".$_SESSION['cpid']."', '".$TID."', '".$title."', '".$info."', '".$date."', '".NULL."', '".NULL.");
+	    (NULL, '".$_SESSION['cpid']."', '".$TID."', '".$title."', '".$info."', '".$date."', NULL, NULL);
 	  ");
   }
 }

@@ -29,17 +29,7 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="signUp" class="login-form hidden" action="./mydb/creatThread.db.php
-                  <?php
-                    if ($result != FALSE) {
-                      while ($row = $result->fetch_row()) {
-                        header("Location: ./mydb/creatPost.db.php?TID=".$row[0]);
-                      }
-                    } else {
-                      header("Location: posts.pro.php?post_TID_not_found");
-                    }
-                  ?>
-                  " method="POST" role="form">
+                  <form id="signUp" class="login-form hidden" action="./mydb/creatThread.db.php" method="POST" role="form">
                   <div class="modal-body">
 
                       <h4 style="float: left;">Title of the Thread</h4>

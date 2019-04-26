@@ -14,10 +14,10 @@ if (isset($_POST)) {
 
   if (!$result) {
     // info was not updated
-    header("Location: ../posts.pro.php?post=fail");
+    header("Location: ../posts.pro.php?post=fail&TID=".$TID);
   } else {
     // info was updated
-    header("Location: ../posts.pro.php?post=success");
+    header("Location: ../posts.pro.php?post=success&TID=".$TID);
   }
 }
-?>s
+?>

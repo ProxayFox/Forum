@@ -1,7 +1,7 @@
 <?php
 require_once("mydb/o-db.php");
 session_start();
-if (array_key_exists("user", $_SESSION)) {
+if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
   // Do Something
   include("header.php");
   $result = myDB::getInstance()->getAllPosts(
@@ -32,17 +32,18 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="signUp" class="login-form hidden" action="mydb/creatPost.db.php
+                  <form id="postForm" class="login-form hidden" action="
                     <?php
-                      if ($result != FALSE) {
-                        while ($row = $result->fetch_row()) {
-                          header("Location: threads.pro.php?TID=".$row[0]);
-                        }
-                      } else {
-                        header("Location: threads.pro.php?post_TID_not_found");
+                    if ($result != FALSE) {
+                      if ($row = $result->fetch_row()) {
+                        ?>./mydb/creatPost.db.php?TID=<?php echo $row[0];
                       }
-                    ?>
-                  " method="POST" role="form">
+                    } else {
+                      if   ($row = $result->fetch_row()) {
+                        ?>posts.pro.php?post_TID_not_found&TID=<?php echo $row[0];
+                      }
+                    }
+                  ?>" method="POST" role="form">
                     <div class="modal-body">
 
                       <h4 style="float: left;">Title of the Post</h4>
