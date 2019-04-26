@@ -2,7 +2,7 @@
 require_once("o-db.php");
 session_start();
 if (isset($_POST)) {
-  $TID =
+  $TID = $_GET['TID'];
   $title = $_POST['title'];
   $info = $_POST['info'];
   $date = date("Y-m-d H:i:s");
@@ -10,14 +10,14 @@ if (isset($_POST)) {
 
 
   // Add/update information
-  $result = myDB::getInstance()->creatThread($TID, $title, $info, $date);
+  $result = myDB::getInstance()->creatPosts($TID, $title, $info, $date);
 
   if (!$result) {
     // info was not updated
-    header("Location: ../threads.pro.php?thread=fail");
+    header("Location: ../posts.pro.php?post=fail");
   } else {
     // info was updated
-    header("Location: ../threads.pro.php?thread=success");
+    header("Location: ../posts.pro.php?post=success");
   }
 }
 ?>s

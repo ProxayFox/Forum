@@ -31,7 +31,7 @@ CREATE TABLE login (
 
 CREATE TABLE thread (
   TID									INT(11)				NOT NULL  AUTO_INCREMENT,
-	CPID								INT(11)				NOT NULL,
+  CPID								INT(11)				NOT NULL,
   title 							VARCHAR(500)	NOT NULL,
   info                TEXT(1000)    NOT NULL,
   created							TIMESTAMP			NOT NULL,
