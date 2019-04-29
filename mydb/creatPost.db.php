@@ -2,7 +2,7 @@
 require_once("o-db.php");
 session_start();
 if (isset($_POST)) {
-  $TID = $_GET['TID'];
+  $TID = $_POST['TID'];
   $title = $_POST['title'];
   $info = $_POST['info'];
   $date = date("Y-m-d H:i:s");

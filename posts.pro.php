@@ -32,20 +32,10 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="postForm" class="login-form hidden" action="
-                    <?php
-                    if ($result != FALSE) {
-                      if ($row = $result->fetch_row()) {
-                        ?>./mydb/creatPost.db.php?TID=<?php echo $row[0];
-                      }
-                    } else {
-                      if   ($row = $result->fetch_row()) {
-                        ?>posts.pro.php?post_TID_not_found&TID=<?php echo $row[0];
-                      }
-                    }
-                  ?>" method="POST" role="form">
+                  <form id="postForm" class="login-form hidden" action="./mydb/creatPost.db.php" method="POST" role="form">
                     <div class="modal-body">
-
+                      <!--  hidden input for TID -->
+                      <input type="hidden" id="TID" name="TID" value="<?php echo $TID;?>">
                       <h4 style="float: left;">Title of the Post</h4>
                       <label for="title" class="sr-only">Enter: Title</label>
                       <input type="text" id="title" name="title" class="form-control" placeholder="Title" required autofocus>
@@ -87,8 +77,8 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
               <tr>
                 <td><?php echo $row[0];?></td>
                 <td><?php echo $row[1];?></td>
-                <td><a href="post.pro.php"><?php echo $row[2];?></a></td>
-                <td><?php echo $row[3];?></td>
+                <td><?php echo $row[2];?></td>
+                <td><a href="post.pro.php"><?php echo $row[3];?></a></td>
                 <td><?php echo $row[4];?></td>
                 <td><?php echo $row[5];?></td>
                 <td><?php echo $row[6];?></td>
