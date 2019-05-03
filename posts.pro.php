@@ -1,9 +1,9 @@
 <?php
-require_once("mydb/o-db.php");
+require_once("./mydb/databaseManager/o-db.php");
 session_start();
 if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
   // Do Something
-  include("header.php");
+  include("./layouts/header.php");
   $result = myDB::getInstance()->getAllPosts(
     $TID = $_GET['TID']
   );
@@ -32,7 +32,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="postForm" class="login-form hidden" action="./mydb/creatPost.db.php" method="POST" role="form">
+                  <form id="postForm" class="login-form hidden" action="./mydb/posts/creatPost.db.php" method="POST" role="form">
                     <div class="modal-body">
                       <!--  hidden input for TID -->
                       <input type="hidden" id="TID" name="TID" value="<?php echo $TID;?>">
@@ -103,7 +103,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
   </script>
 
   <?php
-  include("footer.php");
+  include("./layouts/footer.php");
 }else{
   header('location: index.php?pageaccess=forbidden');
   exit;

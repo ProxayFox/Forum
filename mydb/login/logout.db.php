@@ -10,11 +10,11 @@
 		unset($_SESSION['lid']);
 		unset($_SESSION['cpid']);
 		session_destroy();
-		header("Location: ../index.php?logout=success");
+		header("Location: ../../index.php?logout=success");
 	}else {
 		session_destroy();
 		// session is not valid, return to index
-		header("Location: ../index.php?logout=unseccessful");
+		header("Location: ../../index.php?logout=unseccessful");
 	}
 
 ?>

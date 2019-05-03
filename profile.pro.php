@@ -1,9 +1,9 @@
 <?php
-  require_once("mydb/o-db.php");
+  require_once("mydb/databaseManager/o-db.php");
   session_start();
   if (array_key_exists("user", $_SESSION)) {
     // Do Something
-    include("header.php");
+    include("./layouts/header.php");
 ?>
       <style>
           .hidden {
@@ -181,7 +181,7 @@
       </script>
 
     <?php
-    include("footer.php");
+    include("./layouts/footer.php");
   }else{
     header('location: index.php?pageaccess=forbidden');
     exit;

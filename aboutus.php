@@ -1,14 +1,11 @@
 <?php
 session_start();
-if (array_key_exists("user", $_SESSION)) {
-  include("header.php");
-} else {
-  include("header.php");
-}
+include("./layouts/header.php");
 ?>
 
+<h1>this will be managed at some point</h1>
 
 <!--Body Ends in footer.php-->
 <?php
-require_once("footer.php");
+require_once("./layouts/footer.php");
 ?>

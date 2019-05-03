@@ -1,5 +1,5 @@
 <?php
-	require_once("o-db.php");
+	require_once("../databaseManager/o-db.php");
 	$loginSuccess = false;
 
 	// verify user's credentials
@@ -11,10 +11,10 @@
 			// store session data
 			$_SESSION['start']=1;
 			$_SESSION['user'] = $_POST['uname'];
-			header('location: ../index.php?login=success');
+			header('location: ../../index.php?login=success');
 			exit;
 		} else{
-			header('location: ../index.php?login=fail');
+			header('location: ../../index.php?login=fail');
 			exit;
 		}
 	}

@@ -1,9 +1,9 @@
 <?php
-require_once("mydb/o-db.php");
+require_once("mydb/databaseManager/o-db.php");
 session_start();
 if (array_key_exists("user", $_SESSION)) {
   // Do Something
-  include("header.php");
+  include("./layouts/header.php");
   $result = myDB::getInstance()->getAllThreads();
 
   echo date("Y-m-d H:i:s");
@@ -29,7 +29,7 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="signUp" class="login-form hidden" action="./mydb/creatThread.db.php" method="POST" role="form">
+                  <form id="signUp" class="login-form hidden" action="./mydb/thread/creatThread.db.php" method="POST" role="form">
                   <div class="modal-body">
 
                       <h4 style="float: left;">Title of the Thread</h4>
@@ -105,7 +105,7 @@ if (array_key_exists("user", $_SESSION)) {
   </script>
 
 <?php
-  include("footer.php");
+  include("./layouts/footer.php");
   }else{
   header('location: index.php?pageaccess=forbidden');
   exit;

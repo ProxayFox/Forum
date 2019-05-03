@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("header.php");
+include_once("./layouts/header.php");
 ?>
 
 <?php
@@ -37,7 +37,7 @@ include_once("header.php");
             ?>
             <!-- NOT REGISTERED-->
             <section style="padding-left: 35%; padding-right: 35%;">
-              <form id="signIn" class="login-form" action="mydb/login.db.php" method="POST" role="form">
+              <form id="signIn" class="login-form" action="mydb/login/login.db.php" method="POST" role="form">
                 <img class="mb-4" src="img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png" alt="Logo">
                 <h1>Welcome to the Form</h1>
                 <h1 class="h3 mb-3 font-weight-normal">Please Sign In to get Started</h1>
@@ -174,5 +174,5 @@ include_once("header.php");
 
 <!--Body Ends in footer.php-->
 <?php
-require_once("footer.php");
+require_once("./layouts/footer.php");
 ?>
