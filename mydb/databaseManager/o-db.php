@@ -117,14 +117,6 @@ class myDB extends mysqli {
 	}
 
 
-  // for the thread section of the website
-	public function getAllThreads() {
-	  return $this->query("
-			SELECT *
-			FROM thread
-		");
-	}
-
 	public function creatThread($title, $info, $date) {
 	  return $this->query("
 	    INSERT INTO thread

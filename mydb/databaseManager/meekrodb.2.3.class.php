@@ -1,4 +1,4 @@
-1<?php
+<?php
 /*
     Copyright (C) 2008-2012 Sergey Tsalkov (stsalkov@gmail.com)
 

@@ -37,7 +37,7 @@ include_once("./layouts/header.php");
             ?>
             <!-- NOT REGISTERED-->
             <section style="padding-left: 35%; padding-right: 35%;">
-              <form id="signIn" class="login-form" action="mydb/login/login.db.php" method="POST" role="form">
+              <form id="signIn" class="login-form" action="./mydb/login/login.db.php" method="POST" role="form">
                 <img class="mb-4" src="img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png" alt="Logo">
                 <h1>Welcome to the Form</h1>
                 <h1 class="h3 mb-3 font-weight-normal">Please Sign In to get Started</h1>
@@ -91,7 +91,7 @@ include_once("./layouts/header.php");
                 <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-top: 5px;">Sign In</button>
               </form>
               <!-- Register -->
-              <form id="signUp" class="login-form hidden" action="mydb/o-register.db.php" method="POST" role="form">
+              <form id="signUp" class="login-form hidden" action="./mydb/register/o-register.db.php" method="POST" role="form">
                 <img class="mb-4" src="img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png" alt="Logo">
                 <h1>Welcome to the Form</h1>
                 <h1 class="h3 mb-3 font-weight-normal">Please Create an account</h1>

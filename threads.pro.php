@@ -1,10 +1,10 @@
 <?php
-require_once("mydb/databaseManager/o-db.php");
+//require_once("mydb/databaseManager/o-db.php");
 session_start();
 if (array_key_exists("user", $_SESSION)) {
   // Do Something
   include("./layouts/header.php");
-  $result = myDB::getInstance()->getAllThreads();
+  require_once ("./mydb/thread/getAllThread.db.php");
 
   echo date("Y-m-d H:i:s");
 ?>
