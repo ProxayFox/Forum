@@ -1,5 +1,5 @@
 <?php
-session_start();  
+session_start();
 require_once ("../databaseManager/meekrodb.2.3.class.php");
 DB::$user = 'localhost';
 DB::$dbName = 'forum';
