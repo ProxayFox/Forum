@@ -14,6 +14,11 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
   echo '<br>';
   $TID = $_GET['TID'];
   echo $TID;
+  echo "<br>";
+  $results = DB::query("SELECT * FROM post order by PID");
+  foreach ($results as $row) {
+    echo $row['PID'];
+  }
   ?>
   <h1 class="text-center">Posts</h1>
   <section class="container">
@@ -81,7 +86,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
                 <td><?php echo $row['PID'];?></td>
                 <td><?php echo $row['CPID'];?></td>
                 <td><?php echo $row['TID'];?></td>
-                <td><a href="post.pro.php"><?php echo $row['title'];?></a></td>
+                <td><a href="post.pro.php?TID=<?php echo $row['TID'];?>&PID=<?php echo $row['PID'] ?>"><?php echo $row['title'];?></a></td>
                 <td><?php echo $row['info'];?></td>
                 <td><?php echo $row['created'];?></td>
                 <td><?php echo $row['created'];?></td>
