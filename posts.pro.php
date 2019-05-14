@@ -73,7 +73,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
           <th>views</th>
           </thead>
           <?php
-            $results = DB::query("SELECT * FROM post order by PID");
+            $results = DB::query("SELECT * FROM post WHERE TID = ".$TID);
             foreach ($results as $row) {
               ?>
               <tbody>
