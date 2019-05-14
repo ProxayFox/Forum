@@ -4,7 +4,14 @@ session_start();
 if (array_key_exists("user", $_SESSION)) {
   // Do Something
   include("./layouts/header.php");
-  require_once ("./mydb/thread/getAllThread.db.php");
+//  require_once ("./mydb/thread/getAllThread.db.php");
+  require_once './mydb/databaseManager/meekrodb.2.3.class.php';
+  DB::$user = 'localhost';
+  DB::$dbName = 'forum';
+  DB::$user = 'root';
+  DB::$password = '';
+
+
 
   echo date("Y-m-d H:i:s");
 ?>
@@ -61,48 +68,28 @@ if (array_key_exists("user", $_SESSION)) {
           <th>Information</th>
           <th>Time Stamp</th>
           </thead>
-        <?php
-        if ($result != FALSE) {
-          while ($row = $result->fetch_row()) {
-            //echo '<p>'.$row[0].'</p><p>'.$row[1].'</p><p>'.$row[2].'</p><p>'.$row[3].'</p><p>'.$row[4].'</p>';
-            ?>
-                <tbody>
-                  <tr>
-                    <td><?php echo $row[0];?></td>
-                    <td><?php echo $row[1];?></td>
-                    <td><a href="posts.pro.php?TID=<?php echo $row[0];?>"><?php echo $row[2];?></a></td>
-                    <td><?php echo $row[3];?></td>
-                    <td><?php echo $row[4];?></td>
-                  </tr>
-                </tbody>
-            <?php
-          }
-        } else {
-          ?>
-          <h3>No Current threads</h3>
           <?php
-        }
-        ?>
-
-            <?php
-//            if ($result != FALSE) {
-//              while ($row = $result->fetch_row()) {
-//                header("Location: threads.pro.php?TID=".$row[0]);
-//              }
-//            } else {
-//              header("Location: threads.pro.php?post_TID_not_found");
-//            }
-//          ?>
+            $results = DB::query("SELECT * FROM thread order by TID");
+            foreach ($results as $row) {
+              ?>
+              <tbody>
+              <tr>
+                <td><?php echo $row['TID'];?></td>
+                <td><?php echo $row['CPID'];?></td>
+                <td><a href="posts.pro.php?TID=<?php echo $row['TID'];?>"><?php echo $row['title'];?></a></td>
+                <td><?php echo $row['info'];?></td>
+                <td><?php echo $row['created'];?></td>
+              </tr>
+              </tbody>
+              <?php
+            }
+          ?>
 
 
         </table>
       </div>
     </div>
   </section>
-
-  <script>
-
-  </script>
 
 <?php
   include("./layouts/footer.php");
