@@ -1,21 +1,30 @@
 <?php
-require_once("../databaseManager/o-db.php");
-session_start();
-if (isset($_POST)) {
+session_start();  
+require_once ("../databaseManager/meekrodb.2.3.class.php");
+DB::$user = 'localhost';
+DB::$dbName = 'forum';
+DB::$user = 'root';
+DB::$password = '';
+
+if (!empty($_POST)) {
+  $CPID = $_SESSION['cpid'];
   $title = $_POST['title'];
   $info = $_POST['info'];
   $date = date("Y-m-d H:i:s");
 
-
-
-  // Add/update information
-  $result = myDB::getInstance()->creatThread($title, $info, $date);
+  $result = DB::insert('thread', array(
+      'TID' => NULL,
+      'CPID' => $CPID,
+      'title' => $title,
+      'info' => $info,
+      'created' => $date
+  ));
 
   if (!$result) {
-    // info was not updated
+    // it had failed
     header("Location: ../../threads.pro.php?thread=fail");
-  } else {
-    // info was updated
+  }else {
+    // Info was updated successfully
     header("Location: ../../threads.pro.php?thread=success");
   }
 }

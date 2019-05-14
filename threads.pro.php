@@ -10,9 +10,9 @@ if (array_key_exists("user", $_SESSION)) {
   DB::$dbName = 'forum';
   DB::$user = 'root';
   DB::$password = '';
-
-
-
+  $CPID = $_SESSION['cpid'];
+  echo $CPID;
+  echo "<br>";
   echo date("Y-m-d H:i:s");
 ?>
   <h1 class="text-center">Threads</h1>
