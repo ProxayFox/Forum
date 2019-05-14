@@ -1,15 +1,19 @@
 <?php
-require_once("./mydb/databaseManager/o-db.php");
 session_start();
 if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
-  // Do Something
+//  require_once("./mydb/databaseManager/o-db.php");
+  require_once("./mydb/databaseManager/meekrodb.2.3.class.php");
+  DB::$user = 'localhost';
+  DB::$dbName = 'forum';
+  DB::$user = 'root';
+  DB::$password = '';
+
+  // including the head of the HTML and data
   include("./layouts/header.php");
-  $result = myDB::getInstance()->getAllPosts(
-    $TID = $_GET['TID']
-  );
   echo date("Y-m-d H:i:s");
   echo '<br>';
-  echo $_GET['TID'];
+  $TID = $_GET['TID'];
+  echo $TID;
   ?>
   <h1 class="text-center">Posts</h1>
   <section class="container">
@@ -69,30 +73,23 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
           <th>views</th>
           </thead>
           <?php
-          if ($result != FALSE) {
-            while ($row = $result->fetch_row()) {
-              //echo '<p>'.$row[0].'</p><p>'.$row[1].'</p><p>'.$row[2].'</p><p>'.$row[3].'</p><p>'.$row[4].'</p>';
+            $results = DB::query("SELECT * FROM post order by PID");
+            foreach ($results as $row) {
               ?>
               <tbody>
               <tr>
-                <td><?php echo $row[0];?></td>
-                <td><?php echo $row[1];?></td>
-                <td><?php echo $row[2];?></td>
-                <td><a href="post.pro.php"><?php echo $row[3];?></a></td>
-                <td><?php echo $row[4];?></td>
-                <td><?php echo $row[5];?></td>
-                <td><?php echo $row[6];?></td>
-                <td><?php echo $row[7];?></td>
+                <td><?php echo $row['PID'];?></td>
+                <td><?php echo $row['CPID'];?></td>
+                <td><?php echo $row['TID'];?></td>
+                <td><a href="post.pro.php"><?php echo $row['title'];?></a></td>
+                <td><?php echo $row['info'];?></td>
+                <td><?php echo $row['created'];?></td>
+                <td><?php echo $row['created'];?></td>
+                <td><?php echo $row['views'];?></td>
               </tr>
               </tbody>
               <?php
-            }
-          } else {
-            ?>
-            <h3>No Current Posts</h3>
-            <?php
-          }
-          ?>
+            }?>
         </table>
       </div>
     </div>
