@@ -76,6 +76,7 @@ CREATE TABLE postView (
 CREATE TABLE reply (
    RID                INT(11)       NOT NULL AUTO_INCREMENT,
    CPID               INT(11)       NOT NULL,
+   TID                INT(11)       NOT NULL,
    PID								INT(11)				NOT NULL,
    content						TEXT(3000)		NOT NULL,
    created						TIMESTAMP			NOT NULL,
