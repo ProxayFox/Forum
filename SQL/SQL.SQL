@@ -44,6 +44,8 @@ CREATE TABLE threadView (
   TID                 INT(11)       NOT NULL,
   CPID                INT(11)       NOT NULL,
   views               INT(11)       NOT NULL,
+  upRep               INT(11)       NOT NULL,
+  downRep             INT(11)       NOT NULL,
   PRIMARY KEY (TVID),
   FOREIGN KEY (TID) REFERENCES thread(TID),
   FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
@@ -68,6 +70,8 @@ CREATE TABLE postView (
   PID                 INT(11)       NOT NULL,
   CPID                INT(11)       NOT NULL,
   views               INT(11)       NOT NULL,
+  upRep               INT(11)       NOT NULL,
+  downRep             INT(11)       NOT NULL,
   PRIMARY KEY (PVID),
   FOREIGN KEY (PID) REFERENCES post(PID),
   FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
@@ -89,7 +93,8 @@ CREATE TABLE replyRep (
   RPID                INT(11)       NOT NULL AUTO_INCREMENT,
   CPID                INT(11)       NOT NULL,
   RID                 INT(11)       NOT NULL,
-  rep                 INT(11)       NOT NULL,
+  uprep               INT(11)       NOT NULL,
+  downrep             INT(11)       NOT NULL,
   PRIMARY KEY (RPID),
   FOREIGN KEY (CPID) REFERENCES clientProfile(CPID),
   FOREIGN KEY (RID) REFERENCES reply(RID)
@@ -98,7 +103,7 @@ CREATE TABLE replyRep (
 
 
 INSERT INTO `clientProfile` (`CPID`, `fName`, `lName`, `email`) VALUES
-(1, 'Arabella', 'neal', 'atcav1@outlook.com'),
+(1, 'Arabella', 'neil', 'admin2@proxwebdev.com  '),
 (2, 'Mariah', 'MarMight', 'admin@proxwebdev.com');
 
 
