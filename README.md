@@ -8,7 +8,19 @@ All you should be able to do if your using XAMPP
 1. Place the contents in your ```htdocs``` file
 2. Go to your localhost in your browser
 3. Go to phpmyadmin or ```localhost/phpmyadmin```
-4. Import the ```SQl``` file and than the website should work
+4. Import the ```SQl``` file and than the website should 
+
+Accounts
+---
+If you are running the SQL import it will also have 2 pre-made
+accounts and the data to go along with them.<br>
+This includes pre-made Threads, Posts, Post and reply<br>
+
+The user's username = `atcav`<br>
+The user's password = `Password`
+
+The admin's username = `admin`<br>
+The admin's password = `Password` 
 
 Meekrodb Branch 03/05/2019
 ---
