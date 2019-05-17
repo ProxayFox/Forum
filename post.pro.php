@@ -85,6 +85,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
                  $img = DB::query("SELECT UIMG FROM clientprofile WHERE CPID =".$_SESSION['cpid']);
                  foreach ($img as $row) {
                    $uimg = $row['UIMG'];
+                 }
                  ?>
                  <div class="row border" style="padding: 10px;">
                    <img src="./img/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
@@ -96,7 +97,6 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
                      <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
                    </div>
                  </div>
-                 <?php } ?>
                </form>
              </div>
             </div>

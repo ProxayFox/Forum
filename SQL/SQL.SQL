@@ -6,7 +6,7 @@ CREATE DATABASE forum;
 -- fName  = First Name
 -- lName  = Last Name
 -- UIMG   = User Image
-CREATE TABLE clientprofile (
+CREATE TABLE clientProfile (
 	CPID                INT(11)      	NOT NULL AUTO_INCREMENT,
 	fName               VARCHAR(50)   NULL,
 	lName               VARCHAR(50)   NULL,
@@ -27,7 +27,7 @@ CREATE TABLE login (
 	UName               VARCHAR(100)  NOT NULL UNIQUE,
 	PWD                 VARCHAR(200)  NOT NULL,
 	PRIMARY KEY (LID),
-	FOREIGN KEY (CPID) 	REFERENCES clientprofile(CPID)
+	FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID)
 );
 
 -- TID    = Thread Identification
@@ -39,7 +39,7 @@ CREATE TABLE thread (
   info                TEXT(1000)    NOT NULL,
   created							TIMESTAMP			NOT NULL,
   PRIMARY KEY (TID),
-  FOREIGN KEY (CPID) 	REFERENCES clientprofile(CPID)
+  FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID)
 );
 
 -- TVID   = Thread View Identification
@@ -54,7 +54,7 @@ CREATE TABLE threadView (
   downRep             INT(11)       NULL,
   PRIMARY KEY (TVID),
   FOREIGN KEY (TID) REFERENCES thread(TID),
-  FOREIGN KEY (CPID) REFERENCES clientprofile(CPID)
+  FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
 );
 
 -- PID    = Post Identification
@@ -70,7 +70,7 @@ CREATE TABLE post (
   replies             INT(11)       NULL,
   views               INT(11)       NULL,
   PRIMARY KEY (PID),
-  FOREIGN KEY (CPID) 	REFERENCES clientprofile(CPID),
+  FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID),
   FOREIGN KEY (TID) 	REFERENCES thread(TID)
 );
 
@@ -86,7 +86,7 @@ CREATE TABLE postView (
   downRep             INT(11)       NULL,
   PRIMARY KEY (PVID),
   FOREIGN KEY (PID) REFERENCES post(PID),
-  FOREIGN KEY (CPID) REFERENCES clientprofile(CPID)
+  FOREIGN KEY (CPID) REFERENCES clientProfile(CPID)
 );
 
 -- RID    = Reply Identification
@@ -101,7 +101,7 @@ CREATE TABLE reply (
    content						TEXT(3000)		NOT NULL,
    created						TIMESTAMP			NOT NULL,
    PRIMARY KEY (RID),
-   FOREIGN KEY (CPID) 	REFERENCES clientprofile(CPID),
+   FOREIGN KEY (CPID) 	REFERENCES clientProfile(CPID),
    FOREIGN KEY (PID) 	REFERENCES post(PID)
 );
 
@@ -115,15 +115,15 @@ CREATE TABLE replyRep (
   upRep               INT(11)       NULL,
   downRep             INT(11)       NULL,
   PRIMARY KEY (RRID),
-  FOREIGN KEY (CPID) REFERENCES clientprofile(CPID),
+  FOREIGN KEY (CPID) REFERENCES clientProfile(CPID),
   FOREIGN KEY (RID) REFERENCES reply(RID)
 );
 
 
 
 INSERT INTO `clientprofile` (`CPID`, `fName`, `lName`, `displayName`, `email`, `UIMG`, `uprep`, `downrep`) VALUES
-(1, 'Arabella', 'NumNut', NULL, 'admin1@proxwebdev.com', 'stars.jpeg', NULL, NULL),
-(2, 'Mariah', 'MarMight', NULL, 'admin@proxwebdev.com', '11e79c5bd7cf103d.png', NULL, NULL);
+(1, 'Arabella', 'NumNut', NULL, 'admin1@proxwebdev.com', NULL, NULL, NULL),
+(2, 'Mariah', 'MarMight', NULL, 'admin@proxwebdev.com', NULL, NULL, NULL);
 
 
 INSERT INTO `login` (`LID`, `CPID`, `UName`, `PWD`) VALUES
