@@ -82,7 +82,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
              <div>
                <form id="Thread" class="login-form hidden" action="./mydb/reply/creatReply.db.php" method="POST" role="form">
                  <?php
-                 $img = DB::query("SELECT UIMG FROM clientProfile WHERE CPID =".$_SESSION['cpid']);
+                 $img = DB::query("SELECT UIMG FROM clientprofile WHERE CPID =".$_SESSION['cpid']);
                  foreach ($img as $row) {
                    $uimg = $row['UIMG'];
                  ?>
