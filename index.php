@@ -91,7 +91,7 @@ include_once("./layouts/header.php");
                 <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-top: 5px;">Sign In</button>
               </form>
               <!-- Register -->
-              <form id="signUp" class="login-form hidden" action="./mydb/register/o-register.db.php" method="POST" role="form">
+              <form id="signUp" class="login-form hidden" action="./mydb/signup/signup.db.php" method="POST" role="form">
                 <img class="mb-4" src="img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png" alt="Logo">
                 <h1>Welcome to the Form</h1>
                 <h1 class="h3 mb-3 font-weight-normal">Please Create an account</h1>
@@ -129,7 +129,7 @@ include_once("./layouts/header.php");
                 }
                 ?>
                 <label for="inputEmail" class="sr-only">Enter New: Username</label>
-                <input type="text" id="uname" name="uname" class="form-control" placeholder="Username" required autofocus>
+                <input type="text" id="uName" name="uName" class="form-control" placeholder="Username" required autofocus>
                 <label for="inputEmail" class="sr-only">Enter New: Email</label>
                 <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
                 <label for="inputPassword" class="sr-only">Enter New: Password</label>
