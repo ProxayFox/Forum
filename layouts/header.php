@@ -42,7 +42,7 @@ if (array_key_exists("user", $_SESSION)) {
               <a class="nav-link" href="aboutus.php">About us</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0" action="mydb/logout.db.php" method="POST" role="form" data-toggle="validator">
+          <form class="form-inline my-2 my-lg-0" action="./mydb/login/logout.db.php" method="POST" role="form" data-toggle="validator">
             <h3 style="padding-right: 20px;"><?php echo $_SESSION['user'];?></h3>
             <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
           </form>

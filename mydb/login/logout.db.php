@@ -1,7 +1,6 @@
 	<?php
 	// start the session
 	session_start();
-
 	// validate session 
 	if (isset($_SESSION['user'])) {
 		// session is valid, the user is ready to logout

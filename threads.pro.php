@@ -36,7 +36,7 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="signUp" class="login-form hidden" action="./mydb/thread/creatThread.db.php" method="POST" role="form">
+                  <form id="Thread" class="login-form hidden" action="./mydb/thread/creatThread.db.php" method="POST" role="form">
                   <div class="modal-body">
 
                       <h4 style="float: left;">Title of the Thread</h4>
