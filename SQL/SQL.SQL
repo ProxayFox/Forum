@@ -121,9 +121,9 @@ CREATE TABLE replyRep (
 
 
 
-INSERT INTO `clientprofile` (`CPID`, `fName`, `lName`, `displayName`, `email`, `UIMG`, `uprep`, `downrep`) VALUES
-(1, 'Arabella', 'NumNut', NULL, 'admin1@proxwebdev.com', NULL, NULL, NULL),
-(2, 'Mariah', 'MarMight', NULL, 'admin@proxwebdev.com', NULL, NULL, NULL);
+INSERT INTO `clientProfile` (`CPID`, `fName`, `lName`, `displayName`, `email`, `UIMG`, `uprep`, `downrep`) VALUES
+(1, 'Arabella', 'NumNut', NULL, 'admin1@proxwebdev.com', 'stars.jpeg', NULL, NULL),
+(2, 'Mariah', 'MarMight', NULL, 'admin@proxwebdev.com', '11e79c5bd7cf103d.png', NULL, NULL);
 
 
 INSERT INTO `login` (`LID`, `CPID`, `UName`, `PWD`) VALUES
