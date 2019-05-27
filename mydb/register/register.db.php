@@ -35,13 +35,17 @@ if (!empty($_POST['uname']) && $_POST['email'] && $_POST['PWD']) {
         ));
       }
       header('location: ../../index.php?signup=success');
+      exit;
       } else {
       header("Location: ../../index.php?signup=uname");
+      exit;
       }
     } else {
       header("Location: ../../index.php?signup=email");
+    exit;
     }
   } else {
   header("Location: ../../index.php?not_meant_to_be_here");
+  exit;
 }
 ?>
