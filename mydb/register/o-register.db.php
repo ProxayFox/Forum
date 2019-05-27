@@ -6,7 +6,7 @@
   DB::$user = 'root';
   DB::$password = '';
 //	require_once("../databaseManager/o-db.php");
-	if (isset($_POST)) {
+	if (!empty($_POST['uname']) && $_POST['email'] && $_POST['PWD']) {
 		$uname = $_POST['uname'];
 		$email = $_POST['email'];
 		$pwd = $_POST['PWD'];
@@ -14,12 +14,12 @@
     $hashedPWD = hash('sha512', $pwd);
 		
 		// Add Users
-		$result = DB::insert('clientProfile', array(
+		@$result = DB::insertIgnore('clientProfile', array(
 		  'CPID' => NULL,
       'email' => $email
     ));
         //myDB::getInstance()->addUser($email);
-		if (!$result) {
+		if (DB::affectedRows() == 0) {
 			// User was not created
 			// Duplicate Username
 			if (DB::query("SELECT * FROM clientProfile WHERE email ='".$email."'")) {
@@ -32,14 +32,14 @@
         header("Location: ../../index.php?signup=fail");
       }
 		} else {
-		  // Get Users
-			$result = DB::query("SELECT * FROM clientProfile WHERE email = '".$email."'");
-			foreach ($result as $row) {
+		  // Get CPID using email as the email has placed information into client profile
+			$CPIDResult = DB::query("SELECT * FROM clientProfile WHERE email = '".$email."'");
+			foreach ($CPIDResult as $row) {
 			 $cpid = $row['CPID'];
 
 
-			// Add Login
-			DB::insert('login', array(
+			// Add Login and check it
+			$loginResult = DB::insert('login', array(
         'LID' => NULL,
         'CPID' => $cpid,
         'UName' => $uname,
