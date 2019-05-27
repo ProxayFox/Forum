@@ -37,7 +37,6 @@
 			foreach ($CPIDResult as $row) {
 			 $cpid = $row['CPID'];
 
-
 			// Add Login and check it
 			$loginResult = DB::insert('login', array(
         'LID' => NULL,
