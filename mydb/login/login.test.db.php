@@ -3,11 +3,7 @@
 session_start();
 //getting information inner working from meekroDB
 require_once('../databaseManager/meekrodb.2.3.class.php');
-//  require_once('../databaseManager/o-db.php');
-DB::$user = 'localhost';
-DB::$dbName = 'forum';
-DB::$user = 'root';
-DB::$password = '';
+require_once('../databaseManager/DBEnter.db.php');
 
 // checking if a post was sent
 if (!empty($_POST['uname'] && $_POST['password'])) {

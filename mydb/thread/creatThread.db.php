@@ -1,10 +1,7 @@
 <?php
 session_start();
 require_once ("../databaseManager/meekrodb.2.3.class.php");
-DB::$user = 'localhost';
-DB::$dbName = 'forum';
-DB::$user = 'root';
-DB::$password = '';
+require_once('../databaseManager/DBEnter.db.php');
 
 if (!empty($_POST)) {
   $CPID = $_SESSION['cpid'];
