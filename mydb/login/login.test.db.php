@@ -18,21 +18,18 @@ if (!empty($_POST['uname'] && $_POST['password'])) {
   $hashedPWD = hash('sha512', $pwd);
   //starting the session
 
-  $loginResult = DB::query("SELECT LID, CPID FROM login WHERE UName='".$uname."' AND PWD='".$hashedPWD."'");
-  $count = DB::count();
+  $loginResult = DB::queryFirstRow("SELECT LID, CPID FROM login WHERE UName='".$uname."' AND PWD='".$hashedPWD."'");
 
-  if ($count == 1) {
-    foreach ($loginResult as $row) {
+  if ($loginResult != null) {
       //getting values and assigning them
-      $lid = $row['LID'];
-      $cpid = $row['CPID'];
+      $lid = $loginResult['LID'];
+      $cpid = $loginResult['CPID'];
 
       //creating session values
       $_SESSION['lid'] = $lid;
       $_SESSION['cpid'] = $cpid;
       $_SESSION['start']=1;
       $_SESSION['user'] = $uname;
-    }
     //take the user back to index with a signing success
     header('location: ../../index.php?login=success');
     exit;
