@@ -42,3 +42,15 @@ work. <br> This includes Thread, Post, reply and the reply section
 creation and reply section (this must make no seance but it does
 in my head) with the added bonus of being able to view who
 made the post and when the post was made
+
+Register Fix and New Register 27/05/2019
+---
+So I was finally able to fix the register after talking with my 
+teacher turns out it was very simple.<br>
+Now I move onto a new register system that I had just wrote up 
+as the result previously version checked and inserted the email before
+checking and inserting username.<br>
+So if the user was to have a successful email submission but not a username
+submission than the email would be stored in the database with no use for the 
+user to use than whe  the user wants to use that same email it will fail on 
+the email
