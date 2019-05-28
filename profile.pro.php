@@ -36,7 +36,27 @@
           $('[data-toggle="popover"]').popover();
         });
 
-        function updateUIMG() {
+        function updateUIMG(whatArea) {
+          $('#spinner' + whatArea).addClass('spinner-border spinner-border-sm');
+          $('#loader').html('Loading..');
+          $.post("./mydb/profile/imgUpdate.db.php",
+              {
+                img: whatArea
+
+              },
+              function(data, status){
+                console.log("Data: " + data + "\nStatus: " + status);
+                $('#spinner' + whatArea).removeClass('spinner-border spinner-border-sm');
+                if (status == 'success')
+                {
+                  $('#contentArea').html(data);
+                }
+                else
+                {
+                  $('#contentArea').html('There has been a problem. Please contact admin');
+
+                }
+              });
 
         }
 
