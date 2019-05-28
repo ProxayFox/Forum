@@ -13,8 +13,13 @@ CREATE TABLE clientProfile (
 	displayName					VARCHAR(50)		NULL,
 	email               VARCHAR(150)  NOT NULL UNIQUE,
 	UIMG                VARCHAR(255)  NULL,
+	web                 VARCHAR(150)  NULL,
+	social              VARCHAR(150)  NULL,
 	upRep               INT(11)       NULL,
 	downRep             INT(11)       NULL,
+	rep                 INT(11)       NULL,
+	postNo              INT(11)       NULL,
+	followers           INT(11)       NULL,
 	PRIMARY KEY (CPID)
 );
 

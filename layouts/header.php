@@ -8,10 +8,11 @@
   <link rel="icon" href="./img/logo.jpg">
 
   <!-- Bootstrap -->
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
   <!-- JQuery -->
-  <link href="js/jquery-3.3.1.js">
-  <link href="js/bootstrap.js">
+  <link href="./js/jquery-3.3.1.js">
+  <link href="./js/bootstrap.js">
+  <script src="./js/popper.js"></script>
 
   <!-- commands using jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
