@@ -15,15 +15,31 @@ if (array_key_exists("user", $_SESSION)) {
   echo "<br>";
   echo date("Y-m-d H:i:s");
 ?>
+
+  <script>
+    $(document).ready(function(){
+      $("#threadUpdate")click(function() {
+        $.post("./mydb/thread/creatThread.db.php"{
+          title:$("#title"),
+          info:$("info")
+        }
+        function(data, status) {
+
+        }
+        )
+      })
+    }
+  </script>
+
   <h1 class="text-center">Threads</h1>
   <section class="container">
     <div class="row">
       <div class="col-sm-3 text-center">
         <div class="container">
-          <h2>Creat Thread</h2>
+          <h2>Create Thread</h2>
           <!-- Button to Open the Modal -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Creat Thread
+            Create Thread
           </button>
           <!-- The Modal -->
           <div class="modal" id="myModal">
@@ -36,7 +52,7 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="Thread" class="login-form hidden" action="./mydb/thread/creatThread.db.php" method="POST" role="form">
+                  <div id="Thread" class="login-form hidden" role="form">
                   <div class="modal-body">
 
                       <h4 style="float: left;">Title of the Thread</h4>
@@ -48,10 +64,10 @@ if (array_key_exists("user", $_SESSION)) {
                   </div>
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit">Creat Thread</button>
+                    <button class="btn btn-primary" onclose="">Creat Thread</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
