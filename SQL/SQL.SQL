@@ -139,8 +139,8 @@ INSERT INTO `thread` (`TID`, `CPID`, `title`, `info`, `created`) VALUES
 (1, 1, 'Youtube', 'Videos for all', '2019-04-25 16:49:37'),
 (2, 1, 'Microsoft', 'OS for approximately 75% of all PCs', '0000-00-00 00:00:00'),
 (3, 1, 'Tesla', 'Best Car manufacturer', '2019-04-25 16:51:24'),
-(4, 1, 'MEMES', 'josh is gay', '2019-04-25 16:51:34'),
-(5, 1, 'America', 'he just sucks cock', '2019-04-28 17:39:25');
+(4, 1, 'MEMES', 'For the guys', '2019-04-25 16:51:34'),
+(5, 1, 'America', 'The Big BOI', '2019-04-28 17:39:25');
 
 INSERT INTO `post` (`PID`, `CPID`, `TID`, `title`, `info`, `created`, `replies`, `views`) VALUES
 (1, 1, 1, 'Youtube', 'info', '2019-04-28 19:35:11', NULL, NULL),

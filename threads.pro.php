@@ -1,30 +1,22 @@
 <?php
-//require_once("mydb/databaseManager/o-db.php");
 session_start();
 if (array_key_exists("user", $_SESSION)) {
-  // Do Something
+  // get the database stuff and accounts
+  require_once('./mydb/databaseManager/DBEnter.db.php');
+  //get the header
   include("./layouts/header.php");
-//  require_once ("./mydb/thread/getAllThread.db.php");
-  require_once './mydb/databaseManager/meekrodb.2.3.class.php';
-  DB::$user = 'localhost';
-  DB::$dbName = 'forum';
-  DB::$user = 'root';
-  DB::$password = '';
-  $CPID = $_SESSION['cpid'];
-  echo $CPID;
-  echo "<br>";
-  echo date("Y-m-d H:i:s");
 ?>
 
+  <!--  Jquery for thread form  -->
   <script>
     $(document).ready(function(){
-      $("#threadUpdate")click(function() {
-        $.post("./mydb/thread/creatThread.db.php"{
-          title:$("#title"),
-          info:$("info")
+      $("#threadUpdate").click(function() {
+        $.post("./mydb/thread/creatThread.db.php", {
+          title:$("#title");
+          info:$("#info");
         }
         function(data, status) {
-
+          $("#displaySuccess").HTML(data)
         }
         )
       })
@@ -41,6 +33,13 @@ if (array_key_exists("user", $_SESSION)) {
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Create Thread
           </button>
+
+          <!-- where the jqueary data should go -->
+          <div id="displaySuccess">
+
+          </div>
+
+          <!-- Thread form (hidden) -->
           <!-- The Modal -->
           <div class="modal" id="myModal">
             <div class="modal-dialog">
@@ -54,17 +53,14 @@ if (array_key_exists("user", $_SESSION)) {
                 <div>
                   <div id="Thread" class="login-form hidden" role="form">
                   <div class="modal-body">
-
                       <h4 style="float: left;">Title of the Thread</h4>
-                      <label for="title" class="sr-only">Enter: Title</label>
-                      <input type="text" id="title" name="title" class="form-control" placeholder="Title" required autofocus>
+                      <input type="text" id="title" class="form-control" placeholder="Title" required autofocus>
                       <h4 style="float: left;">Information of the Thread</h4>
-                      <label for="info" class="sr-only">Enter: Information</label>
-                      <input type="text" id="info" name="info" class="form-control" placeholder="Information" required autofocus>
+                      <input type="text" id="info" class="form-control" placeholder="Information" required autofocus>
                   </div>
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button class="btn btn-primary" onclose="">Creat Thread</button>
+                    <button class="btn btn-primary" id="threadUpdate">Creat Thread</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   </div>
                   </div>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once ("../databaseManager/meekrodb.2.3.class.php");
 require_once('../databaseManager/DBEnter.db.php');
 
 if (!empty($_POST)) {
@@ -19,10 +18,10 @@ if (!empty($_POST)) {
 
   if (!$result) {
     // it had failed
-    header("Location: ../../threads.pro.php?thread=fail");
+    echo "<h1>fail</h1>";
   }else {
     // Info was updated successfully
-    header("Location: ../../threads.pro.php?thread=success");
+    echo "<h1>success</h1>";
   }
 }
 ?>
