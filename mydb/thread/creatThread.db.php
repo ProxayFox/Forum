@@ -23,5 +23,7 @@ if (!empty($_POST)) {
     // Info was updated successfully
     echo "<h1>success</h1>";
   }
+} else {
+  header("Location: ../../index.php?not_meant_to_be_here");
 }
 ?>
