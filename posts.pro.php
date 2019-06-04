@@ -10,15 +10,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
 
   // including the head of the HTML and data
   include("./layouts/header.php");
-  echo date("Y-m-d H:i:s");
-  echo '<br>';
   $TID = $_GET['TID'];
-  echo $TID;
-  echo "<br>";
-  $results = DB::query("SELECT * FROM post order by PID");
-  foreach ($results as $row) {
-    echo $row['PID'];
-  }
   ?>
   <h1 class="text-center">Posts</h1>
   <section class="container">

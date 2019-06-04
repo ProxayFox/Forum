@@ -11,7 +11,7 @@ if (array_key_exists("user", $_SESSION)) {
   <script>
     $(document).ready(function(){
       $("#threadUpdate").click(function() {
-        $.post("./mydb/thread/creatThread.db.php", {
+        $.post("./mydb/thread/createThread.db.php", {
           title:$("#title");
           info:$("#info");
         }

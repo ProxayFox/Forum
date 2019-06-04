@@ -11,7 +11,6 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
   include("./layouts/header.php");
   $TID = $_GET['TID'];
   $PID = $_GET['PID'];
-  echo $TID," ", $PID;
   ?>
     <!-- main page open -->
     <section class="container">
