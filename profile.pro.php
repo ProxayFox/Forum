@@ -31,18 +31,17 @@
       </style>
 
       <script>
-        $(document).ready(function()
-        {
-          $('[data-toggle="popover"]').popover();
-        });
-
-        function updateUIMG(area) {
-          $.post( "test.php", function( data ) {
-            alert( "Data Loaded: " + data );
-          });
-
+        $(document).ready(function(){
+          $("#imgUpdate").click(function() {
+            $.post("./mydb/profile/updateIMG.db.php", {
+              img:$("#img");
+          }
+            function(data, status) {
+              $("#displaySuccess").HTML(data)
+            }
+          )
+          })
         }
-
       </script>
 
       <!--  Main Section of the page -->
