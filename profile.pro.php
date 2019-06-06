@@ -198,46 +198,22 @@
                                   <div>
                                     <h4><?php echo $postTitle; ?></h4>
                                     <p><?php echo $content; ?></p>
-                                    <p>
-                                      <?php
-                                        //db = database
-                                        //ct = current time
-                                        //getting and sorting the database time
-                                        $dbTime = strtotime($created);
-                                        $dbYear = date("Y", $dbTime);
-                                        $dbMonth = date("m", $dbTime);
-                                        $dbDay = date("d", $dbTime);
-                                        $dbHour = date("H", $dbTime);
-                                        $dbMin = date("i", $dbTime);
-                                        $dbSec = date("s", $dbTime);
-                                        //getting the current time and sorting it
-                                        $currentTime = date("Y-m-d H:i:s");
-                                        $ctYear = date("Y", $currentTime);
-                                        $ctMonth = date("m", $currentTime);
-                                        $ctDay = date("d", $currentTime);
-                                        $ctHour = date("H", $currentTime);
-                                        $ctMin = date("i", $currentTime);
-                                        $ctSec = date("s", $currentTime);
+                                    <?php
+                                    $date1 = date("Y-m-d", $created);
+                                    $date2 = date("Y-m-d");
 
-                                        if ($dbYear == $ctYear) {
-                                          if ($dbMonth == $ctMonth) {
-                                            if ($dbDay == $ctDay) {
-                                              if ($dbHour == $ctHour) {
-                                                if ($dbMin == $ctMin) {
-                                                  if ($dbSec == $ctSec){
+                                    $diff = abs(strtotime($date2) - strtotime($date1));
 
-                                                  } else {
-
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        } else {
-                                          echo $dbTime;
-                                        }
-                                      ?>
-                                    </p>
+                                    $years = floor($diff / (365*60*60*24));
+                                    $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+                                    $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+                                    ?>
+                                    <p><?php echo $years; ?></p>
+                                    <p><?php echo $months; ?></p>
+                                    <p><?php echo $days; ?></p>
+                                    <p><?php echo $date1; ?></p>
+                                    <p><?php echo $date2; ?></p>
+                                    <p><?php echo $created; ?></p>
                                   </div>
                                 </div>
                               </div>
