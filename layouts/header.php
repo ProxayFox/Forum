@@ -5,19 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- image on tab -->
-  <link rel="icon" href="./img/logo.jpg">
+  <link rel="icon" href="./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png">
 
   <!-- Bootstrap -->
   <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
   <!-- JQuery -->
-  <link href="./js/jquery-3.3.1.js">
+  <link href="./js/jquery-3.4.1.js">
   <link href="./js/bootstrap.js">
   <script src="./js/popper.js"></script>
-
-  <!-- commands using jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
 </head>

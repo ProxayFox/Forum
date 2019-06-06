@@ -25,19 +25,17 @@
 
 ?>
       <script>
-        // $(document).ready(function(){
-          function updateUIMG(whatArea) {
-            console.log(whatArea);
-            $.post("./mydb/profile/updateIMG.db.php", {
-                  img: whatArea
-                },
-                function (data, status) {
-                  $("#displaySuccess").HTML(data);
-                  console.log(status);
-                }
-            )
-          }
-        // }
+        function updateUIMG(whatArea) {
+          console.log(whatArea);
+          $.post("./mydb/profile/updateIMG.db.php", {
+                img: whatArea
+              },
+              function (data, status) {
+                $("#displaySuccess").HTML(data);
+                console.log(status);
+              }
+          )
+        }
       </script>
       <style>
         .hidden {
