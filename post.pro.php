@@ -18,30 +18,34 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
         <?php
         // left join in order to get the users username so we'll need post and login
         $titleInfo = DB::query("SELECT * FROM post LEFT JOIN login ON post.CPID = login.CPID WHERE post.PID =".$PID);
-        foreach  ($titleInfo as $row){
+        foreach  ($titleInfo as $row) {
           $title = $row['title'];
-          $created= $row['created'];
+          $created = $row['created'];
           $UN = $row['UName'];
           $CPID = $row['CPID'];
-          $img = DB::query("SELECT UIMG FROM clientProfile WHERE CPID =".$CPID);
+          // getting the img from the database
+          $img = DB::query("SELECT UIMG FROM clientProfile WHERE CPID =" . $CPID);
           foreach ($img as $row) {
             $uimg = $row['UIMG'];
-
-          ?>
-
-          <!--  this is the area at the top with he post information-->
-          <!-- I'll call this title start -->
-          <div>
-            <!-- using php the img will swap from generic picture to the users profile img if the user has one aligned -->
-            <img src="./img/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
-          </div>
-          <div style="padding-left: 10px;">
-            <h2 style="padding-top: 10px;"><?php echo $title;?></h2>
-            <i style=""> - Posted By <span><?php echo $UN; ?>&nbsp</span></i>
-            <i style="">- On <span><?php echo $created; ?></span></i>
-          </div>
-          <?php
-        }}
+            ?>
+            <!--  this is the area at the top with he post information-->
+            <!-- I'll call this title start -->
+            <div>
+              <!-- using php the img will swap from generic picture to the users profile img if the user has one aligned -->
+              <img src="<?php if (!empty($uimg)) {
+                echo "./img/profileIMG/" . $uimg;
+              } else {
+                echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
+              } ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
+            </div>
+            <div style="padding-left: 10px;">
+              <h2 style="padding-top: 10px;"><?php echo $title; ?></h2>
+              <i style=""> - Posted By <span><?php echo $UN; ?>&nbsp</span></i>
+              <i style="">- On <span><?php echo $created; ?></span></i>
+            </div>
+        <?php
+          }
+        }
         ?>
       </div>
       <!-- this is the end of title -->
@@ -67,7 +71,11 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
                <div class="col-12">
                  <div class="row">
                    <!-- using php the img will swap from generic picture to the users profile img if the user has one aligned -->
-                   <img src="<?php if (!empty($img)) { echo "./img/profileIMG/".$img;} else { echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
+                   <img src="<?php if (!empty($img)) {
+                     echo "./img/profileIMG/".$img;
+                   } else {
+                     echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
+                   } ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
                    <div style="padding-left: 10px;">
                      <h3 style="padding-top: 10px;"><?php echo $userName; ?></h3>
                      <i>&nbsp-&nbsp<?php echo $date; ?></i>
@@ -96,19 +104,27 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
              $img = DB::query("SELECT UIMG FROM clientProfile WHERE CPID =".$_SESSION['cpid']);
              foreach ($img as $row) {
                $uimg = $row['UIMG'];
+
+             ?>
+               <div class="row border" style="padding: 10px;">
+                 <!-- using php the img will swap from generic picture to the users profile img if the user has one aligned -->
+                 <img src="<?php if (!empty($uimg)) {
+                   echo "./img/profileIMG/".$uimg;
+                 } else {
+                   echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
+                 } ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
+                 <label for="reply"></label>
+                 <div style="margin-top: 10px; margin-left: 5px;">
+                   <input type="hidden" name="TID" value="<?php echo $TID; ?>">
+                   <input type="hidden" name="PID" value="<?php echo $PID; ?>">
+                   <textarea type="text" id="reply" name="reply" class="form-control" placeholder="input your reply..."
+                             cols="90%" rows="2" required></textarea>
+                   <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+                 </div>
+               </div>
+             <?php
              }
              ?>
-             <div class="row border" style="padding: 10px;">
-               <!-- using php the img will swap from generic picture to the users profile img if the user has one aligned -->
-               <img src="./img/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
-               <label for="reply"></label>
-               <div style="margin-top: 10px; margin-left: 5px;">
-                 <input type="hidden" name="TID" value="<?php echo $TID; ?>">
-                 <input type="hidden" name="PID" value="<?php echo $PID; ?>">
-                 <textarea type="text" id="reply" name="reply" class="form-control" placeholder="input your reply..." cols="90%" rows="2" required></textarea>
-                 <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
-               </div>
-             </div>
            </form>
          </div>
          <!-- Reply section end -->

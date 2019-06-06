@@ -55,7 +55,11 @@
               <h1>User Profile</h1>
             </div>
             <div class="col-sm-2" style="padding: 5px;">
-              <img src="./img/profileIMG/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" style="width: 100px; height: 100px;" title="profile image" class="img-circle img-responsive rounded">
+              <img src="<?php if (!empty($uimg)) {
+                echo "./img/profileIMG/".$uimg;
+              } else {
+                echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
+              } ?>" style="width: 100px; height: 100px;" title="profile image" class="img-circle img-responsive rounded">
             </div>
           </div>
           <!-- Profile Left and Right-->
@@ -64,7 +68,11 @@
               <br>
 
               <div class="text-center" style=" padding: 5px;">
-                <img src="./img/profileIMG/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" style="width: 200px; height: 200px;   " class="avatar rounded-circle img-thumbnail" alt="avatar">
+                <img src="<?php if (!empty($uimg)) {
+                  echo "./img/profileIMG/".$uimg;
+                } else {
+                  echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
+                } ?>" style="width: 200px; height: 200px;   " class="avatar rounded-circle img-thumbnail" alt="avatar">
                 <div class="form-group">
                   <h6>Upload a different photo</h6>
                   <input type="file" class="text-center center-block file-upload" id="img">
@@ -173,13 +181,65 @@
                       $replyUpRep = $row['upRep'];
                       $replyDownRep = $row['downRep'];
 
-                      $postResult = DB::query("SELECT title FROM post WHERE PID = ".$pid);
+                      $postResult = DB::query("SELECT * FROM post WHERE PID = ".$pid);
                       foreach ($postResult as $row) {
                         $postTitle = $row['title'];
                           ?>
                             <div class="container">
-                              <div>
-                                <img src="./img/profileIMG">
+                              <div class="row">
+                                <div class="col-2 text-center">
+                                  <img src="<?php if (!empty($uimg)) {
+                                    echo "./img/profileIMG/".$uimg;
+                                  } else {
+                                    echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
+                                  } ?>" style="width: 75px; height: 75px;" class="img-thumbnail" alt="avatar">
+                                </div>
+                                <div class="col-10">
+                                  <div>
+                                    <h4><?php echo $postTitle; ?></h4>
+                                    <p><?php echo $content; ?></p>
+                                    <p>
+                                      <?php
+                                        //db = database
+                                        //ct = current time
+                                        //getting and sorting the database time
+                                        $dbTime = strtotime($created);
+                                        $dbYear = date("Y", $dbTime);
+                                        $dbMonth = date("m", $dbTime);
+                                        $dbDay = date("d", $dbTime);
+                                        $dbHour = date("H", $dbTime);
+                                        $dbMin = date("i", $dbTime);
+                                        $dbSec = date("s", $dbTime);
+                                        //getting the current time and sorting it
+                                        $currentTime = date("Y-m-d H:i:s");
+                                        $ctYear = date("Y", $currentTime);
+                                        $ctMonth = date("m", $currentTime);
+                                        $ctDay = date("d", $currentTime);
+                                        $ctHour = date("H", $currentTime);
+                                        $ctMin = date("i", $currentTime);
+                                        $ctSec = date("s", $currentTime);
+
+                                        if ($dbYear == $ctYear) {
+                                          if ($dbMonth == $ctMonth) {
+                                            if ($dbDay == $ctDay) {
+                                              if ($dbHour == $ctHour) {
+                                                if ($dbMin == $ctMin) {
+                                                  if ($dbSec == $ctSec){
+
+                                                  } else {
+
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        } else {
+                                          echo $dbTime;
+                                        }
+                                      ?>
+                                    </p>
+                                  </div>
+                                </div>
                               </div>
                               <hr>
                             </div>

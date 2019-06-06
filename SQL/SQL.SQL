@@ -143,8 +143,8 @@ INSERT INTO `thread` (`TID`, `CPID`, `title`, `info`, `created`) VALUES
 (5, 1, 'America', 'The Big BOI', '2019-04-28 17:39:25');
 
 INSERT INTO `post` (`PID`, `CPID`, `TID`, `title`, `info`, `created`, `replies`, `views`) VALUES
-(1, 1, 1, 'Youtube', 'info', '2019-04-28 19:35:11', NULL, NULL),
-(2, 1, 2, 'Microsoft', 'info', '2019-04-28 19:54:09', NULL, NULL),
-(3, 1, 3, 'Tesla', 'info', '2019-05-13 19:41:48', NULL, NULL),
-(4, 1, 4, 'MEMES', 'info', '2019-05-13 19:43:36', NULL, NULL),
-(5, 1, 5, 'America', 'info', '2019-05-13 19:43:49', NULL, NULL);
+(1, 1, 1, 'What Happened to BF1', 'info', '2019-04-28 19:35:11', NULL, NULL),
+(2, 1, 2, 'Windows Updates :(', 'info', '2019-04-28 19:54:09', NULL, NULL),
+(3, 1, 3, '2020 Roadster', 'info', '2019-05-13 19:41:48', NULL, NULL),
+(4, 1, 4, 'WEEEEEE', 'info', '2019-05-13 19:43:36', NULL, NULL),
+(5, 1, 5, 'The land down under', 'info', '2019-05-13 19:43:49', NULL, NULL);
