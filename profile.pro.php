@@ -55,7 +55,7 @@
               <h1>User Profile</h1>
             </div>
             <div class="col-sm-2" style="padding: 5px;">
-              <img src="./img/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" style="width: 100px; height: 100px;" title="profile image" class="img-circle img-responsive rounded">
+              <img src="./img/profileIMG/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" style="width: 100px; height: 100px;" title="profile image" class="img-circle img-responsive rounded">
             </div>
           </div>
           <!-- Profile Left and Right-->
@@ -64,7 +64,7 @@
               <br>
 
               <div class="text-center" style=" padding: 5px;">
-                <img src="./img/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" style="width: 200px; height: 200px;   " class="avatar rounded-circle img-thumbnail" alt="avatar">
+                <img src="./img/profileIMG/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" style="width: 200px; height: 200px;   " class="avatar rounded-circle img-thumbnail" alt="avatar">
                 <div class="form-group">
                   <h6>Upload a different photo</h6>
                   <input type="file" class="text-center center-block file-upload" id="img">
@@ -162,16 +162,41 @@
               <!-- The Three different sections of the profile -->
               <!-- Activity -->
               <section id="activity" class="">
-                <h1>activity</h1>
+                <h1><?php echo $_SESSION['user']; ?>'s Activity </h1>
+                <?php
+                  $replyResult = DB::query("SELECT * FROM reply LEFT JOIN replyRep ON reply.CPID WHERE reply.CPID =".$_SESSION['cpid']);
+                  foreach ($replyResult as $row) {
+                      $tid = $row['TID'];
+                      $pid = $row['PID'];
+                      $content = $row['content'];
+                      $created = $row['created'];
+                      $replyUpRep = $row['upRep'];
+                      $replyDownRep = $row['downRep'];
+
+                      $postResult = DB::query("SELECT title FROM post WHERE PID = ".$pid);
+                      foreach ($postResult as $row) {
+                        $postTitle = $row['title'];
+                          ?>
+                            <div class="container">
+                              <div>
+                                <img src="./img/profileIMG">
+                              </div>
+                              <hr>
+                            </div>
+
+                          <?php
+                      }
+                    }
+                ?>
               </section>
 
               <!-- About Me -->
               <section id="aboutMe" class="hidden">
-                <h1>aboutMe</h1>
+                <h1>About <?php echo $_SESSION['user']; ?></h1>
               </section>
               <!-- Edit the User Profile-->
               <section id="editProfile" class="hidden">
-                <form class="form" action="mydb/updateProfile.db.php" method="post" id="registrationForm">
+                <form class="form" action="./mydb/profile/updateProfile.db.php" method="post" id="registrationForm">
                   <div class="row">
                     <div class="col">
                       <label for="first_name"><h4>First name</h4></label>

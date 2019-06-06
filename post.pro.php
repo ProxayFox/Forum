@@ -67,7 +67,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
                <div class="col-12">
                  <div class="row">
                    <!-- using php the img will swap from generic picture to the users profile img if the user has one aligned -->
-                   <img src="./img/<?php if (!empty($img)) {echo $img;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
+                   <img src="<?php if (!empty($img)) { echo "./img/profileIMG/".$img;} else { echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
                    <div style="padding-left: 10px;">
                      <h3 style="padding-top: 10px;"><?php echo $userName; ?></h3>
                      <i>&nbsp-&nbsp<?php echo $date; ?></i>
