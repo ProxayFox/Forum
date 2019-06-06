@@ -7,7 +7,7 @@
     include("./layouts/header.php");
 
     //CP = client profile. also this is gathering all the info for the profile
-    $CP = DB::queryFirstRow("SELECT * FROM clientprofile WHERE CPID = ".$_SESSION['cpid']);
+    $CP = DB::queryFirstRow("SELECT * FROM clientProfile WHERE CPID = ".$_SESSION['cpid']);
     if ($CP != null) {
       $fName = $CP['fName'];
       $lName = $CP['lName'];
@@ -24,25 +24,26 @@
       $shares = null;
 
 ?>
-      <style xmlns="http://www.w3.org/1999/html">
+      <script>
+        // $(document).ready(function(){
+          function updateUIMG(whatArea) {
+            console.log(whatArea);
+            $.post("./mydb/profile/updateIMG.db.php", {
+                  img: whatArea
+                },
+                function (data, status) {
+                  $("#displaySuccess").HTML(data);
+                  console.log(status);
+                }
+            )
+          }
+        // }
+      </script>
+      <style>
         .hidden {
           display: none !important;
         }
       </style>
-
-      <script>
-        $(document).ready(function(){
-          $("#imgUpdate").click(function() {
-            $.post("./mydb/profile/updateIMG.db.php", {
-              img:$("#img");
-          }
-            function(data, status) {
-              $("#displaySuccess").HTML(data)
-            }
-          )
-          })
-        }
-      </script>
 
       <!--  Main Section of the page -->
       <section style="background-color: #c6d4ff">
@@ -66,17 +67,11 @@
 
               <div class="text-center" style=" padding: 5px;">
                 <img src="./img/<?php if (!empty($uimg)) {echo $uimg;} else { echo "Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";} ?>" style="width: 200px; height: 200px;   " class="avatar rounded-circle img-thumbnail" alt="avatar">
-                <?php
-
-                ?>
                 <div class="form-group">
-                  <h6>Upload a different photo...</h6>
+                  <h6>Upload a different photo</h6>
                   <input type="file" class="text-center center-block file-upload" id="img">
-                  <button type="submit" class="btn btn-primary" onclick="updateUIMG('img')" style="!important;float: left; margin-top: 5px;"><span style="height:15px; width:15px;margin-right: 10px;" id="spinner"></span>submit</button>
+                  <button class="btn btn-primary" onclick="updateUIMG(img)" style="!important;float: left; margin-top: 5px;">Submit</button>
                 </div>
-                <?php
-
-                ?>
               </div>
               <br>
 
