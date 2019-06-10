@@ -9,14 +9,21 @@ if (array_key_exists("user", $_SESSION)) {
 
   <!--  Jquery for thread form  -->
   <script>
+    $(document).ready(function()
+    {
+      $('[data-toggle="popover"]').popover();
+    });
+
     $(document).ready(function() {
       $("#threadUpdate").click(function () {
+        $('#spinner').addClass('spinner-border spinner-border-sm');
         $.post("mydb/thread/createThread.db.php", {
             title: $("#title").val(),
             info: $("#info").val()
           },
 
           function (data) {
+            $('#spinner').removeClass('spinner-border spinner-border-sm');
             $("#displaySuccess").HTML(data);
             alert(data);
           }
@@ -60,7 +67,7 @@ if (array_key_exists("user", $_SESSION)) {
                   </div>
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button class="btn btn-primary" id="threadUpdate">Creat Thread</button>
+                    <button class="btn btn-primary" style="!important; width: 10em;" id="threadUpdate">Create Thread <span style="height:15px; width:15px; margin-right: 10px;" id="spinner"></span></button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   </div>
                   </div>

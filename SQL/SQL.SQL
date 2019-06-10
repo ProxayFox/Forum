@@ -128,12 +128,14 @@ CREATE TABLE replyRep (
 
 INSERT INTO `clientProfile` (`CPID`, `fName`, `lName`, `displayName`, `email`, `UIMG`, `uprep`, `downrep`) VALUES
 (1, 'Arabella', 'NumNut', NULL, 'admin1@proxwebdev.com', 'stars.jpeg', NULL, NULL),
-(2, 'Mariah', 'MarMight', NULL, 'admin@proxwebdev.com', '11e79c5bd7cf103d.png', NULL, NULL);
+(2, 'Mariah', 'MarMight', NULL, 'admin@proxwebdev.com', '11e79c5bd7cf103d.png', NULL, NULL),
+(3, 'megga', 'Phaggot', NULL, 'spambi@420blaze.it', '44fdc40.jpg', NULL, NULL);
 
 
 INSERT INTO `login` (`LID`, `CPID`, `UName`, `PWD`) VALUES
 (1, 1, 'atcav', 'e6c83b282aeb2e022844595721cc00bbda47cb24537c1779f9bb84f04039e1676e6ba8573e588da1052510e3aa0a32a9e55879ae22b0c2d62136fc0a3e85f8bb'),
-(2, 2, 'admin', 'e6c83b282aeb2e022844595721cc00bbda47cb24537c1779f9bb84f04039e1676e6ba8573e588da1052510e3aa0a32a9e55879ae22b0c2d62136fc0a3e85f8bb');
+(2, 2, 'admin', 'e6c83b282aeb2e022844595721cc00bbda47cb24537c1779f9bb84f04039e1676e6ba8573e588da1052510e3aa0a32a9e55879ae22b0c2d62136fc0a3e85f8bb'),
+(3, 3, 'spambi', '5e84464887949a798486c8ade17b49fc67a451eaee75f5e91aad42ea47060ceb5f9a4fd49eb487c9d851aac45fa788b7cfcb5408ad258bb017ea0b60bb17bfb1');
 
 INSERT INTO `thread` (`TID`, `CPID`, `title`, `info`, `created`) VALUES
 (1, 1, 'Youtube', 'Videos for all', '2019-04-25 16:49:37'),
@@ -148,3 +150,12 @@ INSERT INTO `post` (`PID`, `CPID`, `TID`, `title`, `info`, `created`, `replies`,
 (3, 1, 3, '2020 Roadster', 'info', '2019-05-13 19:41:48', NULL, NULL),
 (4, 1, 4, 'WEEEEEE', 'info', '2019-05-13 19:43:36', NULL, NULL),
 (5, 1, 5, 'The land down under', 'info', '2019-05-13 19:43:49', NULL, NULL);
+
+INSERT INTO `reply` (`RID`, `CPID`, `TID`, `PID`, `content`, `created`) VALUES
+(1, 1, 1, 1, 'fuck you', '2019-05-28 17:23:28'),
+(2, 2, 1, 1, 'ahahahahahhahah your so gay\r\n', '2019-05-28 17:23:48'),
+(3, 2, 1, 1, 'you\'re*', '2019-05-28 17:24:09'),
+(4, 1, 1, 1, 'hi there', '2019-05-30 16:54:46'),
+(5, 1, 1, 1, 'hehe you gay\r\n', '2019-05-30 20:43:58'),
+(6, 1, 1, 1, 'asdljsldkjfak;jsdfkasdhf;has;dgfd', '2019-06-03 15:52:28'),
+(7, 3, 1, 1, 'i love motivational speakers,\r\nAdolf HItler was my favourite', '2019-06-03 17:24:22');

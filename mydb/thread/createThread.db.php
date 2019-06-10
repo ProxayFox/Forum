@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once('../databaseManager/DBEnter.db.php');
-
 if (!empty($_POST['title'] && $_POST['info'])) {
   $CPID = $_SESSION['cpid'];
   $title = $_POST['title'];
