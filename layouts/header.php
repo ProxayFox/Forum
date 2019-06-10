@@ -8,11 +8,12 @@
   <link rel="icon" href="./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png">
 
   <!-- Bootstrap -->
-  <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- JQuery -->
   <script src="./js/jquery-3.4.1.js"></script>
-  <script href="./js/bootstrap.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="./js/popper.js"></script>
+  <script src="./js/tooltip.js"></script>
 
 
 </head>
