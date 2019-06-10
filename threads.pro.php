@@ -1,26 +1,25 @@
 <?php
 session_start();
 if (array_key_exists("user", $_SESSION)) {
-  // get the database stuff and accounts
-  require_once('./mydb/databaseManager/DBEnter.db.php');
   //get the header
   include("./layouts/header.php");
+  // get the database stuff and accounts
+  require_once('./mydb/databaseManager/DBEnter.db.php');
 ?>
 
   <!--  Jquery for thread form  -->
   <script>
-    $(document).ready(function(){
-      $("#threadUpdate").click(function() {
-        $.post("./mydb/thread/createThread.db.php", {
-          title: $("#title");
-        info:$("#info");
+    $("#threadUpdate").click(function() {
+      $.post("./mydb/thread/createThread.db.php", {
+        title: $("#title"),
+        info: $("#info")
       },
-        function(data, status) {
-          $("#displaySuccess").HTML(data)
+
+        function (data) {
+          $("#displaySuccess").HTML(data);
         }
-        )
-      })
-    }
+      )
+    });
   </script>
 
   <h1 class="text-center">Threads</h1>
@@ -30,13 +29,11 @@ if (array_key_exists("user", $_SESSION)) {
         <div class="container">
           <h2>Create Thread</h2>
           <!-- Button to Open the Modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Create Thread
-          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Thread</button>
 
           <!-- where the jQuery data should go -->
           <div id="displaySuccess">
-
+            <p>submit message</p>
           </div>
 
           <!-- Thread form (hidden) -->
