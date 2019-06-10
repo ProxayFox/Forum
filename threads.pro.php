@@ -9,16 +9,19 @@ if (array_key_exists("user", $_SESSION)) {
 
   <!--  Jquery for thread form  -->
   <script>
-    $("#threadUpdate").click(function() {
-      $.post("./mydb/thread/createThread.db.php", {
-        title: $("#title"),
-        info: $("#info")
-      },
+    $(document).ready(function() {
+      $("#threadUpdate").click(function () {
+        $.post("mydb/thread/createThread.db.php", {
+            title: $("#title").val(),
+            info: $("#info").val()
+          },
 
-        function (data) {
-          $("#displaySuccess").HTML(data);
-        }
-      )
+          function (data) {
+            $("#displaySuccess").HTML(data);
+            alert(data);
+          }
+        )
+      });
     });
   </script>
 
@@ -93,8 +96,6 @@ if (array_key_exists("user", $_SESSION)) {
               <?php
             }
           ?>
-
-
         </table>
       </div>
     </div>
