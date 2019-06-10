@@ -199,21 +199,26 @@
                                     <h4><?php echo $postTitle; ?></h4>
                                     <p><?php echo $content; ?></p>
                                     <?php
-                                    $date1 = date("Y-m-d", $created);
-                                    $date2 = date("Y-m-d");
+                                    $date1 = $created;
+                                    $date2 = date("Y-m-d H:i:s");
 
                                     $diff = abs(strtotime($date2) - strtotime($date1));
 
                                     $years = floor($diff / (365*60*60*24));
                                     $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
                                     $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+                                    $hours = floor($diff - $years * 365*60*60*24 - $months * 30*60*60*24 - $days * 60*60*24) / ;
+                                    $minutes = floor($diff - $years * 365*60*60*24 - $months * 30*60*60*24 - $days * 60*60*24 - $hours * 60*60) / (60);
+                                    $seconds =  floor($diff - $years * 365*60*60*24 - $months * 30*60*60*24 - $days * 60*60*24 - $hours * 60*60 - $minutes * 60);
                                     ?>
                                     <p><?php echo $years; ?></p>
                                     <p><?php echo $months; ?></p>
                                     <p><?php echo $days; ?></p>
+                                    <p><?php echo $hours; ?></p>
+                                    <p><?php echo $minutes; ?></p>
+                                    <p><?php echo $seconds; ?></p>
                                     <p><?php echo $date1; ?></p>
                                     <p><?php echo $date2; ?></p>
-                                    <p><?php echo $created; ?></p>
                                   </div>
                                 </div>
                               </div>

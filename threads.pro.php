@@ -12,9 +12,9 @@ if (array_key_exists("user", $_SESSION)) {
     $(document).ready(function(){
       $("#threadUpdate").click(function() {
         $.post("./mydb/thread/createThread.db.php", {
-          title:$("#title");
-          info:$("#info");
-        }
+          title: $("#title");
+        info:$("#info");
+      },
         function(data, status) {
           $("#displaySuccess").HTML(data)
         }
@@ -34,7 +34,7 @@ if (array_key_exists("user", $_SESSION)) {
             Create Thread
           </button>
 
-          <!-- where the jqueary data should go -->
+          <!-- where the jQuery data should go -->
           <div id="displaySuccess">
 
           </div>

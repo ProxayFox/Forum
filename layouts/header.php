@@ -10,7 +10,7 @@
   <!-- Bootstrap -->
   <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
   <!-- JQuery -->
-  <link href="./js/jquery-3.4.1.js">
+  <link href="./js/jquery-3.3.1.js">
   <link href="./js/bootstrap.js">
   <script src="./js/popper.js"></script>
 
