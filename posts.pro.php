@@ -1,17 +1,39 @@
 <?php
 session_start();
 if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
-//  require_once("./mydb/databaseManager/o-db.php");
-  require_once("./mydb/databaseManager/meekrodb.2.3.class.php");
-  DB::$user = 'localhost';
-  DB::$dbName = 'forum';
-  DB::$user = 'root';
-  DB::$password = '';
+  require_once('./mydb/databaseManager/DBEnter.db.php');
 
   // including the head of the HTML and data
   include("./layouts/header.php");
   $TID = $_GET['TID'];
   ?>
+
+  <!--  Jquery for thread form  -->
+  <script>
+    $(document).ready(function() {
+      $("#postUpdate").click(function () {
+        $('#spinner').addClass('spinner-border spinner-border-sm');
+        $.post("./mydb/posts/creatPost.db.php", {
+              TID: $("#TID").val(),
+              title: $("#title").val(),
+              info: $("#info").val()
+            },
+
+            function (data, status) {
+              $('#spinner').removeClass('spinner-border spinner-border-sm');
+              $("#displaySuccess").html(data);
+              if (status === "success") {
+                $('#myModal').modal('toggle');
+                $('#postTable').load("./mydb/posts/postContent.db.php");
+                console.log('hidden and reloaded');
+              }
+              console.log(data, status);
+            }
+        )
+      });
+    });
+  </script>
+
   <h1 class="text-center">Posts</h1>
   <section class="container">
     <div class="row">
@@ -19,9 +41,13 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
         <div class="container">
           <h2>Creat Post</h2>
           <!-- Button to Open the Modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Creat Post
-          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Creat Post</button>
+
+          <!-- where the jQuery data should go -->
+          <div id="displaySuccess">
+            <p>submit message</p>
+          </div>
+
           <!-- The Modal -->
           <div class="modal" id="myModal">
             <div class="modal-dialog">
@@ -33,61 +59,31 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
                 </div>
                 <!-- Modal body -->
                 <div>
-                  <form id="postForm" class="login-form hidden" action="./mydb/posts/creatPost.db.php" method="POST" role="form">
+                  <div id="postForm" class="login-form hidden" role="form">
                     <div class="modal-body">
                       <!--  hidden input for TID -->
                       <input type="hidden" id="TID" name="TID" value="<?php echo $TID;?>">
                       <h4 style="float: left;">Title of the Post</h4>
-                      <label for="title" class="sr-only">Enter: Title</label>
                       <input type="text" id="title" name="title" class="form-control" placeholder="Title" required autofocus>
                       <h4 style="float: left;">Information of the Post</h4>
-                      <label for="info" class="sr-only">Enter: Information</label>
                       <input type="text" id="info" name="info" class="form-control" placeholder="Information" required autofocus>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                      <button class="btn btn-primary" type="submit">Creat Post</button>
+                      <button class="btn btn-primary" style="!important; width: 10em;" id="postUpdate">Create Post <span style="height:15px; width:15px; margin-right: 10px;" id="spinner"></span></button>
                       <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-9 text-center">
-        <!-- displays all the Posts after searching the database-->
-        <table class="table">
-          <thead class="thead-dark">
-          <th>PID</th>
-          <th>CPID</th>
-          <th>TID</th>
-          <th>Title</th>
-          <th>Information</th>
-          <th>Time Stamp</th>
-          <th>Replies</th>
-          <th>views</th>
-          </thead>
-          <?php
-            $results = DB::query("SELECT * FROM post WHERE TID = ".$TID);
-            foreach ($results as $row) {
-              ?>
-              <tbody>
-              <tr>
-                <td><?php echo $row['PID'];?></td>
-                <td><?php echo $row['CPID'];?></td>
-                <td><?php echo $row['TID'];?></td>
-                <td><a href="post.pro.php?TID=<?php echo $row['TID'];?>&PID=<?php echo $row['PID'] ?>"><?php echo $row['title'];?></a></td>
-                <td><?php echo $row['info'];?></td>
-                <td><?php echo $row['created'];?></td>
-                <td><?php echo $row['created'];?></td>
-                <td><?php echo $row['views'];?></td>
-              </tr>
-              </tbody>
-              <?php
-            }?>
-        </table>
+      <div class="col-sm-9 text-center" id="postTable">
+        <?php
+          require_once("./mydb/posts/postContent.show.php");
+        ?>
       </div>
     </div>
   </section>

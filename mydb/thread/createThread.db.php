@@ -1,7 +1,8 @@
 <?php
 session_start();
 require_once('../databaseManager/DBEnter.db.php');
-if (!empty($_POST['title'] && $_POST['info'])) {
+
+if (!empty($_SESSION['cpid'] && $_POST['title'] && $_POST['info'])) {
   $CPID = $_SESSION['cpid'];
   $title = $_POST['title'];
   $info = $_POST['info'];
@@ -16,7 +17,7 @@ if (!empty($_POST['title'] && $_POST['info'])) {
   ));
 
   if (!$result) {
-    // it had failed
+    // It had failed
     echo "<h1>fail</h1>";
   }else {
     // Info was updated successfully

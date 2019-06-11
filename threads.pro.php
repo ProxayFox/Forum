@@ -22,11 +22,15 @@ if (array_key_exists("user", $_SESSION)) {
             info: $("#info").val()
           },
 
-          function (data) {
-            $('#spinner').removeClass('spinner-border spinner-border-sm');
-            $("#displaySuccess").HTML(data);
-            alert(data);
-          }
+            function (data, status) {
+              $('#spinner').removeClass('spinner-border spinner-border-sm');
+              $("#displaySuccess").HTML(data);
+              if (status === "success") {
+                $('#myModal').modal('toggle');
+                console.log('hidden');
+              }
+              console.log(data, status);
+            }
         )
       });
     });
