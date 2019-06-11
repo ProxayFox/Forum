@@ -24,7 +24,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
               $("#displaySuccess").html(data);
               if (status === "success") {
                 $('#myModal').modal('toggle');
-                $('#postTable').load("./mydb/posts/postContent.db.php");
+                $('#postTable').load("./mydb/posts/postContent.show.php");
                 console.log('hidden and reloaded');
               }
               console.log(data, status);

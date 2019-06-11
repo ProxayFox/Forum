@@ -1,7 +1,3 @@
-<?php
-require_once('./mydb/databaseManager/DBEnter.db.php');
-?>
-
 <!-- displays all the Posts after searching the database-->
 <table class="table">
   <thead class="thead-dark">
