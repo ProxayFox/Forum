@@ -169,7 +169,6 @@
               </div>
               <!-- The Three different sections of the profile -->
               <!-- Activity -->
-              <!-- TODO: creat a system that lets the user view when something happened by min,hour,day,week,month,year -->
               <section id="activity" class="">
                 <h1><?php echo $_SESSION['user']; ?>'s Activity </h1>
                 <?php

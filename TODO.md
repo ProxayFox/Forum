@@ -18,31 +18,27 @@ Profile
 ---
 
 **Main**
-1. Make two different pages for visiting users and the
-   profile owner
-
+1.  Make two different pages for visiting users and the
+    profile owner
+2.  Change SQl to separate ClientProfile and Profile, so
+    the profile isn't getting to much of the user's
+    information
+    
 **Top of page**
 1.  Main panel picture that takes up the top panel
-
 2.  Content count, show (by number) all posts/comments
-
 3.  Joined date, to show how long they have been in the 
     community
-    
-4. Last logged in, to show user activity
-
+4.  Last logged in, to show user activity
 5.  member status, more for ranks. depends on application
 
 **left column-3**
 1.  let the user change their profile picture 
     without refreshing the page
-
 2.  Add view/follow system so that users can know what
     the user is doing
-
 3.  View Followers, section where visiting and profile
     owner can view other that they may know
-    
 4.  Community Ranking system, for new guys to know what
     happening and the legitimacy of a user
 
@@ -61,7 +57,6 @@ Profile
 
 ***Edit Profile***
 1. Allow single item updates
-
 2. allow for entire section update
 
 Settings
@@ -77,7 +72,8 @@ Settings
 Admin
 ---
 **Settings**
-1. 
+1.  Let the admin ban or white list users
 
 **Tools**
-1. 
+1.  Let the admin have ability to change user roles 
+    and ranks
