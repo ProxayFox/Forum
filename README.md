@@ -1,5 +1,5 @@
 This is a Forum in development
-===
+---
 This is in development hope you like it yaaaaaaaaaayyy :D
 
 Installation / Running
