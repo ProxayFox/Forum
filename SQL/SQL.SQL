@@ -140,10 +140,10 @@ CREATE TABLE replyRep (
 
 
 
-INSERT INTO `clientData` (`CDID`, `fName`, `lName`, `displayName`, `email`, `UIMG`, `uprep`, `downrep`) VALUES
-(1, 'Arabella', 'NumNut', NULL, 'admin1@proxwebdev.com', 'stars.jpeg', NULL, NULL),
-(2, 'Mariah', 'MarMight', NULL, 'admin@proxwebdev.com', '11e79c5bd7cf103d.png', NULL, NULL),
-(3, 'megga', 'Phaggot', NULL, 'spambi@420blaze.it', '44fdc40.jpg', NULL, NULL);
+INSERT INTO `clientData` (`CDID`, `fName`, `lName`, `email`) VALUES
+(1, 'Arabella', 'NumNut', 'admin1@proxwebdev.com'),
+(2, 'Mariah', 'MarMight', 'admin@proxwebdev.com'),
+(3, 'megga', 'Phaggot', 'spambi@420blaze.it');
 
 INSERT INTO `clientProfile` (`CDID`, CPID, `displayName`, `UIMG`, web, social, postNo) VALUES
 (1, 1, NULL, 'stars.jpeg', NULL, NULL, NULL),
@@ -175,10 +175,10 @@ INSERT INTO `post` (`PID`, `CDID`, `TID`, `title`, `info`, `created`, `replies`,
 (5, 1, 5, 'The land down under', 'info', '2019-05-13 19:43:49', NULL, NULL);
 
 INSERT INTO `reply` (`RID`, `CDID`, `TID`, `PID`, `content`, `created`) VALUES
-(1, 1, 1, 1, 'fuck you', '2019-05-28 17:23:28'),
-(2, 2, 1, 1, 'ahahahahahhahah your so gay\r\n', '2019-05-28 17:23:48'),
+(1, 1, 1, 1, 'you\'re great', '2019-05-28 17:23:28'),
+(2, 2, 1, 1, 'ahahahahahhahah your so funny', '2019-05-28 17:23:48'),
 (3, 2, 1, 1, 'you\'re*', '2019-05-28 17:24:09'),
 (4, 1, 1, 1, 'hi there', '2019-05-30 16:54:46'),
-(5, 1, 1, 1, 'hehe you gay\r\n', '2019-05-30 20:43:58'),
+(5, 1, 1, 1, 'good job', '2019-05-30 20:43:58'),
 (6, 1, 1, 1, 'asdljsldkjfak;jsdfkasdhf;has;dgfd', '2019-06-03 15:52:28'),
-(7, 3, 1, 1, 'i love motivational speakers,\r\nAdolf HItler was my favourite', '2019-06-03 17:24:22');
+(7, 3, 1, 1, 'i love motivational speakers', '2019-06-03 17:24:22');
