@@ -14,6 +14,12 @@ one of these sooner
 General Items
 ---
 
+**Accounts**
+1. Email Validation
+2. User-name length requirements
+3. Password strength indicator 
+4. Password character requirements
+
 Profile
 ---
 

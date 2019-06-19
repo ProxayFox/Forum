@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SQL/SQL.SQL">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="721">
-              <caret line="183" column="42" selection-start-line="183" selection-start-column="42" selection-end-line="183" selection-end-column="42" />
+            <state relative-caret-position="368">
+              <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -164,12 +164,12 @@
       <workItem from="1560728963521" duration="1061000" />
       <workItem from="1560737427315" duration="3694000" />
       <workItem from="1560812852766" duration="3289000" />
-      <workItem from="1560832783142" duration="478000" />
+      <workItem from="1560832783142" duration="698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8522000" />
+    <option name="totallyTimeSpent" value="8742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1606" height="1047" extended-state="0" />
@@ -266,8 +266,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SQL/SQL.SQL">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="183" column="42" selection-start-line="183" selection-start-column="42" selection-end-line="183" selection-end-column="42" />
+        <state relative-caret-position="368">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
         </state>
       </provider>
     </entry>
