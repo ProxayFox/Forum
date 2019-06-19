@@ -17,17 +17,18 @@ if (array_key_exists("user", $_SESSION)) {
     $(document).ready(function() {
       $("#threadUpdate").click(function () {
         $('#spinner').addClass('spinner-border spinner-border-sm');
-        $.post("mydb/thread/createThread.db.php", {
+        $.post("./mydb/thread/createThread.db.php", {
             title: $("#title").val(),
             info: $("#info").val()
           },
 
             function (data, status) {
               $('#spinner').removeClass('spinner-border spinner-border-sm');
-              $("#displaySuccess").HTML(data);
+              $("#displaySuccess").html(data);
               if (status === "success") {
                 $('#myModal').modal('toggle');
-                console.log('hidden');
+                $('#postTable').load("./mydb/thread/threadContent.show.php");
+                console.log('hidden and reloaded');
               }
               console.log(data, status);
             }
@@ -81,33 +82,10 @@ if (array_key_exists("user", $_SESSION)) {
           </div>
         </div>
       </div>
-      <div class="col-sm-9 text-center">
-        <!-- displays all the threads after searching the database-->
-        <table class="table">
-          <thead class="thead-dark">
-          <th>TID</th>
-          <th>CPID</th>
-          <th>Title</th>
-          <th>Information</th>
-          <th>Time Stamp</th>
-          </thead>
-          <?php
-            $results = DB::query("SELECT * FROM thread order by TID");
-            foreach ($results as $row) {
-              ?>
-              <tbody>
-              <tr>
-                <td><?php echo $row['TID'];?></td>
-                <td><?php echo $row['CPID'];?></td>
-                <td><a href="posts.pro.php?TID=<?php echo $row['TID'];?>"><?php echo $row['title'];?></a></td>
-                <td><?php echo $row['info'];?></td>
-                <td><?php echo $row['created'];?></td>
-              </tr>
-              </tbody>
-              <?php
-            }
-          ?>
-        </table>
+      <div class="col-sm-9 text-center" id="postTable">
+        <?php
+        require_once("./mydb/thread/threadContent.show.php");
+        ?>
       </div>
     </div>
   </section>
