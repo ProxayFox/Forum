@@ -24,62 +24,62 @@ Profile
 ---
 
 **Main**
-1.  Make two different pages for visiting users and the
+-   Make two different pages for visiting users and the
     profile owner
-2.  Change SQl to separate ClientProfile and Profile, so
-    the profile isn't getting to much of the user's
-    information
+>  - Change SQl to separate ClientProfile and Profile, so
+>    the profile isn't getting to much of the user's
+>    information
     
 **Top of page**
-1.  Main panel picture that takes up the top panel
-2.  Content count, show (by number) all posts/comments
-3.  Joined date, to show how long they have been in the 
+-   Main panel picture that takes up the top panel
+-   Content count, show (by number) all posts/comments
+-   Joined date, to show how long they have been in the 
     community
-4.  Last logged in, to show user activity
-5.  member status, more for ranks. depends on application
+-   Last logged in, to show user activity
+-   member status, more for ranks. depends on application
 
 **left column-3**
-1.  let the user change their profile picture 
+-   let the user change their profile picture 
     without refreshing the page
-2.  Add view/follow system so that users can know what
+-   Add view/follow system so that users can know what
     the user is doing
-3.  View Followers, section where visiting and profile
+-   View Followers, section where visiting and profile
     owner can view other that they may know
-4.  Community Ranking system, for new guys to know what
+-   Community Ranking system, for new guys to know what
     happening and the legitimacy of a user
 
 **Center Column column-9**
 
 ***Activity***
-1. create a system that lets the user view when 
+-  create a system that lets the user view when 
    something happened by min,hour,day,week,month,year
-2. find a way to show follows and likes
-3. Better organisation
+-  find a way to show follows and likes
+-  Better organisation
 
 ***About Me***
-1. Create section for the user to play around with,
+-  Create section for the user to play around with,
    for customizing their information
-2. Find a way to allow images
+-  Find a way to allow images
 
 ***Edit Profile***
-1. Allow single item updates
-2. allow for entire section update
+-  Allow single item updates
+-  allow for entire section update
 
 Settings
 ---
 **Colour**
 
 ***Dark/Light mode***
-1. Find a way for the user to select dark mode or normal mode
+-  Find a way for the user to select dark mode or normal mode
 
 ***Templates/scheme***
-1. Definitely need to find a different colour pattern
+-  Definitely need to find a different colour pattern
 
 Admin
 ---
 **Settings**
-1.  Let the admin ban or white list users
+-   Let the admin ban or white list users
 
 **Tools**
-1.  Let the admin have ability to change user roles 
+-   Let the admin have ability to change user roles 
     and ranks
