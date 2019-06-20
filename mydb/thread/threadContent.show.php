@@ -1,3 +1,7 @@
+<?php
+  require_once('../databaseManager/DBEnter.db.php');
+?>
+
 <!-- displays all the threads after searching the database-->
 <table class="table">
   <thead class="thead-dark">

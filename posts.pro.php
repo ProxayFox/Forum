@@ -11,6 +11,11 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
   <!--  Jquery for thread form  -->
   <script>
     $(document).ready(function() {
+      $('#postTable').load("./mydb/posts/postContent.show.php");
+      $('[data-toggle="popover"]').popover();
+    });
+
+    $(document).ready(function() {
       $("#postUpdate").click(function () {
         $('#spinner').addClass('spinner-border spinner-border-sm');
         $.post("./mydb/posts/creatPost.db.php", {
@@ -81,9 +86,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
         </div>
       </div>
       <div class="col-sm-9 text-center" id="postTable">
-        <?php
-          require_once("./mydb/posts/postContent.show.php");
-        ?>
+
       </div>
     </div>
   </section>

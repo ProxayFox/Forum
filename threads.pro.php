@@ -9,8 +9,8 @@ if (array_key_exists("user", $_SESSION)) {
 
   <!--  Jquery for thread form  -->
   <script>
-    $(document).ready(function()
-    {
+    $(document).ready(function() {
+      $('#postTable').load("./mydb/thread/threadContent.show.php");
       $('[data-toggle="popover"]').popover();
     });
 
@@ -83,9 +83,7 @@ if (array_key_exists("user", $_SESSION)) {
         </div>
       </div>
       <div class="col-sm-9 text-center" id="postTable">
-        <?php
-        require_once("./mydb/thread/threadContent.show.php");
-        ?>
+
       </div>
     </div>
   </section>
