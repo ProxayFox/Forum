@@ -2,8 +2,8 @@
 session_start();
 require_once('../databaseManager/DBEnter.db.php');
 
-if (!empty($_POST)) {
-  $CPID = $_SESSION['cpid'];
+if (!empty($_SESSION['cdid'] && $_POST['TID'] && $_POST['PID'] && $_POST['reply'])) {
+  $CDID = $_SESSION['cdid'];
   $TID = $_POST['TID'];
   $PID = $_POST['PID'];
   $content = $_POST['reply'];
@@ -11,7 +11,7 @@ if (!empty($_POST)) {
 
   $result = DB::insert('reply', array(
       'RID' => NULL,
-      'CPID' => $CPID,
+      'CDID' => $CDID,
       'TID' => $TID,
       'PID' => $PID,
       'content' => $content,
@@ -25,5 +25,7 @@ if (!empty($_POST)) {
     // Info was updated successfully
     echo "<h3>fail</h3><br>".DB::affectedRows();
   }
+} else {
+  echo "<h3>Something was missing</h3>";
 }
 ?>

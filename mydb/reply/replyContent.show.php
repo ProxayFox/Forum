@@ -1,6 +1,5 @@
 <?php
 require_once('../databaseManager/DBEnter.db.php');
-$TID = $_GET['TID'];
 $PID = $_GET['PID'];
 ?>
 

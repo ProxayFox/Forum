@@ -10,25 +10,25 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
   ?>
   <script>
     $(document).ready(function() {
-      $('#postReplies').load("./mydb/reply/relyContent.show.php?TID=<?php echo $TID; ?>&PID=<?php echo $PID ?>");
+      $('#postReplies').load("./mydb/reply/replyContent.show.php?PID=<?php echo $PID ?>");
       $('[data-toggle="popover"]').popover();
+      console.log("ready")
     });
 
     $(document).ready(function() {
       $("#postUpdate").click(function () {
         $('#spinner').addClass('spinner-border spinner-border-sm');
-        $.post("./mydb/posts/createPost.db.php", {
+        $.post("./mydb/reply/createReply.db.php", {
               TID: $("#TID").val(),
-              title: $("#title").val(),
-              info: $("#info").val()
+              PID: $("#PID").val(),
+              reply: $("#reply").val()
             },
 
             function (data, status) {
               $('#spinner').removeClass('spinner-border spinner-border-sm');
               $("#displaySuccess").html(data);
               if (status === "success") {
-                $('#myModal').modal('toggle');
-                $('#postReplies').load("./mydb/reply/relyContent.show.php?TID=<?php echo $TID; ?>&PID=<?php echo $PID ?>");
+                $('#postReplies').load("./mydb/reply/replyContent.show.php?PID=<?php echo $PID ?>");
                 console.log('hidden and reloaded');
               }
               console.log(data, status);
@@ -94,6 +94,9 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
           </div>
           <!-- right side of the page start -->
           <div class="col-3">
+            <div id="displaySuccess">
+              <!-- display success message -->
+            </div>
             <h5>Community Details</h5>
             <h6>will be here soon</h6>
           </div>
@@ -104,8 +107,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
          <!-- this is the start of the reply section -->
          <!-- I'll call this reply section start -->
          <div id="replySection">
-           <form id="Thread" class="login-form hidden" action="./mydb/reply/createReply.db.php" method="POST" role="form">
-             <?php
+           <?php
               $img = DB::query("
                 SELECT UIMG 
                 FROM clientProfile 
@@ -121,20 +123,20 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
                    echo "./img/profileIMG/".$uimg;
                  } else {
                    echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
-                 } ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
-                 <label for="reply"></label>
-                 <div style="margin-top: 10px; margin-left: 5px;">
+                 } ?>"
+                  class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
+
+                 <div id="postForm" style="margin-top: 10px; margin-left: 5px;">
                    <input type="hidden" name="TID" value="<?php echo $TID; ?>">
                    <input type="hidden" name="PID" value="<?php echo $PID; ?>">
                    <textarea type="text" id="reply" name="reply" class="form-control" placeholder="input your reply..." cols="75%" rows="2" required></textarea>
-                   <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit<span style="height:15px; width:15px; margin-right: 10px;" id="spinner"></button>
+                   <button id="postUpdate" type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit<span style="height:15px; width:15px; margin-right: 10px;" id="spinner"></button>
                  </div>
                </div>
              <?php
              }
              ?>
-           </form>
-         </div>
+           </div>
         <!-- Reply section end -->
     </section>
     <!-- main page close -->
