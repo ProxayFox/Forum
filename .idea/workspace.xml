@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efe98ac1-4c08-4ffe-b40c-b01d72409446" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Da_AyDOn_MelLooPy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Da_AyDOn_MelLooPy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL/SQL.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/SQL/SQL.SQL" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/login/login.db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/login/login.test.db.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/login/login.test.db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/login/logout.test.db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/posts/creatPost.db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/posts/postContent.show.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/posts/postContent.show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/register/o-register.db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/register/register.db.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/register/register.db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/reply/creatReply.db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/thread/createThread.db.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/thread/createThread.db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/thread/threadContent.show.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/thread/threadContent.show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb/reply/replyContent.show.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/reply/replyContent.show.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post.pro.php" beforeDir="false" afterPath="$PROJECT_DIR$/post.pro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts.pro.php" beforeDir="false" afterPath="$PROJECT_DIR$/posts.pro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.pro.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.pro.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/post.pro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="91" column="22" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+            <state relative-caret-position="1886">
+              <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -59,27 +45,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mydb/reply/replyContent.show.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="397">
+              <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mydb/reply/createReply.db.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-281" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/posts.pro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
+            <state relative-caret-position="897">
               <caret line="39" column="11" selection-start-line="11" selection-start-column="2" selection-end-line="39" selection-end-column="11" />
             </state>
           </provider>
@@ -97,6 +77,8 @@
       <find>content</find>
       <find>website</find>
       <find>else</find>
+      <find>client</find>
+      <find>TID</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,11 +191,12 @@
       <workItem from="1560916048681" duration="3011000" />
       <workItem from="1561002361926" duration="2121000" />
       <workItem from="1561075872019" duration="10329000" />
+      <workItem from="1561095478852" duration="494000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24203000" />
+    <option name="totallyTimeSpent" value="24697000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -225,10 +208,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14750378" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15003991" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -317,13 +300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SQL/SQL.SQL">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="158" column="46" selection-start-line="158" selection-start-column="46" selection-end-line="158" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/profile.pro.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1924">
@@ -378,32 +354,33 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mydb/reply/createReply.db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-281" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/posts.pro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="897">
           <caret line="39" column="11" selection-start-line="11" selection-start-column="2" selection-end-line="39" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQL/SQL.SQL">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="176" lean-forward="true" selection-start-line="176" selection-end-line="183" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mydb/reply/replyContent.show.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="397">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/post.pro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="91" column="22" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+        <state relative-caret-position="1886">
+          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
         </state>
       </provider>
     </entry>

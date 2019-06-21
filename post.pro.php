@@ -10,7 +10,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
   ?>
   <script>
     $(document).ready(function() {
-      //$('#postReplies').load("./mydb/posts/postContent.show.php?TID=<?php //echo $TID; ?>//");
+      $('#postReplies').load("./mydb/reply/relyContent.show.php?TID=<?php echo $TID; ?>&PID=<?php echo $PID ?>");
       $('[data-toggle="popover"]').popover();
     });
 
@@ -28,7 +28,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
               $("#displaySuccess").html(data);
               if (status === "success") {
                 $('#myModal').modal('toggle');
-                //$('#postReplies').load("./mydb/posts/postContent.show.php?TID=<?php //echo $TID; ?>//");
+                $('#postReplies').load("./mydb/reply/relyContent.show.php?TID=<?php echo $TID; ?>&PID=<?php echo $PID ?>");
                 console.log('hidden and reloaded');
               }
               console.log(data, status);
@@ -47,7 +47,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
           FROM post 
             LEFT JOIN login 
               ON post.CDID = login.CDID 
-            RIGHT JOIN clientprofile
+            RIGHT JOIN clientProfile
               ON post.CDID = clientProfile.CDID
           WHERE post.PID =".$PID
         );
@@ -104,7 +104,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
          <!-- this is the start of the reply section -->
          <!-- I'll call this reply section start -->
          <div id="replySection">
-           <form id="Thread" class="login-form hidden" action="./mydb/reply/creatReply.db.php" method="POST" role="form">
+           <form id="Thread" class="login-form hidden" action="./mydb/reply/createReply.db.php" method="POST" role="form">
              <?php
               $img = DB::query("
                 SELECT UIMG 
@@ -136,7 +136,6 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
              ?>
            </form>
          </div>
-        </div>
         <!-- Reply section end -->
     </section>
     <!-- main page close -->

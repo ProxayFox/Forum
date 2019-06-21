@@ -1,5 +1,7 @@
 <?php
 require_once('../databaseManager/DBEnter.db.php');
+$TID = $_GET['TID'];
+$PID = $_GET['PID'];
 ?>
 
 <div>
@@ -8,9 +10,9 @@ require_once('../databaseManager/DBEnter.db.php');
   $reply = DB::query("
     SELECT clientProfile.UIMG, login.UName, reply.content, reply.created
     FROM reply 
-      INNER JOIN clientProfile 
+      LEFT JOIN clientProfile 
         ON reply.CDID = clientProfile.CDID 
-      INNER JOIN login 
+      RIGHT JOIN login 
         ON clientProfile.CDID = login.CDID 
     WHERE reply.PID = ".$PID." 
     ORDER BY reply.RID ASC
