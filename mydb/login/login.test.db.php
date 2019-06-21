@@ -14,16 +14,16 @@ if (!empty($_POST['uname'] && $_POST['password'])) {
   $hashedPWD = hash('sha512', $pwd);
   //starting the session
 
-  $loginResult = DB::queryFirstRow("SELECT LID, CPID FROM login WHERE UName='".$uname."' AND PWD='".$hashedPWD."'");
+  $loginResult = DB::queryFirstRow("SELECT LID, CDID FROM login WHERE UName='".$uname."' AND PWD='".$hashedPWD."'");
 
   if ($loginResult != null) {
       //getting values and assigning them
       $lid = $loginResult['LID'];
-      $cpid = $loginResult['CPID'];
+      $cdid = $loginResult['CDID'];
 
       //creating session values
       $_SESSION['lid'] = $lid;
-      $_SESSION['cpid'] = $cpid;
+      $_SESSION['cdid'] = $cdid;
       $_SESSION['start']=1;
       $_SESSION['user'] = $uname;
     //take the user back to index with a signing success

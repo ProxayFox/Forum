@@ -15,15 +15,15 @@ CREATE TABLE clientData (
 );
 
 CREATE TABLE clientProfile (
-  CPID                INT(11)       NOT NULL AUTO_INCREMENT,
+  CPIP                INT(11)       NOT NULL AUTO_INCREMENT,
   CDID                INT(11)      	NOT NULL,
   displayName					VARCHAR(50)		NULL UNIQUE,
   UIMG                VARCHAR(255)  NULL,
   web                 VARCHAR(150)  NULL,
   social              VARCHAR(150)  NULL,
   postNo              INT(11)       NULL,
-  PRIMARY KEY (CPID),
-  FOREIGN KEY (CDID) 	REFERENCES clientProfile(CDID)
+  PRIMARY KEY (CPIP),
+  FOREIGN KEY (CDID) 	REFERENCES clientData(CDID)
 );
 
 CREATE TABLE clientRep (
@@ -34,7 +34,7 @@ CREATE TABLE clientRep (
   rep                 INT(11)       NULL,
   followers           INT(11)       NULL,
   PRIMARY KEY (CRIP),
-  FOREIGN KEY (CDID) 	REFERENCES clientProfile(CDID)
+  FOREIGN KEY (CDID) 	REFERENCES clientData(CDID)
 );
 
 -- LID    = Login Identification
@@ -46,7 +46,7 @@ CREATE TABLE login (
 	UName               VARCHAR(100)  NOT NULL UNIQUE,
 	PWD                 VARCHAR(200)  NOT NULL,
 	PRIMARY KEY (LID),
-	FOREIGN KEY (CDID) 	REFERENCES clientProfile(CDID)
+	FOREIGN KEY (CDID) 	REFERENCES clientData(CDID)
 );
 
 -- TID    = Thread Identification
@@ -58,7 +58,7 @@ CREATE TABLE thread (
   info                TEXT(1000)    NOT NULL,
   created							TIMESTAMP			NOT NULL,
   PRIMARY KEY (TID),
-  FOREIGN KEY (CDID) 	REFERENCES clientProfile(CDID)
+  FOREIGN KEY (CDID) 	REFERENCES clientData(CDID)
 );
 
 -- TVID   = Thread View Identification
@@ -73,7 +73,7 @@ CREATE TABLE threadView (
   downRep             INT(11)       NULL,
   PRIMARY KEY (TVID),
   FOREIGN KEY (TID) REFERENCES thread(TID),
-  FOREIGN KEY (CDID) REFERENCES clientProfile(CDID)
+  FOREIGN KEY (CDID) REFERENCES clientData(CDID)
 );
 
 -- PID    = Post Identification
@@ -89,7 +89,7 @@ CREATE TABLE post (
   replies             INT(11)       NULL,
   views               INT(11)       NULL,
   PRIMARY KEY (PID),
-  FOREIGN KEY (CDID) 	REFERENCES clientProfile(CDID),
+  FOREIGN KEY (CDID) 	REFERENCES clientData(CDID),
   FOREIGN KEY (TID) 	REFERENCES thread(TID)
 );
 
@@ -105,7 +105,7 @@ CREATE TABLE postView (
   downRep             INT(11)       NULL,
   PRIMARY KEY (PVID),
   FOREIGN KEY (PID) REFERENCES post(PID),
-  FOREIGN KEY (CDID) REFERENCES clientProfile(CDID)
+  FOREIGN KEY (CDID) REFERENCES clientData(CDID)
 );
 
 -- RID    = Reply Identification
@@ -120,7 +120,7 @@ CREATE TABLE reply (
    content						TEXT(3000)		NOT NULL,
    created						TIMESTAMP			NOT NULL,
    PRIMARY KEY (RID),
-   FOREIGN KEY (CDID) 	REFERENCES clientProfile(CDID),
+   FOREIGN KEY (CDID) 	REFERENCES clientData(CDID),
    FOREIGN KEY (PID) 	REFERENCES post(PID)
 );
 
@@ -134,7 +134,7 @@ CREATE TABLE replyRep (
   upRep               INT(11)       NULL,
   downRep             INT(11)       NULL,
   PRIMARY KEY (RRID),
-  FOREIGN KEY (CDID) REFERENCES clientProfile(CDID),
+  FOREIGN KEY (CDID) REFERENCES clientData(CDID),
   FOREIGN KEY (RID) REFERENCES reply(RID)
 );
 
@@ -145,12 +145,12 @@ INSERT INTO `clientData` (`CDID`, `fName`, `lName`, `email`) VALUES
 (2, 'Mariah', 'MarMight', 'admin@proxwebdev.com'),
 (3, 'megga', 'Phaggot', 'spambi@420blaze.it');
 
-INSERT INTO `clientProfile` (`CDID`, CPID, `displayName`, `UIMG`, web, social, postNo) VALUES
-(1, 1, NULL, 'stars.jpeg', NULL, NULL, NULL),
-(2, 2, NULL, '11e79c5bd7cf103d.png', NULL, NULL, NULL),
-(3, 3, NULL, '44fdc40.jpg', NULL, NULL, NULL);
+INSERT INTO `clientProfile` (`CPIP`, `CDID`, `displayName`, `UIMG`, web, social, postNo) VALUES
+(1, 1, 'ara', 'stars.jpeg', 'proxwebdev.com', 'www.facebook.com', NULL),
+(2, 2, 'marmight', '11e79c5bd7cf103d.png', 'proxwebdev.com', 'www.facebook.com', NULL),
+(3, 3, 'morgs', '44fdc40.jpg', 'proxwebdev.com', 'www.facebook.com', NULL);
 
-INSERT INTO `clientRep` (`CDID`, `CRIP`, `uprep`, `downrep`, rep, followers) VALUES
+INSERT INTO `clientRep` (`CRIP`, `CDID`, `uprep`, `downrep`, rep, followers) VALUES
 (1, 1, NULL, NULL, NULL, NULL),
 (2, 2, NULL, NULL, NULL, NULL),
 (3, 3, NULL, NULL, NULL, NULL);

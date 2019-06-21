@@ -3,7 +3,7 @@ session_start();
 require_once('../databaseManager/DBEnter.db.php');
 
 if (!empty($_POST['TID'] && $_POST['title'] && $_POST['info'] )) {
-  $CPID = $_SESSION['cpid'];
+  $CDID = $_SESSION['cdid'];
   $TID = $_POST['TID'];
   $title = $_POST['title'];
   $info = $_POST['info'];
@@ -11,7 +11,7 @@ if (!empty($_POST['TID'] && $_POST['title'] && $_POST['info'] )) {
 
   $result = DB::insert('post', array(
       'PID' => NULL,
-      'CPID' => $CPID,
+      'CDID' => $CDID,
       'TID' => $TID,
       'title' => $title,
       'info' => $info,
@@ -19,12 +19,12 @@ if (!empty($_POST['TID'] && $_POST['title'] && $_POST['info'] )) {
   ));
 
 
-  if (!$result) {
+  if ($result != NULL) {
     // It had failed
-    echo "<h3>fail</h3>";
+    echo "<h3>success</h3>";
   }else {
     // Info was updated successfully
-    echo "<h3>success</h3>";
+    echo "<h3>fail</h3><br>".DB::affectedRows();
   }
 } else {
   header("Location: ../../index.php?not_meant_to_be_here");

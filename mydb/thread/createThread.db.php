@@ -2,15 +2,15 @@
 session_start();
 require_once('../databaseManager/DBEnter.db.php');
 
-if (!empty($_SESSION['cpid'] && $_POST['title'] && $_POST['info'])) {
-  $CPID = $_SESSION['cpid'];
+if (!empty($_SESSION['cdid'] && $_POST['title'] && $_POST['info'])) {
+  $CDID = $_SESSION['cdid'];
   $title = $_POST['title'];
   $info = $_POST['info'];
   $date = date("Y-m-d H:i:s");
 
   $result = DB::insert('thread', array(
       'TID' => NULL,
-      'CPID' => $CPID,
+      'CDID' => $CDID,
       'title' => $title,
       'info' => $info,
       'created' => $date

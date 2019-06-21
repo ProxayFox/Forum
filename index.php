@@ -9,7 +9,7 @@ include_once("./layouts/header.php");
     echo '   ';
     echo $_SESSION['lid'];
     echo '   ';
-    echo $_SESSION['cpid'];
+    echo $_SESSION['cdid'];
   } else {
     echo 'no user';
   }

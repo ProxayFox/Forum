@@ -9,23 +9,23 @@ if (!empty($_POST['uname']) && $_POST['email'] && $_POST['PWD']) {
   //hashing the password using sha512
   $hashedPWD = hash('sha512', $pwd);
 
-  @$emailTest = DB::query("SELECT email FROM clientProfile WHERE email = '".$email."'");
+  @$emailTest = DB::query("SELECT email FROM clientData WHERE email = '".$email."'");
   // checking for duplicate email
   if (DB::affectedRows() == 0) { // if $emailTest is not empty than insert into the database
     @$unameTest = DB::query("SELECT UName FROM login WHERE UName = '".$uname."'");
     if (DB::affectedRows() == 0) {
-      DB::insertIgnore('clientProfile', array(
-        'CPID' => NULL,
+      DB::insertIgnore('clientData', array(
+        'CDID' => NULL,
         'email' => $email
       ));
 
-      $getCPID = DB::query("SELECT * FROM clientProfile WHERE email = '".$email."'");
+      $getCPID = DB::query("SELECT CDID FROM clientData WHERE email = '".$email."'");
       foreach ($getCPID as $row) {
-        $cpid = $row['CPID'];
+        $cdid = $row['CDID'];
 
         DB::insert('login', array(
             'LID' => NULL,
-            'CPID' => $cpid,
+            'CDID' => $cdid,
             'UName' => $uname,
             'PWD' => $hashedPWD
         ));

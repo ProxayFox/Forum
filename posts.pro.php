@@ -11,14 +11,14 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
   <!--  Jquery for thread form  -->
   <script>
     $(document).ready(function() {
-      $('#postTable').load("./mydb/posts/postContent.show.php");
+      $('#postTable').load("./mydb/posts/postContent.show.php?TID=<?php echo $TID; ?>");
       $('[data-toggle="popover"]').popover();
     });
 
     $(document).ready(function() {
       $("#postUpdate").click(function () {
         $('#spinner').addClass('spinner-border spinner-border-sm');
-        $.post("./mydb/posts/creatPost.db.php", {
+        $.post("./mydb/posts/createPost.db.php", {
               TID: $("#TID").val(),
               title: $("#title").val(),
               info: $("#info").val()
@@ -29,7 +29,7 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
               $("#displaySuccess").html(data);
               if (status === "success") {
                 $('#myModal').modal('toggle');
-                $('#postTable').load("./mydb/posts/postContent.show.php");
+                $('#postTable').load("./mydb/posts/postContent.show.php?TID=<?php echo $TID; ?>");
                 console.log('hidden and reloaded');
               }
               console.log(data, status);

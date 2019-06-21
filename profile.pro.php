@@ -1,29 +1,21 @@
 <?php
-  require_once('./mydb/databaseManager/meekrodb.2.3.class.php');
-  require_once('./mydb/databaseManager/DBEnter.db.php');
   session_start();
   if (array_key_exists("user", $_SESSION)) {
-    // Do Something
+    //add the header
     include("./layouts/header.php");
-
+    //add the database manager
+    require_once('./mydb/databaseManager/DBEnter.db.php');
     //CP = client profile. also this is gathering all the info for the profile
-    $CP = DB::queryFirstRow("SELECT * FROM clientProfile WHERE CPID = ".$_SESSION['cpid']);
-    if ($CP != null) {
-      $fName = $CP['fName'];
-      $lName = $CP['lName'];
+    $CP = DB::queryFirstRow("SELECT displayName, UIMG, web, social, postNo FROM clientProfile WHERE CDID = ".$_SESSION['cdid']);
+    if ($CP != NULL) {
       //DN = display name
       $DN = $CP['displayName'];
       $uimg = $CP['UIMG'];
       $web = $CP['web'];
       $social = $CP['social'];
-      $upRep = $CP['upRep'];
-      $downRep = $CP['downRep'];
-      $rep = $CP['rep'];
       $postNo = $CP['postNo'];
-      $followers = $CP['followers'];
-      $shares = null;
 
-?>
+      ?>
       <script>
         function updateUIMG(whatArea) {
           console.log(whatArea);
@@ -37,6 +29,8 @@
           )
         }
       </script>
+
+      <!-- style to hide section of the page -->
       <style>
         .hidden {
           display: none !important;
@@ -56,20 +50,25 @@
             </div>
             <div class="col-sm-2" style="padding: 5px;">
               <img src="<?php if (!empty($uimg)) {
-                echo "./img/profileIMG/".$uimg;
+                echo "./img/profileIMG/" . $uimg;
               } else {
                 echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
-              } ?>" style="width: 100px; height: 100px;" title="profile image" class="img-circle img-responsive rounded">
+              } ?>" style="width: 100px; height: 100px;" title="profile image"
+                   class="img-circle img-responsive rounded">
             </div>
           </div>
+
           <!-- Profile Left and Right-->
           <div class="row">
-            <div class="col-sm-3" style="background-color: darkgray;"><!--left col start-->
+
+            <!--left col start-->
+            <div class="col-sm-3" style="background-color: darkgray;">
               <br>
 
+              <!-- user profile img -->
               <div class="text-center" style=" padding: 5px;">
                 <img src="<?php if (!empty($uimg)) {
-                  echo "./img/profileIMG/".$uimg;
+                  echo "./img/profileIMG/" . $uimg;
                 } else {
                   echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
                 } ?>" style="width: 200px; height: 200px;   " class="avatar rounded-circle img-thumbnail" alt="avatar">
@@ -81,154 +80,167 @@
               </div>
               <br>
 
+              <!-- profile social media pages -->
               <table class="table">
                 <thead class="thead-dark">
                 <th scope="col">Websites</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <?php
-                      if ($web == null) {
-                        ?><p><strong>no website yet</strong></p><?php
-                      } else {
-                        ?><a target="_blank" href="http://<?php echo $web; ?>"><?php echo $web; ?></a><?php
-                      }
-                      ?>
-                    </td>
-                  </tr>
+                <tr>
+                  <td>
+                    <?php
+                    if ($web == null) {
+                      ?><p><strong>no website yet</strong></p><?php
+                    } else {
+                      ?><a target="_blank" href="http://<?php echo $web; ?>"><?php echo $web; ?></a><?php
+                    }
+                    ?>
+                  </td>
+                </tr>
                 </tbody>
               </table>
 
+              <!-- basic reputation table -->
               <table class="table">
                 <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Activity</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                  </tr>
+                <tr>
+                  <th scope="col">Activity</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><strong>Shares</strong></td>
-                    <td></td>
-                    <td><?php if ($shares == null) {echo 0;} else {echo $shares;} ?></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Reputation</strong></td>
-                    <td></td>
-                    <td><?php if ($rep == null) {echo 0;} else {echo $rep;} ?></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Posts</strong></td>
-                    <td></td>
-                    <td><?php if ($postNo == null) {echo 0;} else {echo $postNo;} ?></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Followers</strong></td>
-                    <td></td>
-                    <td><?php if ($followers == null) {echo 0;} else {echo $followers;} ?></td>
-                  </tr>
+                <tr>
+                  <td><strong>Shares</strong></td>
+                  <td></td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td><strong>Reputation</strong></td>
+                  <td></td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td><strong>Posts</strong></td>
+                  <td></td>
+                  <td><?php if ($postNo == null) {
+                      echo 0;
+                    } else {
+                      echo $postNo;
+                    } ?></td>
+                </tr>
+                <tr>
+                  <td><strong>Followers</strong></td>
+                  <td></td>
+                  <td>0</td>
+                </tr>
                 </tbody>
               </table>
 
+              <!-- profile external social platforms -->
               <table class="table">
                 <thead class="thead-dark">
-                  <th scope="col">Social Media</th>
+                <th scope="col">Social Media</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <?php
-                      if ($social == null) {
-                        ?><p><strong>No link</strong></p><?php
-                      } else {
-                        ?><a target="_blank" href="http://<?php echo $social; ?>"><?php echo $social; ?></a><?php
-                      }
-                      ?>
-                    </td>
-                  </tr>
+                <tr>
+                  <td>
+                    <?php
+                    if ($social == null) {
+                      ?><p><strong>No link</strong></p><?php
+                    } else {
+                      ?><a target="_blank" href="http://<?php echo $social; ?>"><?php echo $social; ?></a><?php
+                    }
+                    ?>
+                  </td>
+                </tr>
                 </tbody>
               </table>
-            </div><!-- Left Col End-->
+            </div>
+            <!-- Left Col End-->
             <br>
 
             <!-- Right Col Start -->
             <div class="col-sm-9" style="background-color: lightgray;">
               <!-- Button Selection for Activity About Me and Edit profile-->
               <div class="row">
-                <button onclick="btn('activity')" id="btnActivity" class="btn btn-primary"
-                        style="margin-top: 5px; width: 100px;">Activity
-                </button>
-                <button onclick="btn('aboutMe')" id="btnAboutMe" class="btn" style="margin-top: 5px; width: 100px;">
-                  About Me
-                </button>
-                <button onclick="btn('editProfile')" id="btnEditProfile" class="btn"
-                        style="margin-top: 5px; width: 100px;">Edit Profile
-                </button>
+                <button onclick="btn('activity')" id="btnActivity" class="btn btn-primary" style="margin-top: 5px; margin-left: 5px; width: 100px;">Activity</button>
+                <button onclick="btn('aboutMe')" id="btnAboutMe" class="btn" style="margin-top: 5px; width: 100px;">About Me</button>
+                <button onclick="btn('editProfile')" id="btnEditProfile" class="btn" style="margin-top: 5px; width: 100px;">Edit Profile</button>
               </div>
+
               <!-- The Three different sections of the profile -->
               <!-- Activity -->
               <section id="activity" class="">
                 <h1><?php echo $_SESSION['user']; ?>'s Activity </h1>
                 <?php
-                  $replyResult = DB::query("SELECT * FROM reply LEFT JOIN replyRep ON reply.CPID WHERE reply.CPID =".$_SESSION['cpid']);
+                //querying for reply Reputation and reply information
+                $replyResult = DB::query("SELECT * FROM reply LEFT JOIN replyRep ON reply.CDID WHERE reply.CDID =".$_SESSION['cdid']);
+                if ($replyResult != NULL) {
                   foreach ($replyResult as $row) {
-                      $tid = $row['TID'];
-                      $pid = $row['PID'];
-                      $content = $row['content'];
-                      $created = $row['created'];
-                      $replyUpRep = $row['upRep'];
-                      $replyDownRep = $row['downRep'];
+                    $tid = $row['TID'];
+                    $pid = $row['PID'];
+                    $content = $row['content'];
+                    $created = $row['created'];
+                    $replyUpRep = $row['upRep'];
+                    $replyDownRep = $row['downRep'];
 
-                      $postResult = DB::query("SELECT * FROM post WHERE PID = ".$pid);
-                      foreach ($postResult as $row) {
-                        $postTitle = $row['title'];
-                          ?>
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-2 text-center">
-                                  <img src="<?php if (!empty($uimg)) {
-                                    echo "./img/profileIMG/".$uimg;
-                                  } else {
-                                    echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
-                                  } ?>" style="width: 75px; height: 75px;" class="img-thumbnail" alt="avatar">
-                                </div>
-                                <div class="col-10">
-                                  <div>
-                                    <h4><?php echo $postTitle; ?></h4>
-                                    <p><?php echo $content; ?></p>
-                                    <?php
-                                    $date1 = $created;
-                                    $date2 = date("Y-m-d H:i:s");
-
-                                    $diff = abs(strtotime($date2) - strtotime($date1));
-
-                                    $years = floor($diff / (365*60*60*24));
-                                    $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-                                    $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
-                                    $hours = floor($diff - $years * 365*60*60*24 - $months * 30*60*60*24 - $days * 60*60*24) / (60);
-                                    $minutes = floor($diff - $years * 365*60*60*24 - $months * 30*60*60*24 - $days * 60*60*24 - $hours * 60*60) / (60);
-                                    $seconds =  floor($diff - $years * 365*60*60*24 - $months * 30*60*60*24 - $days * 60*60*24 - $hours * 60*60 - $minutes * 60);
-                                    ?>
-                                    <p><?php echo $years; ?></p>
-                                    <p><?php echo $months; ?></p>
-                                    <p><?php echo $days; ?></p>
-                                    <p><?php echo $hours; ?></p>
-                                    <p><?php echo $minutes; ?></p>
-                                    <p><?php echo $seconds; ?></p>
-                                    <p><?php echo $diff; ?></p>
-                                    <p><?php echo $date1; ?></p>
-                                    <p><?php echo $date2; ?></p>
-                                  </div>
-                                </div>
-                              </div>
-                              <hr>
+                    //querying the post title
+                    $postResult = DB::query("SELECT * FROM post WHERE PID = ".$pid);
+                    if ($postResult != NULL) {
+                      foreach ($postResult as $row1) {
+                        $postTitle = $row1['title'];
+                        ?>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-2 text-center">
+                              <img src="<?php if (!empty($uimg)) {
+                                echo "./img/profileIMG/" . $uimg;
+                              } else {
+                                echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
+                              } ?>" style="width: 75px; height: 75px;" class="img-thumbnail" alt="avatar">
                             </div>
+                            <div class="col-10">
+                              <div>
+                                <h4><?php echo $postTitle; ?></h4>
+                                <p><?php echo $content; ?></p>
+                                <?php
+                                $date1 = $created;
+                                $date2 = date("Y-m-d H:i:s");
 
-                          <?php
+                                $diff = abs(strtotime($date2) - strtotime($date1));
+
+                                $years = floor($diff / (365 * 60 * 60 * 24));
+                                $months = floor(($diff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+                                $days = floor(($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
+                                $hours = floor($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24) / (60);
+                                $minutes = floor($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24 - $hours * 60 * 60) / (60);
+                                $seconds = floor($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24 - $hours * 60 * 60 - $minutes * 60);
+                                ?>
+                                <p><?php echo $years; ?></p>
+                                <p><?php echo $months; ?></p>
+                                <p><?php echo $days; ?></p>
+                                <p><?php echo $hours; ?></p>
+                                <p><?php echo $minutes; ?></p>
+                                <p><?php echo $seconds; ?></p>
+                                <p><?php echo $diff; ?></p>
+                                <p><?php echo $date1; ?></p>
+                                <p><?php echo $date2; ?></p>
+                              </div>
+                            </div>
+                          </div>
+                          <hr>
+                        </div>
+
+                        <?php
                       }
+                    } else {
+                      echo "something went wrong with post query <br>";
                     }
+                  }
+                } else{
+                  echo "something went wrong with the reply query <br>";
+                }
                 ?>
               </section>
 
@@ -309,7 +321,12 @@
       </script>
 
       <?php
+    } else {
+      echo "something went wrong with client profile search<br>";
+      echo DB::affectedRows();
     }
+
+
     include("./layouts/footer.php");
   }else{
     header('location: index.php?pageaccess=forbidden');
