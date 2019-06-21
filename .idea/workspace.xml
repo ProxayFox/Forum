@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efe98ac1-4c08-4ffe-b40c-b01d72409446" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb/reply/replyContent.show.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/reply/replyContent.show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb/reply/createReply.db.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/reply/createReply.db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post.pro.php" beforeDir="false" afterPath="$PROJECT_DIR$/post.pro.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +35,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/post.pro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1886">
-              <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+            <state relative-caret-position="213">
+              <caret line="105" column="32" lean-forward="true" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,14 +57,9 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mydb/reply/createReply.db.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/posts.pro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="39" column="11" selection-start-line="11" selection-start-column="2" selection-end-line="39" selection-end-column="11" />
+            <state relative-caret-position="575">
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -79,6 +78,7 @@
       <find>else</find>
       <find>client</find>
       <find>TID</find>
+      <find>spinner</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,6 +103,7 @@
         <option value="$PROJECT_DIR$/posts.pro.php" />
         <option value="$PROJECT_DIR$/mydb/posts/createPost.db.php" />
         <option value="$PROJECT_DIR$/mydb/reply/replyContent.show.php" />
+        <option value="$PROJECT_DIR$/mydb/reply/createReply.db.php" />
         <option value="$PROJECT_DIR$/post.pro.php" />
       </list>
     </option>
@@ -121,7 +122,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,6 +138,12 @@
               <item name="Forum" type="b2602c69:ProjectViewProjectNode" />
               <item name="Forum" type="462c0819:PsiDirectoryNode" />
               <item name="mydb" type="462c0819:PsiDirectoryNode" />
+              <item name="posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Forum" type="462c0819:PsiDirectoryNode" />
+              <item name="mydb" type="462c0819:PsiDirectoryNode" />
               <item name="reply" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -149,6 +155,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -192,11 +199,12 @@
       <workItem from="1561002361926" duration="2121000" />
       <workItem from="1561075872019" duration="10329000" />
       <workItem from="1561095478852" duration="494000" />
+      <workItem from="1561097214948" duration="1182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24697000" />
+    <option name="totallyTimeSpent" value="25879000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -211,7 +219,7 @@
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15003991" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15243416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -237,9 +245,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TODO" />
-    <entry file="file://$PROJECT_DIR$/mydb/login/logout.test.db.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/mydb/login/logout.test.db.php" />
     <entry file="file://$PROJECT_DIR$/mydb/databaseManager/meekrodb.2.3.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -247,13 +253,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mydb/register/o-register.db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/mydb/register/o-register.db.php" />
     <entry file="file://$PROJECT_DIR$/TODO.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -283,9 +283,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mydb/login/login.db.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/mydb/login/login.db.php" />
     <entry file="file://$PROJECT_DIR$/mydb/login/login.test.db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -319,9 +317,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mydb/posts/creatPost.db.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/mydb/posts/creatPost.db.php" />
     <entry file="file://$PROJECT_DIR$/threads.pro.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -336,13 +332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mydb/posts/createPost.db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mydb/posts/postContent.show.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -350,19 +339,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mydb/reply/creatReply.db.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mydb/reply/createReply.db.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/posts.pro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="39" column="11" selection-start-line="11" selection-start-column="2" selection-end-line="39" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/mydb/reply/creatReply.db.php" />
     <entry file="file://$PROJECT_DIR$/SQL/SQL.SQL">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -377,10 +354,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mydb/posts/createPost.db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/posts.pro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="77" column="187" lean-forward="true" selection-start-line="77" selection-start-column="115" selection-end-line="77" selection-end-column="187" />
+          <folding>
+            <element signature="e#3188#3240#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mydb/reply/createReply.db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/post.pro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1886">
-          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+        <state relative-caret-position="213">
+          <caret line="105" column="32" lean-forward="true" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

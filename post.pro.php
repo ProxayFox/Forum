@@ -126,9 +126,8 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
                  <div style="margin-top: 10px; margin-left: 5px;">
                    <input type="hidden" name="TID" value="<?php echo $TID; ?>">
                    <input type="hidden" name="PID" value="<?php echo $PID; ?>">
-                   <textarea type="text" id="reply" name="reply" class="form-control" placeholder="input your reply..."
-                             cols="90%" rows="2" required></textarea>
-                   <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+                   <textarea type="text" id="reply" name="reply" class="form-control" placeholder="input your reply..." cols="75%" rows="2" required></textarea>
+                   <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit<span style="height:15px; width:15px; margin-right: 10px;" id="spinner"></button>
                  </div>
                </div>
              <?php

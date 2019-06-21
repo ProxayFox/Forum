@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once ("../databaseManager/meekrodb.2.3.class.php");
 require_once('../databaseManager/DBEnter.db.php');
 
 if (!empty($_POST)) {
@@ -19,12 +18,12 @@ if (!empty($_POST)) {
       'created' => $date
   ));
 
-  if (!$result) {
+  if ($result != NULL) {
     // it had failed
-    header("Location: ../../post.pro.php?post=fail&TID=".$TID."&PID=".$PID);
+    echo "<h3>success</h3>";
   }else {
     // Info was updated successfully
-    header("Location: ../../post.pro.php?post=success&TID=".$TID."&PID=".$PID);
+    echo "<h3>fail</h3><br>".DB::affectedRows();
   }
 }
 ?>
