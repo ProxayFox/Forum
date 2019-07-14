@@ -24,7 +24,7 @@ if (!empty($_POST['uname']) && $_POST['email'] && $_POST['PWD']) {
         $cdid = $row['CDID'];
 
         DB::insert('login', array(
-            'LID' => NULL,
+            'LID'       => NULL,
             'CDID' => $cdid,
             'UName' => $uname,
             'PWD' => $hashedPWD
