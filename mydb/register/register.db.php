@@ -29,6 +29,16 @@ if (!empty($_POST['uname']) && $_POST['email'] && $_POST['PWD']) {
             'UName' => $uname,
             'PWD' => $hashedPWD
         ));
+
+        DB::insert('clientProfile', array(
+            'CPID' => NULL,
+            'CDID' => $cdid,
+            'displayName' => $uname,
+            'UIMG' => NULL,
+            'web' => NULL,
+            'social' => NULL,
+            'postNo' => NULL
+        ));
       }
       header('location: ../../index.php?signup=success');
       exit;

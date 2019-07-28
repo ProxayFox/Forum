@@ -15,25 +15,25 @@ CREATE TABLE clientData (
 );
 
 CREATE TABLE clientProfile (
-  CPIP                INT(11)       NOT NULL AUTO_INCREMENT,
+  CPID                INT(11)       NOT NULL AUTO_INCREMENT,
   CDID                INT(11)      	NOT NULL,
   displayName					VARCHAR(50)		NULL UNIQUE,
   UIMG                VARCHAR(255)  NULL,
   web                 VARCHAR(150)  NULL,
   social              VARCHAR(150)  NULL,
   postNo              INT(11)       NULL,
-  PRIMARY KEY (CPIP),
+  PRIMARY KEY (CPID),
   FOREIGN KEY (CDID) 	REFERENCES clientData(CDID)
 );
 
 CREATE TABLE clientRep (
-  CRIP                INT(11)       NOT NULL AUTO_INCREMENT,
+  CRID                INT(11)       NOT NULL AUTO_INCREMENT,
   CDID                INT(11)      	NOT NULL,
   upRep               INT(11)       NULL,
   downRep             INT(11)       NULL,
   rep                 INT(11)       NULL,
   followers           INT(11)       NULL,
-  PRIMARY KEY (CRIP),
+  PRIMARY KEY (CRID),
   FOREIGN KEY (CDID) 	REFERENCES clientData(CDID)
 );
 
@@ -145,12 +145,12 @@ INSERT INTO `clientData` (`CDID`, `fName`, `lName`, `email`) VALUES
 (2, 'Mariah', 'MarMight', 'admin@proxwebdev.com'),
 (3, 'megga', 'Phaggot', 'spambi@420blaze.it');
 
-INSERT INTO `clientProfile` (`CPIP`, `CDID`, `displayName`, `UIMG`, web, social, postNo) VALUES
+INSERT INTO `clientProfile` (`CPID`, `CDID`, `displayName`, `UIMG`, web, social, postNo) VALUES
 (1, 1, 'ara', 'stars.jpeg', 'proxwebdev.com', 'www.facebook.com', NULL),
 (2, 2, 'marmight', '11e79c5bd7cf103d.png', 'proxwebdev.com', 'www.facebook.com', NULL),
 (3, 3, 'morgs', '44fdc40.jpg', 'proxwebdev.com', 'www.facebook.com', NULL);
 
-INSERT INTO `clientRep` (`CRIP`, `CDID`, `uprep`, `downrep`, rep, followers) VALUES
+INSERT INTO `clientRep` (`CRID`, `CDID`, `uprep`, `downrep`, rep, followers) VALUES
 (1, 1, NULL, NULL, NULL, NULL),
 (2, 2, NULL, NULL, NULL, NULL),
 (3, 3, NULL, NULL, NULL, NULL);

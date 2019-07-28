@@ -5,9 +5,6 @@ require_once('../databaseManager/DBEnter.db.php');
 <!-- displays all the Posts after searching the database-->
 <table class="table">
   <thead class="thead-dark">
-  <th>PID</th>
-  <th>CPID</th>
-  <th>TID</th>
   <th>Title</th>
   <th>Information</th>
   <th>Time Stamp</th>
@@ -33,9 +30,6 @@ require_once('../databaseManager/DBEnter.db.php');
     ?>
     <tbody>
     <tr>
-      <td><?php echo $row['PID'];?></td>
-      <td><?php echo $row['CDID'];?></td>
-      <td><?php echo $row['TID'];?></td>
       <td><a href="post.pro.php?TID=<?php echo $row['TID'];?>&PID=<?php echo $row['PID'] ?>"><?php echo $row['title'];?></a></td>
       <td><?php echo $row['info'];?></td>
       <td><?php
@@ -49,7 +43,7 @@ require_once('../databaseManager/DBEnter.db.php');
           echo $hour;
         } elseif ($min >= 1) {
           echo $min;
-        } elseif ($sec >= 1) {
+        } elseif ($sec >= 0) {
           echo $sec;
         } else {
           echo "Time Error";

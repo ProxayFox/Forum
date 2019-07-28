@@ -5,8 +5,6 @@
 <!-- displays all the threads after searching the database-->
 <table class="table">
   <thead class="thead-dark">
-  <th>TID</th>
-  <th>CDID</th>
   <th>Title</th>
   <th>Information</th>
   <th>Time Stamp</th>
@@ -30,8 +28,6 @@
     ?>
     <tbody>
     <tr>
-      <td><?php echo $row['TID'];?></td>
-      <td><?php echo $row['CDID'];?></td>
       <td><a href="posts.pro.php?TID=<?php echo $row['TID'];?>"><?php echo $row['title'];?></a></td>
       <td><?php echo $row['info'];?></td>
       <td><?php
@@ -45,7 +41,7 @@
           echo $hour;
         } elseif ($min >= 1) {
           echo $min;
-        } elseif ($sec >= 1) {
+        } elseif ($sec >= 0) {
           echo $sec;
         } else {
           echo "Time Error";
