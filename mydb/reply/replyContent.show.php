@@ -21,6 +21,19 @@ $PID = $_GET['PID'];
     $userName = $row['UName'];
     $content = $row['content'];
     $date = $row['created'];
+
+    // Date Calculator
+    $date1 = $date;
+    $date2 = date("Y-m-d H:i:s");
+
+    $start_date = new DateTime($date1);
+    $since_start = $start_date->diff(new DateTime($date2));
+    $years = $since_start->y . ' year/s ago<br>';
+    $months = $since_start->m . ' month/s ago<br>';
+    $days = $since_start->d . ' day/s ago<br>';
+    $hour = $since_start->h . ' hour/s ago<br>';
+    $min = $since_start->i . ' minute/s ago<br>';
+    $sec = $since_start->s . ' second/s ago<br>';
     ?>
     <div class="border container" style="margin-bottom: 10px;">
       <div style="padding-top: 10px; padding-bottom: 10px;">
@@ -35,7 +48,23 @@ $PID = $_GET['PID'];
               } ?>" class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
               <div style="padding-left: 10px;">
                 <h3 style="padding-top: 10px;"><?php echo $userName; ?></h3>
-                <i>&nbsp-&nbsp<?php echo $date; ?></i>
+                <i>&nbsp-&nbsp<?php
+                  if ($years >= 1) {
+                    echo $years;
+                  } elseif ($months >= 1) {
+                    echo $months;
+                  } elseif ($days >= 1) {
+                    echo $days;
+                  } elseif ($hour >= 1) {
+                    echo $hour;
+                  } elseif ($min >= 1) {
+                    echo $min;
+                  } elseif ($sec >= 0) {
+                    echo $sec;
+                  } else {
+                    echo "Time Error";
+                  }
+                ?></i>
               </div>
             </div>
           </div>

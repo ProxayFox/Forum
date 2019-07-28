@@ -57,6 +57,19 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
           $UN = $row['UName'];
           $CDID = $row['CDID'];
           $uimg = $row['UIMG'];
+
+          // Date Calculator
+          $date1 = $created;
+          $date2 = date("Y-m-d H:i:s");
+
+          $start_date = new DateTime($date1);
+          $since_start = $start_date->diff(new DateTime($date2));
+          $years = $since_start->y . ' year/s ago<br>';
+          $months = $since_start->m . ' month/s ago<br>';
+          $days = $since_start->d . ' day/s ago<br>';
+          $hour = $since_start->h . ' hour/s ago<br>';
+          $min = $since_start->i . ' minute/s ago<br>';
+          $sec = $since_start->s . ' second/s ago<br>';
           ?>
           <!--  this is the area at the top with he post information-->
           <!-- I'll call this title start -->
@@ -71,7 +84,23 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
           <div style="padding-left: 10px;">
             <h2 style="padding-top: 10px;"><?php echo $title; ?></h2>
             <i style=""> - Posted By <span><?php echo $UN; ?>&nbsp</span></i>
-            <i style="">- On <span><?php echo $created; ?></span></i>
+            <i style=""><span><?php
+                if ($years >= 1) {
+                  echo $years;
+                } elseif ($months >= 1) {
+                  echo $months;
+                } elseif ($days >= 1) {
+                  echo $days;
+                } elseif ($hour >= 1) {
+                  echo $hour;
+                } elseif ($min >= 1) {
+                  echo $min;
+                } elseif ($sec >= 1) {
+                  echo $sec;
+                } else {
+                  echo "Time Error";
+                }
+                ?></span></i>
           </div>
           <?php
         }
@@ -127,8 +156,8 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
                   class="img-thumbnail" style="height: 80px; width: 80px;" alt="User Profile Image">
 
                  <div id="postForm" style="margin-top: 10px; margin-left: 5px;">
-                   <input type="hidden" name="TID" value="<?php echo $TID; ?>">
-                   <input type="hidden" name="PID" value="<?php echo $PID; ?>">
+                   <input type="hidden" id="TID" value="<?php echo $TID; ?>">
+                   <input type="hidden" id  ="PID" value="<?php echo $PID; ?>">
                    <textarea type="text" id="reply" name="reply" class="form-control" placeholder="input your reply..." cols="75%" rows="2" required></textarea>
                    <button id="postUpdate" type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit<span style="height:15px; width:15px; margin-right: 10px;" id="spinner"></button>
                  </div>

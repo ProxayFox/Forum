@@ -185,6 +185,19 @@
                     $replyUpRep = $row['upRep'];
                     $replyDownRep = $row['downRep'];
 
+                    // Date Calculator
+                    $date1 = $created;
+                    $date2 = date("Y-m-d H:i:s");
+
+                    $start_date = new DateTime($date1);
+                    $since_start = $start_date->diff(new DateTime($date2));
+                    $years = $since_start->y . ' year/s ago<br>';
+                    $months = $since_start->m . ' month/s ago<br>';
+                    $days = $since_start->d . ' day/s ago<br>';
+                    $hour = $since_start->h . ' hour/s ago<br>';
+                    $min = $since_start->i . ' minute/s ago<br>';
+                    $sec = $since_start->s . ' second/s ago<br>';
+
                     //querying the post title
                     $postResult = DB::query("SELECT * FROM post WHERE PID = ".$pid);
                     if ($postResult != NULL) {
@@ -202,30 +215,27 @@
                             </div>
                             <div class="col-10">
                               <div>
-                                <h4><?php echo $postTitle; ?></h4>
+                                <div class="row">
+                                  <h4><?php echo $postTitle."  ";?></h4>
+                                  <p style="padding-left: 10px;"><?php
+                                    if ($years >= 1) {
+                                      echo $years;
+                                    } elseif ($months >= 1) {
+                                      echo $months;
+                                    } elseif ($days >= 1) {
+                                      echo $days;
+                                    } elseif ($hour >= 1) {
+                                      echo $hour;
+                                    } elseif ($min >= 1) {
+                                      echo $min;
+                                    } elseif ($sec >= 1) {
+                                      echo $sec;
+                                    } else {
+                                      echo "Time Error";
+                                    }
+                                  ?></p>
+                                </div>
                                 <p><?php echo $content; ?></p>
-                                <?php
-                                $date1 = $created;
-                                $date2 = date("Y-m-d H:i:s");
-
-                                $diff = abs(strtotime($date2) - strtotime($date1));
-
-                                $years = floor($diff / (365 * 60 * 60 * 24));
-                                $months = floor(($diff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
-                                $days = floor(($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
-                                $hours = floor($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24) / (60);
-                                $minutes = floor($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24 - $hours * 60 * 60) / (60);
-                                $seconds = floor($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24 - $hours * 60 * 60 - $minutes * 60);
-                                ?>
-                                <p><?php echo $years; ?></p>
-                                <p><?php echo $months; ?></p>
-                                <p><?php echo $days; ?></p>
-                                <p><?php echo $hours; ?></p>
-                                <p><?php echo $minutes; ?></p>
-                                <p><?php echo $seconds; ?></p>
-                                <p><?php echo $diff; ?></p>
-                                <p><?php echo $date1; ?></p>
-                                <p><?php echo $date2; ?></p>
                               </div>
                             </div>
                           </div>

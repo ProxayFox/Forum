@@ -162,7 +162,7 @@ INSERT INTO `login` (`LID`, `CDID`, `UName`, `PWD`) VALUES
 
 INSERT INTO `thread` (`TID`, `CDID`, `title`, `info`, `created`) VALUES
 (1, 1, 'Youtube', 'Videos for all', '2019-04-25 16:49:37'),
-(2, 1, 'Microsoft', 'OS for approximately 75% of all PCs', '0000-00-00 00:00:00'),
+(2, 1, 'Microsoft', 'OS for approximately 75% of all PCs', '2019-04-25 16:50:12'),
 (3, 1, 'Tesla', 'Best Car manufacturer', '2019-04-25 16:51:24'),
 (4, 1, 'MEMES', 'For the guys', '2019-04-25 16:51:34'),
 (5, 1, 'America', 'The Big BOI', '2019-04-28 17:39:25');
