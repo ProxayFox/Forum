@@ -31,8 +31,11 @@ if (array_key_exists("user", $_SESSION) & isset($_GET['TID'])) {
                 $('#myModal').modal('toggle');
                 $('#postTable').load("./mydb/posts/postContent.show.php?TID=<?php echo $TID; ?>");
                 console.log('hidden and reloaded');
+              } else {
+                $('#myModal').modal('toggle');
               }
               console.log(data, status);
+              console.log('Issue');
             }
         )
       });

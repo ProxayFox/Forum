@@ -29,6 +29,7 @@ if (array_key_exists("user", $_SESSION) & !empty($_GET['TID']) & !empty($_GET['P
               $("#displaySuccess").html(data);
               if (status === "success") {
                 $('#postReplies').load("./mydb/reply/replyContent.show.php?PID=<?php echo $PID ?>");
+                $('#reply').val('');
                 console.log('hidden and reloaded');
               }
               console.log(data, status);
