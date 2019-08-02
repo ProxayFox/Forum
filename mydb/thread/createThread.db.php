@@ -16,14 +16,17 @@ if (!empty($_SESSION['cdid'] && $_POST['title'] && $_POST['info'])) {
       'created' => $date
   ));
 
-  if (!$result) {
+  if (!empty($result)) {
+    // Info was updated successfully
+    echo "<h1>success ".$title." ".$info."</h1>";
+    exit();
+  }else {
     // It had failed
     echo "<h1>fail</h1>";
-  }else {
-    // Info was updated successfully
-    echo "<h1>success</h1>";
+    exit();
   }
 } else {
-  header("Location: ../../index.php?not_meant_to_be_here");
+//  header("Location: ../../index.php?not_meant_to_be_here");
+  exit();
 }
 ?>

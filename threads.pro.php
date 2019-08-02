@@ -24,11 +24,18 @@ if (array_key_exists("user", $_SESSION)) {
 
             function (data, status) {
               $('#spinner').removeClass('spinner-border spinner-border-sm');
-              $("#displaySuccess").html(data);
+              $('#title').val('');
+              $('#info').val('');
               if (status === "success") {
                 $('#myModal').modal('toggle');
                 $('#postTable').load("./mydb/thread/threadContent.show.php");
+                $("#displaySuccess").html(data);
                 console.log('hidden and reloaded');
+                console.log(data, status);
+              } else {
+                $("#displaySuccess").html("Fail");
+                console.log(data, status);
+                console.log("Fail");
               }
               console.log(data, status);
             }
@@ -68,7 +75,7 @@ if (array_key_exists("user", $_SESSION)) {
                       <h4 style="float: left;">Title of the Thread</h4>
                       <input type="text" id="title" class="form-control" placeholder="Title" required autofocus>
                       <h4 style="float: left;">Information of the Thread</h4>
-                      <input type="text" id="info" class="form-control" placeholder="Information" required autofocus>
+                      <input type="text" id="info" class="form-control" placeholder="Information" required>
                   </div>
                   <!-- Modal footer -->
                   <div class="modal-footer">
