@@ -9,16 +9,36 @@ This list will be starting from 17/06/2019.
 A lot of items have been already done, wish i had done
 one of these sooner
 
-**Edit list**
+**Edit list/Update List**
+- 27/08/2019: Modified exciting items and added items to do
+    with accounts (eg Image creator), and better specified 
+    items
 
 General Items
 ---
 
-**Accounts**
+**Auto User Image Creator**
+1. When a user makes an account the profile pic is auto 
+    generated
+2. this might help "https://stackoverflow.com/questions/9644097/how-to-generate-a-completely-random-image"
+
+Login/Logout/Register
+---
+
+**Accounts on Register**
 1. Email Validation
-2. User-name length requirements
+2. Username length requirements
 3. Password strength indicator 
 4. Password character requirements
+
+**Auto Login after Register**
+1. Create a way so the user doesn't have to login after register
+
+Account Management
+---
+**Lost Password/Username**
+1. Create a way for a user to gain access to their account
+    if they have lost it
 
 Profile
 ---
@@ -78,7 +98,7 @@ Settings
 Admin
 ---
 **Settings**
--   Let the admin ban or white list users
+1. Let the admin ban or white list users
 
 **Tools**
 -   Let the admin have ability to change user roles 
