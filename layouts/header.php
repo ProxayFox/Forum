@@ -17,7 +17,7 @@
 
 
 </head>
-<body>
+<body style="background-color: #c6d4ff">
 <?php
 if (array_key_exists("user", $_SESSION)) {
   ?>

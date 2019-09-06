@@ -17,17 +17,45 @@
 
       ?>
       <script>
-        function updateUIMG(whatArea) {
-          console.log(whatArea);
-          $.post("./mydb/profile/updateIMG.db.php", {
-                img: whatArea
-              },
-              function (data, status) {
-                $("#displaySuccess").HTML(data);
-                console.log(status);
-              }
-          )
-        }
+        $(document).ready(function () {
+          const btnActivity = $("#btnActivity");
+          const btnAboutMe = $("#btnAboutMe");
+          const btnEditProfile = $("#btnEditProfile");
+          const load = $('#load');
+
+          load.load("./mydb/profile/profileShower/activity.db.show.php");
+
+          btnActivity.click(function () {
+            btnActivity.addClass("btn-primary");
+            btnActivity.removeClass("btn-outline-primary");
+            btnAboutMe.removeClass("btn-primary");
+            btnAboutMe.addClass("btn-outline-primary");
+            btnEditProfile.removeClass("btn-primary");
+            btnEditProfile.addClass("btn-outline-primary");
+            load.load("./mydb/profile/profileShower/activity.db.show.php");
+          });
+
+          btnAboutMe.click(function () {
+            btnActivity.removeClass("btn-primary");
+            btnActivity.addClass("btn-outline-primary");
+            btnAboutMe.addClass("btn-primary");
+            btnAboutMe.removeClass("btn-outline-primary");
+            btnEditProfile.removeClass("btn-primary");
+            btnActivity.addClass("btn-outline-primary");
+            load.load("./mydb/profile/profileShower/aboutMe.db.show.php");
+          });
+
+          btnEditProfile.click(function () {
+            btnActivity.removeClass("btn-primary");
+            btnActivity.addClass("btn-outline-primary");
+            btnAboutMe.removeClass("btn-primary");
+            btnAboutMe.addClass("btn-outline-primary");
+            btnEditProfile.addClass("btn-primary");
+            btnEditProfile.removeClass("btn-outline-primary");
+            load.load("./mydb/profile/profileShower/editProfile.db.show.php");
+          });
+
+        });
       </script>
 
       <!-- style to hide section of the page -->
@@ -38,25 +66,11 @@
       </style>
 
       <!--  Main Section of the page -->
-      <section style="background-color: #c6d4ff">
+      <section>
 
         <!--  Profile Section of the page -->
         <section class="container" style="">
-
-          <!-- Header for profile section -->
-          <div class="row">
-            <div class="col-sm-10" style="padding: 5px;">
-              <h1>User Profile</h1>
-            </div>
-            <div class="col-sm-2" style="padding: 5px;">
-              <img src="<?php if (!empty($uimg)) {
-                echo "./img/profileIMG/" . $uimg;
-              } else {
-                echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
-              } ?>" style="width: 100px; height: 100px;" title="profile image"
-                   class="img-circle img-responsive rounded">
-            </div>
-          </div>
+          <br>
 
           <!-- Profile Left and Right-->
           <div class="row">
@@ -71,12 +85,7 @@
                   echo "./img/profileIMG/" . $uimg;
                 } else {
                   echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
-                } ?>" style="width: 200px; height: 200px;   " class="avatar rounded-circle img-thumbnail" alt="avatar">
-                <div class="form-group">
-                  <h6>Upload a different photo</h6>
-                  <input type="file" class="text-center center-block file-upload" id="img">
-                  <button class="btn btn-primary" onclick="updateUIMG(img)" style="!important;float: left; margin-top: 5px;">Submit</button>
-                </div>
+                } ?>" style="width: 200px; height: 200px;   " class="img-fluid rounded" alt="avatar">
               </div>
               <br>
 
@@ -163,171 +172,26 @@
             <!-- Right Col Start -->
             <div class="col-sm-9" style="background-color: lightgray;">
               <!-- Button Selection for Activity About Me and Edit profile-->
-              <div class="row">
-                <button onclick="btn('activity')" id="btnActivity" class="btn btn-primary" style="margin-top: 5px; margin-left: 5px; width: 100px;">Activity</button>
-                <button onclick="btn('aboutMe')" id="btnAboutMe" class="btn" style="margin-top: 5px; width: 100px;">About Me</button>
-                <button onclick="btn('editProfile')" id="btnEditProfile" class="btn" style="margin-top: 5px; width: 100px;">Edit Profile</button>
+              <div class="row container" style="padding-top: 10px;">
+                <button id="btnActivity" class="btn btn-primary" style="">Activity</button>
+                <button id="btnAboutMe" class="btn btn-outline-primary" style="">About Me</button>
+                <button id="btnEditProfile" class="btn btn-outline-primary" style="">Edit Profile</button>
               </div>
 
               <!-- The Three different sections of the profile -->
-              <!-- Activity -->
-              <section id="activity" class="">
-                <h1><?php echo $_SESSION['user']; ?>'s Activity </h1>
-                <?php
-                //querying for reply Reputation and reply information
-                $replyResult = DB::query("SELECT * FROM reply LEFT JOIN replyRep ON reply.CDID WHERE reply.CDID =".$_SESSION['cdid']);
-                if ($replyResult != NULL) {
-                  foreach ($replyResult as $row) {
-                    $tid = $row['TID'];
-                    $pid = $row['PID'];
-                    $content = $row['content'];
-                    $created = $row['created'];
-                    $replyUpRep = $row['upRep'];
-                    $replyDownRep = $row['downRep'];
-
-                    // Date Calculator
-                    $date1 = $created;
-                    $date2 = date("Y-m-d H:i:s");
-
-                    $start_date = new DateTime($date1);
-                    $since_start = $start_date->diff(new DateTime($date2));
-                    $years = $since_start->y . ' year/s ago<br>';
-                    $months = $since_start->m . ' month/s ago<br>';
-                    $days = $since_start->d . ' day/s ago<br>';
-                    $hour = $since_start->h . ' hour/s ago<br>';
-                    $min = $since_start->i . ' minute/s ago<br>';
-                    $sec = $since_start->s . ' second/s ago<br>';
-
-                    //querying the post title
-                    $postResult = DB::query("SELECT * FROM post WHERE PID = ".$pid);
-                    if ($postResult != NULL) {
-                      foreach ($postResult as $row1) {
-                        $postTitle = $row1['title'];
-                        ?>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-2 text-center">
-                              <img src="<?php if (!empty($uimg)) {
-                                echo "./img/profileIMG/" . $uimg;
-                              } else {
-                                echo "./img/Flat%20Gradient%20Social%20Media%20Icons/80/500px%20icon.png";
-                              } ?>" style="width: 75px; height: 75px;" class="img-thumbnail" alt="avatar">
-                            </div>
-                            <div class="col-10">
-                              <div>
-                                <div class="row">
-                                  <h4><?php echo $postTitle."  ";?></h4>
-                                  <p style="padding-left: 10px;"><?php
-                                    if ($years >= 1) {
-                                      echo $years;
-                                    } elseif ($months >= 1) {
-                                      echo $months;
-                                    } elseif ($days >= 1) {
-                                      echo $days;
-                                    } elseif ($hour >= 1) {
-                                      echo $hour;
-                                    } elseif ($min >= 1) {
-                                      echo $min;
-                                    } elseif ($sec >= 1) {
-                                      echo $sec;
-                                    } else {
-                                      echo "Time Error";
-                                    }
-                                  ?></p>
-                                </div>
-                                <p><?php echo $content; ?></p>
-                              </div>
-                            </div>
-                          </div>
-                          <hr>
-                        </div>
-
-                        <?php
-                      }
-                    } else {
-                      echo "something went wrong with post query <br>";
-                    }
-                  }
-                } else{
-                  echo "something went wrong with the reply query <br>";
-                }
-                ?>
-              </section>
-
-              <!-- About Me -->
-              <section id="aboutMe" class="hidden">
-                <h1>About <?php echo $_SESSION['user']; ?></h1>
-              </section>
-              <!-- Edit the User Profile-->
-              <section id="editProfile" class="hidden">
-                <form class="form" action="./mydb/profile/updateProfile.db.php" method="post" id="registrationForm">
-                  <div class="row">
-                    <div class="col">
-                      <label for="first_name"><h4>First name</h4></label>
-                      <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name"
-                             title="enter your first name if any.">
-                    </div>
-                    <div class="col">
-                      <label for="last_name"><h4>Last name</h4></label>
-                      <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name"
-                             title="enter your last name if any.">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <label for="email"><h4>Email</h4></label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com"
-                           title="enter your email.">
-                  </div>
-                  <br>
-                  <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save
-                  </button>
-                  <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                </form>
+              <section id="load">
+                <!-- documents will be loaded here -->
               </section>
             </div><!-- Right Col End -->
           </div>
         </section>
       </section>
+      <br>
 
       <script
           src="https://code.jquery.com/jquery-3.4.0.min.js"
           integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
           crossorigin="anonymous">
-      </script>
-
-      <script>
-        function btn(pageChange) {
-          const activity = $("#activity");
-          const aboutMe = $("#aboutMe");
-          const editProfile = $("#editProfile");
-          const btnActivity = $("#btnActivity");
-          const btnAboutMe = $("#btnAboutMe");
-          const btnEditProfile = $("#btnEditProfile");
-          if (pageChange === 'activity') {
-            activity.removeClass("hidden");
-            aboutMe.addClass("hidden");
-            editProfile.addClass("hidden");
-            btnActivity.addClass("btn-primary");
-            btnAboutMe.removeClass("btn-primary");
-            btnEditProfile.removeClass("btn-primary");
-          } else if (pageChange === "aboutMe") {
-            activity.addClass("hidden");
-            aboutMe.removeClass("hidden");
-            editProfile.addClass("hidden");
-            btnActivity.removeClass("btn-primary");
-            btnAboutMe.addClass("btn-primary");
-            btnEditProfile.removeClass("btn-primary");
-          } else if (pageChange === "editProfile") {
-            activity.addClass("hidden");
-            aboutMe.addClass("hidden");
-            editProfile.removeClass("hidden");
-            btnActivity.removeClass("btn-primary");
-            btnAboutMe.removeClass("btn-primary");
-            btnEditProfile.addClass("btn-primary");
-          } else {
-            throw("Function btn: No match found");
-          }
-        }
       </script>
 
       <?php
