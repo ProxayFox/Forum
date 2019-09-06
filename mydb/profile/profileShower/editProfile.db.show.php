@@ -1,9 +1,42 @@
 <?php
 session_start();
+require_once('../../databaseManager/DBEnter.db.php');
+$resultInfo = DB::queryFirstRow("SELECT * FROM clientData WHERE CDID = ".$_SESSION['cdid']);
+
 ?>
+
+<script>
+  $(document).ready(function () {
+    $(".custom-file-input").on("change", function() {
+      const fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+
+    //TODO: https://stackoverflow.com/questions/12368910/html-display-image-after-selecting-filename
+    $("input").change(function(e) {
+
+      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+
+        var file = e.originalEvent.srcElement.files[i];
+
+        var img = document.createElement("img");
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          img.src = reader.result;
+        }
+        reader.readAsDataURL(file);
+        $("input").after(img);
+      }
+    });
+
+  })
+</script>
+
+
 <!-- Edit the User Profile-->
-<section id="editProfile">
-  <form class="form" action="../profileWorker/updateProfile.db.worker.php" method="post" id="registrationForm">
+<section id="editProfile" xmlns="http://www.w3.org/1999/html">
+  <form class="form" id="registrationForm">
     <div class="row">
       <div class="col-md-6">
         <label for="first_name"><h4>First name</h4></label>
@@ -22,8 +55,17 @@ session_start();
              title="enter your email.">
     </div>
     <br>
-    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save
-    </button>
-    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Save</button>
+    <button class="btn btn-lg btn-outline-danger" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+  </form>
+  <br>
+  <form>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="customFile">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+    <br>
+    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Save</button>
+    <button class="btn btn-lg btn-outline-danger" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
   </form>
 </section>

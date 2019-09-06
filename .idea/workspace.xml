@@ -2,32 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efe98ac1-4c08-4ffe-b40c-b01d72409446" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c97fd1c1-7c47-4c1b-9262-7dd1ca344b63.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Da_AyDOn_MelLooPy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Da_AyDOn_MelLooPy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jqueary.fittext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-3.3.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-3.3.1.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/validator.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb/profile/profileShower/editProfile.db.show.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/profile/profileShower/editProfile.db.show.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile.pro.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.pro.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,6 +46,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="forum: schema" type="ebfa3cd1:MariaImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="forum@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="forum: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="clientdata: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -83,6 +68,7 @@
   </component>
   <component name="ProjectId" id="1Pxa8kpM5aKiFPPr3W9f5sOL8BU" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -124,16 +110,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@57398282" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ac8b5a3e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -170,7 +147,7 @@
       <workItem from="1564710861875" duration="4171000" />
       <workItem from="1566818045728" duration="7000" />
       <workItem from="1566857036792" duration="675000" />
-      <workItem from="1567743385467" duration="528000" />
+      <workItem from="1567743385467" duration="2023000" />
     </task>
     <servers />
   </component>
