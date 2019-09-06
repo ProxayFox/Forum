@@ -58,13 +58,6 @@
         });
       </script>
 
-      <!-- style to hide section of the page -->
-      <style>
-        .hidden {
-          display: none !important;
-        }
-      </style>
-
       <!--  Main Section of the page -->
       <section>
 
