@@ -16,14 +16,22 @@
       $postNo = $CP['postNo'];
 
       ?>
+
       <script>
+
+      </script>
+
+
+
+
+      <!--<script>
         $(document).ready(function () {
           const btnActivity = $("#btnActivity");
           const btnAboutMe = $("#btnAboutMe");
           const btnEditProfile = $("#btnEditProfile");
           const load = $('#load');
 
-          load.load("./mydb/profile/profileShower/editProfile.db.show.php");
+          load.load("./mydb/profile/profileShower/activity.db.show.php");
 
           btnActivity.click(function () {
             btnActivity.addClass("btn-primary");
@@ -56,7 +64,7 @@
           });
 
         });
-      </script>
+      </script> -->
 
       <!--  Profile Section of the page -->
       <section class="container">

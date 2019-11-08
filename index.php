@@ -2,18 +2,6 @@
 session_start();
 include_once("./layouts/header.php");
 ?>
-
-<?php
-  if (array_key_exists("user", $_SESSION)) {
-    echo '1';
-    echo '   ';
-    echo $_SESSION['lid'];
-    echo '   ';
-    echo $_SESSION['cdid'];
-  } else {
-    echo 'no user';
-  }
-?>
 <!--Body starts in header.php-->
 <style>
   .hidden {
