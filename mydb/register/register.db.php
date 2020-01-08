@@ -1,5 +1,4 @@
 <?php
-require_once('../databaseManager/meekrodb.2.3.class.php');
 require_once('../databaseManager/DBEnter.db.php');
 //	require_once("../databaseManager/o-db.php");
 if (!empty($_POST['uname']) && $_POST['email'] && $_POST['PWD']) {

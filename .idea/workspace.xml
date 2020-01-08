@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efe98ac1-4c08-4ffe-b40c-b01d72409446" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb/profile/profileShower/editProfile.db.show.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/profile/profileShower/editProfile.db.show.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb/profile/profileWorker/updateProfile.db.worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/profile/profileWorker/updateProfile.db.worker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mydb/register/register.db.php" beforeDir="false" afterPath="$PROJECT_DIR$/mydb/register/register.db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.pro.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.pro.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,16 +35,16 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="forum@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="forum@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="forum@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="forum: schema" type="ebfa3cd1:MariaImplModel$Schema" />
       </path>
@@ -56,9 +62,15 @@
     </option>
   </component>
   <component name="ProjectId" id="1Pxa8kpM5aKiFPPr3W9f5sOL8BU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -74,18 +86,6 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="threads.pro.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Forum/threads.pro.php" useBuiltInWebServerPort="true">
       <method v="2" />
@@ -97,13 +97,25 @@
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@5ba589ba" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -143,6 +155,7 @@
       <workItem from="1573184145223" duration="1783000" />
       <workItem from="1573433598181" duration="813000" />
       <workItem from="1573523004041" duration="38000" />
+      <workItem from="1578471346131" duration="2390000" />
     </task>
     <servers />
   </component>
@@ -170,5 +183,35 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="313" y="55" width="800" height="691" key="#SQL_Dialects" timestamp="1578472691872">
+      <screen x="70" y="27" width="1296" height="741" />
+    </state>
+    <state x="313" y="55" width="800" height="691" key="#SQL_Dialects/70.27.1296.741@70.27.1296.741" timestamp="1578472691872" />
+    <state x="313" y="55" width="800" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578471811457">
+      <screen x="70" y="27" width="1296" height="741" />
+    </state>
+    <state x="313" y="55" width="800" height="691" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.27.1296.741@70.27.1296.741" timestamp="1578471811457" />
+    <state width="836" height="136" key="GridCell.Tab.0.bottom" timestamp="1578471791489">
+      <screen x="70" y="27" width="1296" height="741" />
+    </state>
+    <state width="836" height="136" key="GridCell.Tab.0.bottom/70.27.1296.741@70.27.1296.741" timestamp="1578471791489" />
+    <state width="836" height="136" key="GridCell.Tab.0.center" timestamp="1578471791487">
+      <screen x="70" y="27" width="1296" height="741" />
+    </state>
+    <state width="836" height="136" key="GridCell.Tab.0.center/70.27.1296.741@70.27.1296.741" timestamp="1578471791487" />
+    <state width="836" height="136" key="GridCell.Tab.0.left" timestamp="1578471791485">
+      <screen x="70" y="27" width="1296" height="741" />
+    </state>
+    <state width="836" height="136" key="GridCell.Tab.0.left/70.27.1296.741@70.27.1296.741" timestamp="1578471791485" />
+    <state width="836" height="136" key="GridCell.Tab.0.right" timestamp="1578471791488">
+      <screen x="70" y="27" width="1296" height="741" />
+    </state>
+    <state width="836" height="136" key="GridCell.Tab.0.right/70.27.1296.741@70.27.1296.741" timestamp="1578471791488" />
+    <state x="475" y="151" width="476" height="500" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1578472043611">
+      <screen x="70" y="27" width="1296" height="741" />
+    </state>
+    <state x="475" y="151" width="476" height="500" key="com.intellij.database.run.ParametersPanel.Standalone/70.27.1296.741@70.27.1296.741" timestamp="1578472043611" />
   </component>
 </project>

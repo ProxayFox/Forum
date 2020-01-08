@@ -16,15 +16,7 @@
       $postNo = $CP['postNo'];
 
       ?>
-
       <script>
-
-      </script>
-
-
-
-
-      <!--<script>
         $(document).ready(function () {
           const btnActivity = $("#btnActivity");
           const btnAboutMe = $("#btnAboutMe");
@@ -64,7 +56,7 @@
           });
 
         });
-      </script> -->
+      </script>
 
       <!--  Profile Section of the page -->
       <section class="container">

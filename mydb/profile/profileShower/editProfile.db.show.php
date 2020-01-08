@@ -2,37 +2,13 @@
 session_start();
 require_once('../../databaseManager/DBEnter.db.php');
 $resultInfo = DB::queryFirstRow("SELECT * FROM clientData WHERE CDID = ".$_SESSION['cdid']);
-
 ?>
 
 <script>
   $(document).ready(function () {
-    $(".custom-file-input").on("change", function() {
-      const fileName = $(this).val().split("\\").pop();
-      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
 
-
-    //TODO: https://stackoverflow.com/questions/12368910/html-display-image-after-selecting-filename
-    $("input").change(function(e) {
-
-      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
-
-        var file = e.originalEvent.srcElement.files[i];
-
-        var img = document.createElement("img");
-        var reader = new FileReader();
-        reader.onloadend = function() {
-          img.src = reader.result;
-        }
-        reader.readAsDataURL(file);
-        $("input").after(img);
-      }
-    });
-
-  })
+  });
 </script>
-
 
 <!-- Edit the User Profile-->
 <section id="editProfile" xmlns="http://www.w3.org/1999/html">
